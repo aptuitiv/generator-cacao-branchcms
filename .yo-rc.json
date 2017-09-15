@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Aptuitiv",
+      "authorEmail": "hello@aptuitiv.com",
+      "authorUrl": "https://www.aptuitiv.com"
+    }
+  }
+}
