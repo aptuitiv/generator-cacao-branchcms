@@ -33,8 +33,9 @@ module.exports = class extends Generator {
      * Initialization
      */
     initializing() {
-        // Initialize the app name
+        // Initialize configuration
         this.appName = 'Website';
+        this.installer = 'yarn';
 
         // If the app name was passed as an argument then set it here
         if (typeof this.options.name !== 'undefined') {
@@ -42,6 +43,10 @@ module.exports = class extends Generator {
         }
     }
 
+    /**
+     * Questions
+     * @returns {Promise.<TResult>|Promise}
+     */
     prompting() {
         // Have Yeoman greet the user.
         this.log(yosay(
@@ -57,11 +62,20 @@ module.exports = class extends Generator {
             });
         }
 
+        prompts.push({
+            type: 'list',
+            name: 'installer',
+            message: 'Do you use yarn or npm as an installer?',
+            choices: ['yarn', 'npm']
+        })
+
         return this.prompt(prompts).then(answers => {
             // Set the app name if it was asked
             if (typeof answers.name !== 'undefined') {
                 this._setAppName(answers.name);
             }
+            // Set installer
+            this.installer = answers.installer;
         });
     }
 
@@ -107,7 +121,15 @@ module.exports = class extends Generator {
         );
     }
 
+    /**
+     * Installation via yarn or npm
+     */
     install() {
-        // This.installDependencies();
+        if (this.installer == 'yarn') {
+            this.yarnInstall();
+        } else {
+            // Install with npm
+            this.npmInstall();
+        }
     }
 };
