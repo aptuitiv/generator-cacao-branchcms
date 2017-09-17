@@ -1,5 +1,6 @@
-# generator-cacao-branchcms [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
-> Generator to use Cacao with a BranchCMS website
+# generator-cacao-branchcms [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] 
+> [Yeoman](http://yeoman.io) generator that scaffolds out a new BranchCMS(https://www.branchcms.com) website that uses the Cacao CSS framework(https://github.com/aptuitiv/cacao).
+Gulp(http://gulpjs.com/) is used for the build process.
 
 ## Installation
 
@@ -16,13 +17,6 @@ Then generate your new project:
 yo cacao-branchcms
 ```
 
-## Getting To Know Yeoman
-
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
-
 ## License
 
 MIT © [Aptuitiv](https://www.aptuitiv.com)
@@ -34,5 +28,3 @@ MIT © [Aptuitiv](https://www.aptuitiv.com)
 [travis-url]: https://travis-ci.org/aptuitiv/generator-cacao-branchcms
 [daviddm-image]: https://david-dm.org/aptuitiv/generator-cacao-branchcms.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/aptuitiv/generator-cacao-branchcms
-[coveralls-image]: https://coveralls.io/repos/aptuitiv/generator-cacao-branchcms/badge.svg
-[coveralls-url]: https://coveralls.io/r/aptuitiv/generator-cacao-branchcms

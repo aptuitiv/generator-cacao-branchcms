@@ -26,9 +26,7 @@ module.exports = class extends Generator {
      * @private
      */
     _setAppName(name) {
-        name = name.toLowerCase();
-        name = name.replace(' ', '-');
-        this.appName = name;
+        this.appName = name.replace(/\s+/g, '-').toLowerCase();
     }
 
     /**
@@ -84,15 +82,16 @@ module.exports = class extends Generator {
         );
 
         // Package.json
-        this.fs.copy(
+        this.fs.copyTpl(
             this.templatePath('_package.json'),
-            this.destinationPath('package.json')
+            this.destinationPath('package.json'),
+            {name: this.appName}
         );
 
-        // Package.json
+        // stylelint
         this.fs.copy(
             this.templatePath('_stylelintrc'),
-            this.destinationPath('.stylelintrc')
+            this.destinationPath('.stylelintrc'),
         );
 
         // Config.js
