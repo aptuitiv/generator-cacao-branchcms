@@ -1,6 +1,7 @@
 'use strict';
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');
+const commandExists = require('command-exists').sync;
 const updateNotifier = require('update-notifier');
 const pkg = require('../../package.json');
 const yosay = require('yosay');
@@ -68,13 +69,6 @@ module.exports = class extends Generator {
         }
 
         prompts.push({
-            type: 'list',
-            name: 'installer',
-            message: 'Do you use yarn or npm as an installer?',
-            choices: ['yarn', 'npm']
-        });
-
-        prompts.push({
             type: 'checkbox',
             name: 'libraries',
             message: 'Check which libraries to include',
@@ -90,7 +84,6 @@ module.exports = class extends Generator {
             if (typeof answers.name !== 'undefined') {
                 this._setAppName(answers.name);
             }
-            this.installer = answers.installer;
 
             // Tests to see if a value was selected in an answer
             const hasAnswer = (val, test) => val && val.indexOf(test) !== -1;
@@ -158,13 +151,11 @@ module.exports = class extends Generator {
      * Installation via yarn or npm
      */
     install() {
-        if (this.installer === 'yarn') {
-            this.log(chalk.blue('Installing with yarn'));
-            this.yarnInstall();
-        } else {
-            // Install with npm
-            this.log(chalk.blue('Installing with yarn'));
-            this.npmInstall();
-        }
+        const hasYarn = commandExists('yarn');
+        this.installDependencies({
+            npm: !hasYarn,
+            bower: false,
+            yarn: hasYarn
+        });
     }
 };
