@@ -163,7 +163,40 @@ module.exports = class extends Generator {
      * Closing function
      */
     end() {
-        this.log('\n\nRunning ' + chalk.yellow('gulp `build`') + ' task');
+        const dest = this.destinationPath();
+
+        // Copy the src files
+        this.log('\n' + chalk.bold('Copying files') + ' ' + dest + '/node_modules/cacao/src/theme/default.twig');
+        this.fs.copy(
+            this.templatePath() + '/src/**/*',
+            dest + '/src'
+        );
+
+        // Copy the BranchCMS template files
+        if (this.fs.exists(dest + '/node_modules/cacao/src/theme/default.twig')) {
+            this.fs.copy(
+                dest + '/node_modules/cacao/src/theme/default.twig',
+                dest + '/src/theme/default.twig'
+            );
+            this.fs.copy(
+                dest + '/node_modules/cacao/src/theme/content-builder/**/*',
+                dest + '/src/theme/content-builder'
+            );
+            this.fs.copy(
+                dest + '/node_modules/cacao/src/theme/forms/**/*',
+                dest + '/src/theme/forms'
+            );
+            this.fs.copy(
+                dest + '/node_modules/cacao/src/theme/navigation/**/*',
+                dest + '/src/theme/navigation'
+            );
+            this.fs.copy(
+                dest + '/node_modules/cacao/src/theme/snippets/**/*',
+                dest + '/src/theme/snippets'
+            );
+        }
+
+        this.log('\n\n' + chalk.bold('Running ' + chalk.yellow('gulp `build`') + ' task'));
         this.spawnCommand('gulp', ['build']).on('close', () => {
             this.log('\n\n' + chalk.blue('All Done! Now go and build something great!\n\n'));
         });
