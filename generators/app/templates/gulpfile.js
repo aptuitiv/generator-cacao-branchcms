@@ -91,32 +91,6 @@ gulp.task('scripts', function () {
 });
 
 /**
- * Post CSS "plugin" to use the css-clean library.
- * Done here because https://www.npmjs.com/package/postcss-clean
- * doesn't support the latest postcss or css-clean versions yet.
- */
-const postcss = require('postcss');
-const postCssClean = (opts = {}) => {
-    const cleancss = new $.cleanCss(opts)
-    return (css, res) => {
-        return new Promise((resolve, reject) => {
-            cleancss.minify(css.toString(), (err, min) => {
-                if (err) {
-                    return reject(new Error(err.join('\n')))
-                }
-
-                for (let w of min.warnings) {
-                    res.warn(w)
-                }
-
-                res.root = postcss.parse(min.styles)
-                resolve()
-            })
-        })
-    }
-}
-
-/**
  * Stylesheets
  * PostCSS processors list order is important. css-import has be first
  * and cssnano needs to be last
