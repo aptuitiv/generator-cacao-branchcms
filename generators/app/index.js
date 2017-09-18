@@ -61,6 +61,8 @@ module.exports = class extends Generator {
         ));
 
         var prompts = [];
+
+        // Ask for the website project name if it's not already set
         if (typeof this.options.name === 'undefined') {
             prompts.push({
                 type: 'input',
@@ -69,6 +71,7 @@ module.exports = class extends Generator {
             });
         }
 
+        // Front-end libraries to include
         prompts.push({
             type: 'checkbox',
             name: 'libraries',
@@ -77,6 +80,17 @@ module.exports = class extends Generator {
                 {name: 'Magnific Popup', value: 'magnific', checked: true},
                 {name: 'Slick slider', value: 'slick', checked: true},
                 {name: 'Drift image zoom', value: 'driftzoom'}
+            ]
+        });
+
+        // BranchCMS App templates to include
+        prompts.push({
+            type: 'checkbox',
+            name: 'apps',
+            message: 'Check which BranchCMS apps you will use for this website',
+            choices: [
+                {name: 'Blog', value: 'blog'},
+                {name: 'Store', value: 'store'}
             ]
         });
 
@@ -92,6 +106,9 @@ module.exports = class extends Generator {
             this.includeMagnific = hasAnswer(answers.libraries, 'magnific');
             this.includeSlick = hasAnswer(answers.libraries, 'slick');
             this.includeDrift = hasAnswer(answers.libraries, 'driftzoom');
+
+            this.appBlog = hasAnswer(answers.apps, 'blog');
+            this.appStore = hasAnswer(answers.apps, 'store');
         });
     }
 
@@ -197,6 +214,19 @@ module.exports = class extends Generator {
             src + 'snippets/**/*',
             dest + 'snippets'
         );
+
+        if (this.appBlog) {
+            this.fs.copy(
+                src + 'blog/**/*',
+                dest + 'blog'
+            );
+        }
+        if (this.appStore) {
+            this.fs.copy(
+                src + 'store/**/*',
+                dest + 'store'
+            );
+        }
     }
 
     /**
@@ -234,7 +264,6 @@ module.exports = class extends Generator {
         const cows = [
             'default',
             'cheese',
-            'doge',
             'dragon-and-cow',
             'dragon',
             'elephant',
