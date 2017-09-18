@@ -41,13 +41,19 @@ module.exports = {
      * dest is the folder within the root 'dist' folder to put
      */
     copy: [
-        <% if (includeMagnific) { %>
+        <%_ if (includeDriftZoom) { _%>
+            {
+                src: ['node_modules/drift-zoom/dist/**/*.{min.css,min.js}'],
+                    dest: 'drift-zoom'
+            },
+        <%_ } _%>
+        <%_ if (includeMagnific) { _%>
         {
             src: ['node_modules/magnific-popup/dist/**/*.{css,min.js}'],
             dest: 'magnific'
         },
-        <% } %>
-        <% if (includeSlick) { %>
+        <%_ } _%>
+        <%_ if (includeSlick) { _%>
         {
             src: ['node_modules/slick-carousel/slick/*.{css,min.js,gif}'],
             dest: 'slick'
@@ -55,14 +61,8 @@ module.exports = {
         {
             src: ['node_modules/slick-carousel/slick/fonts/*'],
             dest: 'slick/fonts'
-        },
-        <% } %>
-        <% if (includeDriftZoom) { %>
-        {
-            src: ['node_modules/drift-zoom/dist/**/*.{min.css,min.js}'],
-            dest: 'drift-zoom'
         }
-        <% } %>
+        <%_ } _%>
     ],
 
     /**
