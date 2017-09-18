@@ -2,6 +2,7 @@
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const commandExists = require('command-exists').sync;
+const cowsay = require('cowsay');
 const updateNotifier = require('update-notifier');
 const pkg = require('../../package.json');
 const yosay = require('yosay');
@@ -198,7 +199,49 @@ module.exports = class extends Generator {
 
         this.log('\n\n' + chalk.bold('Running ' + chalk.yellow('gulp `build`') + ' task'));
         this.spawnCommand('gulp', ['build']).on('close', () => {
-            this.log('\n\n' + chalk.blue('All Done! Now go and build something great!\n\n'));
+            this._done();
         });
+    }
+
+    /**
+     * Output the closing message
+     * @private
+     */
+    _done() {
+        const cows = [
+            'default',
+            'cheese',
+            'doge',
+            'dragon-and-cow',
+            'dragon',
+            'elephant',
+            'eyes',
+            'ghostbusters',
+            'goat',
+            'hedgehog',
+            'kitty',
+            'koala',
+            'luke-koala',
+            'mech-and-cow',
+            'meow',
+            'milk',
+            'moofasa',
+            'moose',
+            'sheep',
+            'small',
+            'squirrel',
+            'stegosaurus',
+            'turtle',
+            'tux',
+            'vader-koala',
+            'vader',
+            'whale',
+            'www'
+        ];
+        const cow = cows[Math.floor(Math.random() * cows.length)];
+        this.log(cowsay.say({
+            text: '\nAll Done! Now go and build something great!\n',
+            f: cow
+        }) + '\n');
     }
 };
