@@ -122,7 +122,12 @@ module.exports = class extends Generator {
         this.fs.copyTpl(
             this.templatePath('_package.json'),
             this.destinationPath('package.json'),
-            {name: this.appName}
+            {
+                name: this.appName,
+                includeDriftZoom: this.includeDrift,
+                includeMagnific: this.includeMagnific,
+                includeSlick: this.includeSlick
+            }
         );
 
         // Stylelint

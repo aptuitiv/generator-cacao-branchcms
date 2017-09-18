@@ -43,13 +43,13 @@
         "stylelint-order": "^0.6.0"
     },
     "dependencies": {
-        "cacao": "git://github.com/aptuitiv/cacao#master",
-        "drift-zoom": "^1.2.0",
+        "cacao": "git://github.com/aptuitiv/cacao#master",<% if (includeDriftZoom) { %>
+        "drift-zoom": "^1.2.0",<% } %>
         "jquery": "^3.2.1",
         "jquery-form": "^4.2.1",
-        "jquery-validation": "^1.17.0",
-        "magnific-popup": "^1.1.0",
-        "slick-carousel": "^1.7.1"
+        "jquery-validation": "^1.17.0"<% if (includeMagnific) { %>,
+        "magnific-popup": "^1.1.0"<% } %><% if (includeSlick) { %>,
+        "slick-carousel": "^1.7.1"<% } %>
     },
     "cssnano": {
         "preset": [
