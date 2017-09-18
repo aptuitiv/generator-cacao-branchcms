@@ -51,14 +51,6 @@
         "magnific-popup": "^1.1.0"<% } %><% if (includeSlick) { %>,
         "slick-carousel": "^1.7.1"<% } %>
     },
-    "cssnano": {
-        "preset": [
-            "default",
-            {
-                "normalizeWhitespace": false
-            }
-        ]
-    },
     "scripts": {
         "start": "gulp",
         "build": "gulp build"
