@@ -35,7 +35,7 @@ const banner = [
 // Logging function
 function logFile(file, prefix) {
     prefix = prefix || 'Using'
-    $.fancyLog($.chalk.cyan(prefix) + ' ' + $.chalk.blue(path.relative(file.cwd, file.path)));
+    $.fancyLog($.chalk.cyan(prefix) + ' ' + $.chalk.magenta(path.relative(file.cwd, file.path)));
 }
 
 /**
@@ -124,13 +124,13 @@ const postCssClean = (opts = {}) => {
 var processors = [
     $.postcssImport,
     $.postcssCssnext(),
-    postCssClean({level: 2, compatibility: 'ie8'})
+    $.postcssClean({level: 2, compatibility: 'ie8'})
 ];
 
 gulp.task('css', ['stylelint'], function () {
     return gulp.src(config.paths.src.css)
         .pipe($.tap((file) => {
-            logFile(file, 'css');
+            logFile(file, 'CSS');
         }))
         .pipe($.plumber({errorHandler: onError}))
         .pipe($.postcss(processors))
@@ -153,7 +153,9 @@ var bemlinterOpts = {
 gulp.task('stylelint', function () {
     return gulp.src(config.paths.src.stylelint)
         .pipe($.cached('Stylelint'))
-        .pipe($.using({prefix: 'Linting'}))
+        .pipe($.tap((file) => {
+            logFile(file, 'Linting');
+        }))
         .pipe($.plumber({errorHandler: onError}))
         .pipe($.postcss([
             $.postcssBemLinter(bemlinterOpts),
@@ -167,7 +169,9 @@ gulp.task('stylelint', function () {
 gulp.task('theme', function() {
     return gulp.src(config.paths.src.theme)
         .pipe($.changed(config.paths.dist.theme, {hasChanged: $.changed.compareContents}))
-        .pipe($.using({prefix: 'Theme: '}))
+        .pipe($.tap((file) => {
+            logFile(file, 'Theme');
+        }))
         .pipe(gulp.dest(config.paths.dist.theme))
 });
 
