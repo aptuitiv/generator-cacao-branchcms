@@ -72,15 +72,32 @@ module.exports = class extends Generator {
             name: 'installer',
             message: 'Do you use yarn or npm as an installer?',
             choices: ['yarn', 'npm']
-        })
+        });
+
+        prompts.push({
+            type: 'checkbox',
+            name: 'libraries',
+            message: 'Check which libraries to include',
+            choices: [
+                {name: 'Magnific Popup', value: 'magnific', checked: true},
+                {name: 'Slick slider', value: 'slick', checked: true},
+                {name: 'Drift image zoom', value: 'driftzoom'}
+            ]
+        });
 
         return this.prompt(prompts).then(answers => {
             // Set the app name if it was asked
             if (typeof answers.name !== 'undefined') {
                 this._setAppName(answers.name);
             }
-            // Set installer
             this.installer = answers.installer;
+
+            // Tests to see if a value was selected in an answer
+            const hasAnswer = (val, test) => val && val.indexOf(test) !== -1;
+
+            this.includeMagnific = hasAnswer(answers.libraries, 'magnific');
+            this.includeSlick = hasAnswer(answers.libraries, 'slick');
+            this.includeDrift = hasAnswer(answers.libraries, 'driftzoom');
         });
     }
 
@@ -88,6 +105,7 @@ module.exports = class extends Generator {
      * Create the files
      */
     writing() {
+        this.log(chalk.blue('Writing files'));
         // Editor Config
         this.fs.copy(
             this.templatePath('_editorconfig'),
@@ -107,16 +125,21 @@ module.exports = class extends Generator {
             {name: this.appName}
         );
 
-        // stylelint
+        // Stylelint
         this.fs.copy(
             this.templatePath('_stylelintrc'),
             this.destinationPath('.stylelintrc'),
         );
 
         // Config.js
-        this.fs.copy(
+        this.fs.copyTpl(
             this.templatePath('config.js'),
-            this.destinationPath('config.js')
+            this.destinationPath('config.js'),
+            {
+                includeDriftZoom: this.includeDrift,
+                includeMagnific: this.includeMagnific,
+                includeSlick: this.includeSlick
+            }
         );
 
         // Gulpfile.js
@@ -130,10 +153,12 @@ module.exports = class extends Generator {
      * Installation via yarn or npm
      */
     install() {
-        if (this.installer == 'yarn') {
+        if (this.installer === 'yarn') {
+            this.log(chalk.blue('Installing with yarn'));
             this.yarnInstall();
         } else {
             // Install with npm
+            this.log(chalk.blue('Installing with yarn'));
             this.npmInstall();
         }
     }
