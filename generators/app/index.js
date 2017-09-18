@@ -158,4 +158,14 @@ module.exports = class extends Generator {
             yarn: hasYarn
         });
     }
+
+    /**
+     * Closing function
+     */
+    end() {
+        this.log('\n\nRunning ' + chalk.yellow('gulp `build`') + ' task');
+        this.spawnCommand('gulp', ['build']).on('close', () => {
+            this.log('\n\n' + chalk.blue('All Done! Now go and build something great!'));
+        });
+    }
 };
