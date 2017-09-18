@@ -96,10 +96,21 @@ module.exports = class extends Generator {
     }
 
     /**
-     * Create the files
+     * Create the source files
      */
     writing() {
-        this.log(chalk.blue('Writing files'));
+        this.log('\n' + chalk.bold('Writing files') + '\n');
+
+        this._setupConfigFiles();
+        this._copySourceFiles();
+        this._copyTemplateFiles();
+    }
+
+    /**
+     * Sets up the package.json and other config files
+     * @private
+     */
+    _setupConfigFiles() {
         // Editor Config
         this.fs.copy(
             this.templatePath('_editorconfig'),
@@ -149,54 +160,66 @@ module.exports = class extends Generator {
     }
 
     /**
+     * Copies the boilerplate images, CSS and Javascript files
+     */
+    _copySourceFiles() {
+        this.fs.copy(
+            this.templatePath() + '/src/**/*',
+            this.destinationPath() + '/src'
+        );
+    }
+
+    /**
+     * Copy the BranchCMS template files
+     * @private
+     */
+    _copyTemplateFiles() {
+        const src = this.templatePath() + '/theme/';
+        const dest = this.destinationPath() + '/src/theme/';
+
+        this.fs.copy(
+            src + 'default.twig',
+            dest + 'default.twig'
+        );
+        this.fs.copy(
+            src + 'content-builder/**/*',
+            dest + 'content-builder'
+        );
+        this.fs.copy(
+            src + 'forms/**/*',
+            dest + 'forms'
+        );
+        this.fs.copy(
+            src + 'navigation/**/*',
+            dest + 'navigation'
+        );
+        this.fs.copy(
+            src + 'snippets/**/*',
+            dest + 'snippets'
+        );
+    }
+
+    /**
      * Installation via yarn or npm
      */
     install() {
         const hasYarn = commandExists('yarn');
+        this.log('\n');
         this.installDependencies({
             npm: !hasYarn,
             bower: false,
-            yarn: hasYarn
+            yarn: hasYarn,
+            skipMessage: true
+        }).then(() => {
+            this._build();
         });
     }
 
     /**
-     * Closing function
+     * Runs the gulp build
+     * @private
      */
-    end() {
-        const dest = this.destinationPath();
-
-        // Copy the src files
-        this.log('\n' + chalk.bold('Copying files') + ' ' + dest + '/node_modules/cacao/src/theme/default.twig');
-        this.fs.copy(
-            this.templatePath() + '/src/**/*',
-            dest + '/src'
-        );
-
-        // Copy the BranchCMS template files
-        if (this.fs.exists(dest + '/node_modules/cacao/src/theme/default.twig')) {
-            this.fs.copy(
-                dest + '/node_modules/cacao/src/theme/default.twig',
-                dest + '/src/theme/default.twig'
-            );
-            this.fs.copy(
-                dest + '/node_modules/cacao/src/theme/content-builder/**/*',
-                dest + '/src/theme/content-builder'
-            );
-            this.fs.copy(
-                dest + '/node_modules/cacao/src/theme/forms/**/*',
-                dest + '/src/theme/forms'
-            );
-            this.fs.copy(
-                dest + '/node_modules/cacao/src/theme/navigation/**/*',
-                dest + '/src/theme/navigation'
-            );
-            this.fs.copy(
-                dest + '/node_modules/cacao/src/theme/snippets/**/*',
-                dest + '/src/theme/snippets'
-            );
-        }
-
+    _build() {
         this.log('\n\n' + chalk.bold('Running ' + chalk.yellow('gulp `build`') + ' task'));
         this.spawnCommand('gulp', ['build']).on('close', () => {
             this._done();
