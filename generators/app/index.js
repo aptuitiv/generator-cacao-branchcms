@@ -1,6 +1,8 @@
 'use strict';
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');
+const updateNotifier = require('update-notifier');
+const pkg = require('../../package.json');
 const yosay = require('yosay');
 
 module.exports = class extends Generator {
@@ -12,6 +14,9 @@ module.exports = class extends Generator {
     constructor(args, opts) {
         // Noinspection JSAnnotator
         super(args, opts);
+
+        // Check for newer versions of this generator and notify
+        updateNotifier({pkg}).notify();
 
         this.argument('name', {
             type: String,
