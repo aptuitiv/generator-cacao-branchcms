@@ -16,9 +16,9 @@ module.exports = {
      */
     paths: {
         src: {
-            css: [src + '/styles/index.css'],
+            css: [src + '/css/index.css'],
             img: src + '/images/**/*.{png,jpg,gif,svg}',
-            stylelint: [src + '/styles/**/*.css'],
+            stylelint: [src + '/css/**/*.css'],
             theme: src + '/theme/**/*.twig',
             themeFolder: src + '/theme'
         },
@@ -76,14 +76,15 @@ module.exports = {
             src: [
                 src + '/scripts/modernizr-flexbox-detection.js',
                 'node_modules/jquery/dist/jquery.js',
-                src + '/scripts/index.js'
+                src + '/js/index.js'
             ]
         },
         {
             name: 'forms.js',
             src: [
                 'node_modules/jquery-validation/dist/jquery.validate.js',
-                'node_modules/jquery-form/src/jquery.form.js'
+                'node_modules/jquery-form/src/jquery.form.js',
+                src + '/js/forms.js'
             ]
         }
     ]
