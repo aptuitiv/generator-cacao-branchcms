@@ -43,7 +43,7 @@
         "stylelint-order": "^0.6.0"
     },
     "dependencies": {
-        "cacao": "git://github.com/aptuitiv/cacao#master",<% if (includeDriftZoom) { %>
+        "cacao-css": "^1.4.0",<% if (includeDriftZoom) { %>
         "drift-zoom": "^1.2.0",<% } %>
         "jquery": "^3.2.1",
         "jquery-form": "^4.2.1",
