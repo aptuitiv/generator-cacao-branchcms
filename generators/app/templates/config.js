@@ -31,7 +31,7 @@ module.exports = {
             themeFiles: dist + '/templates/**/*.twig'
         },
         watch: {
-            css: [src + '/styles/**/*.css']
+            css: [src + '/css/**/*.css']
         }
     },
 
