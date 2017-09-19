@@ -108,19 +108,20 @@ gulp.task('buildcss', ['stylelint'], function () {
         }))
         .pipe($.plumber({errorHandler: onError}))
         .pipe($.postcss(processors))
+        .pipe($.rename('main.css'))
         .pipe(gulp.dest(config.paths.build.css));
 });
 
 gulp.task('css', ['buildcss'], () => {
     return gulp.src([
-        config.paths.build.css + '/index.css',
+        config.paths.build.css + '/' + config.cssName,
         config.paths.build.fontello + '/css/icon.css'
     ])
         .pipe($.tap((file) => {
-            $.fancyLog($.chalk.cyan('Merging CSS ') + $.chalk.blue(path.relative(file.cwd, file.path)) + ' into ' + $.chalk.green(config.paths.dist.css + '/index.css'));
+            $.fancyLog($.chalk.cyan('Merging CSS ') + $.chalk.blue(path.relative(file.cwd, file.path)) + ' into ' + $.chalk.green(config.paths.dist.css + '/' + config.cssName));
         }))
         .pipe($.plumber({errorHandler: onError}))
-        .pipe($.concat('index.css'))
+        .pipe($.concat(config.cssName))
         .pipe($.cleanCss({level: 2, compatibility: 'ie8'}))
         .pipe($.header(banner))
         .pipe(gulp.dest(config.paths.dist.css))

@@ -10,6 +10,11 @@ var dist = 'dist/theme/custom';
  */
 module.exports = {
     /**
+     * Holds the name of the CSS file to be generated
+     */
+    cssName: 'main.css',
+
+    /**
      * Paths for different asset sources and their distribution path
      */
     paths: {
@@ -77,11 +82,11 @@ module.exports = {
      */
     scripts: [
         {
-            name: 'index.js',
+            name: 'main.js',
             src: [
                 src + '/scripts/modernizr-flexbox-detection.js',
                 'node_modules/jquery/dist/jquery.js',
-                src + '/js/index.js'
+                src + '/js/main.js'
             ]
         },
         {
