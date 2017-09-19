@@ -180,7 +180,7 @@ function flatten(prev, current) {
  */
 function deleteFile(file, src, dest, type) {
     // Output message of what is being deleted
-    $.fancyLog('Deleting ' + type, chalk.red(file));
+    $.fancyLog('Deleting ' + type, $.chalk.red(file));
     // Get the relative path to the file
     var srcPath = path.relative(path.resolve(src), file);
     // Remove "../" from the path as it causes the destination path to be incorrect
