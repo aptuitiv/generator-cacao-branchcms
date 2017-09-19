@@ -1,11 +1,9 @@
-// The base directory to build into
-var buildRoot = 'build';
-// The directory within the build root where theme files (images, css, js) will be located
-var themeRoot = 'theme/custom';
 // The source directory to build from
 var src = 'src';
+// The base directory to build into. A temporary location for things that need to be built first before moving to distribution
+var build = '_build';
 // The full destination folder where assets (images, css, js) will be built into for distribution
-var dist = buildRoot + '/' + themeRoot;
+var dist = 'dist/theme/custom';
 
 /**
  * Data that is set to the config variable in gulpfile.js
@@ -17,14 +15,21 @@ module.exports = {
     paths: {
         src: {
             css: [src + '/css/index.css'],
+            fontello: src + '/fonts/fontello-config.json',
             img: src + '/images/**/*.{png,jpg,gif,svg}',
             stylelint: [src + '/css/**/*.css'],
             theme: src + '/theme/**/*.twig',
             themeFolder: src + '/theme'
         },
+        build: {
+            base: build,
+            css: build + '/css',
+            fontello: build + '/fontello'
+        },
         dist: {
             base: dist,
             css: dist + '/css',
+            fonts: dist + '/fonts',
             img: dist + '/images',
             js: dist + '/js',
             theme: dist + '/templates',

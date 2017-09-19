@@ -1,5 +1,6 @@
 // Configuration
 const config = require('./config.js');
+const fontelloConfig = require('./' + config.paths.src.fontello);
 
 // Load gulp
 const gulp = require('gulp');
@@ -97,19 +98,32 @@ gulp.task('scripts', function () {
  */
 var processors = [
     $.postcssImport,
-    $.postcssCssnext(),
-    $.postcssClean({level: 2, compatibility: 'ie8'})
+    $.postcssCssnext()
 ];
 
-gulp.task('css', ['stylelint'], function () {
+gulp.task('buildcss', ['stylelint'], function () {
     return gulp.src(config.paths.src.css)
         .pipe($.tap((file) => {
-            logFile(file, 'CSS');
+            logFile(file, 'Build CSS');
         }))
         .pipe($.plumber({errorHandler: onError}))
         .pipe($.postcss(processors))
+        .pipe(gulp.dest(config.paths.build.css));
+});
+
+gulp.task('css', ['buildcss'], () => {
+    return gulp.src([
+        config.paths.build.css + '/index.css',
+        config.paths.build.fontello + '/css/icon.css'
+    ])
+        .pipe($.tap((file) => {
+            $.fancyLog($.chalk.cyan('Merging CSS ') + $.chalk.blue(path.relative(file.cwd, file.path)) + ' into ' + $.chalk.green(config.paths.dist.css + '/index.css'));
+        }))
+        .pipe($.plumber({errorHandler: onError}))
+        .pipe($.concat('index.css'))
+        .pipe($.cleanCss({level: 2, compatibility: 'ie8'}))
         .pipe($.header(banner))
-        .pipe(gulp.dest(config.paths.dist.css));
+        .pipe(gulp.dest(config.paths.dist.css))
 });
 
 /**
@@ -158,6 +172,24 @@ gulp.task('push-theme', function() {
 gulp.task('pull-theme', function() {
     return gulp.src(config.paths.dist.themeFiles)
         .pipe(gulp.dest(config.paths.src.themeFolder))
+});
+
+/**
+ * Build fonts
+ */
+gulp.task('fontello', (cb) => {
+    if (typeof fontelloConfig.glyphs !== 'undefined' && fontelloConfig.glyphs.length > 0) {
+        return gulp.src(config.paths.src.fontello)
+            .pipe($.fontello({font: 'fonts'}))
+            .pipe(gulp.dest(config.paths.build.fontello));
+    } else {
+        cb();
+    }
+});
+
+gulp.task('fonts', ['fontello'], () => {
+    return gulp.src(config.paths.build.fontello + '/fonts/**')
+        .pipe(gulp.dest(config.paths.dist.fonts));
 });
 
 /**
@@ -234,9 +266,9 @@ var buildTasks = [
 ];
 
 gulp.task('build', function (cb) {
-    $.runSequence(buildTasks, cb);
+    $.runSequence('fonts', buildTasks, cb);
 });
 
 gulp.task('default', function (cb) {
-    $.runSequence(buildTasks, 'watch', cb);
+    $.runSequence('fonts', buildTasks, 'watch', cb);
 });
