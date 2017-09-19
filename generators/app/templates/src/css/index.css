@@ -1,2 +1,4 @@
 @import '../../node_modules/cacao-css/src/styles/index.css';
 @import './config.css';
+@import './base';
+@import './components';
