@@ -11,3 +11,12 @@
     {{ _page.head() }}
 </head>
 <body>
+    <div class="Container">
+        <div class="Header">
+            <a href="/"><img src="{{ 'images/cacao.svg'|theme_url }}" class="Logo"></a>
+            <div class="NavBar">
+                <button class="SmScBtn js-ssNavBtn"><span class="SmScBtn-icon"></span>Menu</button>
+                {{ _api.navigation.get.key('main') }}
+            </div>
+        </div>
+    </div>
