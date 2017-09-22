@@ -16,9 +16,7 @@
 
 @custom-media --c-bp-container (max-width: 1200px);
 
-@media (--c-bp-container) {
-    .Container--pad {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
+.Container--pad {
+    padding-left: 10px;
+    padding-right: 10px;
 }
