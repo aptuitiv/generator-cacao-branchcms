@@ -1,8 +1,16 @@
 /* =========================================================================== *\
     BREADCRUMB
-    Adds styles to the Cacao Breadcrumb component
 \* =========================================================================== */
 
 
 /** @define Breadcrumb **/
 
+.Breadcrumb {
+    font-size: 12px;
+    padding: 10px 0;
+}
+
+.Breadcrumb-link {
+    color: #888;
+    text-decoration: none;
+}
