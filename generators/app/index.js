@@ -240,6 +240,10 @@ module.exports = class extends Generator {
             dest + 'navigation'
         );
         this.fs.copy(
+            src + 'search/**/*',
+            dest + 'search'
+        );
+        this.fs.copy(
             src + 'snippets/**/*',
             dest + 'snippets'
         );
