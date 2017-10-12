@@ -223,41 +223,30 @@ module.exports = class extends Generator {
         const src = this.templatePath() + '/theme/';
         const dest = this.destinationPath() + '/src/theme/';
 
+        // Copy the default site template
         this.fs.copy(
             src + 'default.twig',
             dest + 'default.twig'
         );
-        this.fs.copy(
-            src + 'content-builder/**/*',
-            dest + 'content-builder'
-        );
-        this.fs.copy(
-            src + 'forms/**/*',
-            dest + 'forms'
-        );
-        this.fs.copy(
-            src + 'navigation/**/*',
-            dest + 'navigation'
-        );
-        this.fs.copy(
-            src + 'search/**/*',
-            dest + 'search'
-        );
-        this.fs.copy(
-            src + 'snippets/**/*',
-            dest + 'snippets'
-        );
 
+        // Copy the app templates
+        let apps = [
+            'content-builder',
+            'forms',
+            'navigation',
+            'search',
+            'snippets'
+        ];
         if (this.appBlog) {
-            this.fs.copy(
-                src + 'blog/**/*',
-                dest + 'blog'
-            );
+            apps.push('blog');
         }
         if (this.appStore) {
+            apps.push('store');
+        }
+        for (let app of apps) {
             this.fs.copy(
-                src + 'store/**/*',
-                dest + 'store'
+                src + app + '/**/*',
+                dest + app
             );
         }
     }
