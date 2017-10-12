@@ -29,6 +29,13 @@
     padding: 0;
 }
 
+@media(--c-bp-largeScreenNav) {
+    .MainNav {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
 /**
  * Items
  */
