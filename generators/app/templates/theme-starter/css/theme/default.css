@@ -5,13 +5,13 @@
 /* Color Config */
 
 :root {
-    --c-core-theme-color: #a21514;
+    --c-core-theme-color: #3379ae;
 }
 
 /* Body */
 
 :root {
-    --theme-body-background: #fef2ee;
+    --theme-body-background: #fff;
 }
 
 /* Core typography */
