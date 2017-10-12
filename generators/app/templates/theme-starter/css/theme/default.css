@@ -18,7 +18,9 @@
 
 :root {
     --theme-typography-color: #333;
-    --theme-typography-fontFamily: 'Verdana', sans-serif;
+    --theme-typography-serif: Georgia, 'Times New Roman', serif;
+    --theme-typography-sans-serif: 'Verdana', sans-serif;
+    --theme-typography-fontFamily: var(--theme-typography-sans-serif);
 }
 
 /* Links & Buttons */
