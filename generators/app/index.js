@@ -5,6 +5,7 @@ const commandExists = require('command-exists').sync;
 const cowsay = require('cowsay');
 const updateNotifier = require('update-notifier');
 const pkg = require('../../package.json');
+const stripIndent = require('strip-indent');
 const yosay = require('yosay');
 
 module.exports = class extends Generator {
@@ -71,6 +72,15 @@ module.exports = class extends Generator {
             });
         }
 
+        // Is this a theme website for BranchCMS?
+        prompts.push({
+            type: 'list',
+            name: 'istheme',
+            message: 'Is this a new theme website?',
+            choices: ['Yes', 'No'],
+            default: 'No'
+        });
+
         // Front-end libraries to include
         prompts.push({
             type: 'checkbox',
@@ -102,6 +112,8 @@ module.exports = class extends Generator {
 
             // Tests to see if a value was selected in an answer
             const hasAnswer = (val, test) => val && val.indexOf(test) !== -1;
+
+            this.isThemeWebsite = answers.istheme.toLowerCase();
 
             this.includeMagnific = hasAnswer(answers.libraries, 'magnific');
             this.includeSlick = hasAnswer(answers.libraries, 'slick');
@@ -184,6 +196,23 @@ module.exports = class extends Generator {
             this.templatePath() + '/src/**/*',
             this.destinationPath() + '/src'
         );
+
+        if (this.isThemeWebsite === 'yes') {
+            // Include the theme files in the main css file
+            let themeInclude = `
+                    /**
+                     * Theme configuration
+                     */
+                     
+                    @import './theme';`;
+            this.fs.append(this.destinationPath() + '/src/css/index.css', stripIndent(themeInclude));
+
+            // Include the theme config files
+            this.fs.copy(
+                this.templatePath() + '/theme-starter/css/**/*',
+                this.destinationPath() + '/src/css'
+            );
+        }
     }
 
     /**
