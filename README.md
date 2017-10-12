@@ -21,7 +21,7 @@ yo cacao-branchcms
 
 ### Step 1
 
-**Before you upload files to the website set up the following components first**
+**BEFORE YOU UPLOAD FILES TO THE WEBSITE COMPLETE STEP 1 FIRST**
 
 - Content builder elements
 - Search form
@@ -32,6 +32,58 @@ Search
 
 If you don't set those up first then the uploaded templates aren't always recognized correctly
 and aren't used.
+
+### Setup additional content bulder elements
+
+**Add "Iframe Embed" component**
+
+Fields:
+- Embed Ratio
+    - Type: Select Menu
+    - Options:
+        - 4by3
+        - 3by2
+        - 5by3
+        - 2by1
+        - 1by1
+- Iframe Tag
+    - Type: Iframe Embed
+    - Description: Use this to embed an iframe like a Google Map iframe. Use the Media Embed element for YouTube videos or other media.
+    
+Template
+
+```
+<div class="FlexEmbed u-margBottom2">
+    <div class="FlexEmbed-ratio FlexEmbed-ratio--{{ embedRatio }}"></div>
+    <iframe class="FlexEmbed-content" frameborder="0" allowfullscreen src="{{ iframeTag.src }}"></iframe>
+</div>
+```
+
+**Add "Media Embed" component**
+
+Fields:
+- Embed Ratio
+    - Type: Select Menu
+    - Options:
+        - 4by3
+        - 3by2
+        - 5by3
+        - 2by1
+        - 1by1
+- Embed URL
+    - Type: Embed Url
+    - Description: Enter the URL of the media content. For example, for YouTube simply enter the URL to view the video on the YouTube website.
+        
+Template
+
+```
+{% for url in embedUrl.urlInfo %}
+    <div class="FlexEmbed u-margBottom2">
+        <div class="FlexEmbed-ratio FlexEmbed-ratio--{{ embedRatio }}"></div>
+        <iframe class="FlexEmbed-content" frameborder="0" allowfullscreen src="{{ url.iframeEmbed.src }}"></iframe>
+    </div>
+{% endfor %}
+```
 
 ### Step 2
 
