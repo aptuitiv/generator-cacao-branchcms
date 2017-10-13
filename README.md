@@ -42,7 +42,7 @@ Fields:
     - Type: Select Menu
     - Options:
         - 4by3
-        - 3by2
+        - 3by2 (default)
         - 5by3
         - 2by1
         - 1by1
@@ -66,7 +66,7 @@ Fields:
     - Type: Select Menu
     - Options:
         - 4by3
-        - 3by2
+        - 3by2 (default)
         - 5by3
         - 2by1
         - 1by1
