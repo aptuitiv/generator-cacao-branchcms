@@ -85,6 +85,32 @@ Template
 {% endfor %}
 ```
 
+**Adjust the "Large Image" component**
+
+Edit the "Large Image" component. Rename it to "Full Width Image".
+
+Edit the image upload and set the width to 1200px wide with no height constraint.
+
+Add the following field:
+
+- Caption
+    - Type: Text
+
+**Adjust the "Small Image" component**
+
+Edit the "Small Image" component.
+Edit the "Image" field and set the size to 350 x 350.
+Add the following fields. 
+
+- Alignment
+    - Type: Select Menu
+    - Options:
+        - Default
+        - Center
+        - Float Left
+        - Float Right
+- Caption
+    - Type: Text
 ### Step 2
 
 Disable the cache
