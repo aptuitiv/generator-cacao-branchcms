@@ -111,6 +111,7 @@ Add the following fields.
         - Float Right
 - Caption
     - Type: Text
+
 ### Step 2
 
 Disable the cache
