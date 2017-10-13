@@ -14,7 +14,6 @@ const $ = require('gulp-load-plugins')({
 
 // Load node packages
 const del = require('del');
-//const map = require('map-stream');
 const path = require('path');
 
 // Error handler
@@ -114,9 +113,9 @@ gulp.task('buildcss', ['stylelint'], function () {
 
 gulp.task('css', ['buildcss'], () => {
     return gulp.src([
-        config.paths.build.css + '/' + config.cssName,
-        config.paths.build.fontello + '/css/icon.css'
-    ])
+            config.paths.build.css + '/' + config.cssName,
+            config.paths.build.fontello + '/css/icon.css'
+        ])
         .pipe($.tap((file) => {
             $.fancyLog($.chalk.cyan('Merging CSS ') + $.chalk.blue(path.relative(file.cwd, file.path)) + ' into ' + $.chalk.green(config.paths.dist.css + '/' + config.cssName));
         }))
