@@ -132,6 +132,10 @@ Log into BranchCMS and go to the following sections to load the appropriate temp
 - Design -> Snippets
 - Design -> Navigation -> Templates
 
+**Forms**
+
+- Forms -> Templates
+
 **Search**
 
 - Site Manager -> Search -> Design -> Content Templates. Edit each template and set the correct type.
