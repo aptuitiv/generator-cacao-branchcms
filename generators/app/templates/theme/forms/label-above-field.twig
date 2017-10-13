@@ -32,7 +32,7 @@
             {% else %}
                 {{ field.tag|replace({"error": "is-invalid"}) }}
             {% endif %}
-            {% if field.description %}<p class="u-margBottom0 u-fontSize2">{{ field.description }}</p>{% endif %}
+            {% if field.description %}<p class="u-margBottom0 u-fontSize2 u-sm-sizeFull">{{ field.description }}</p>{% endif %}
         </div>
     {% else %}
         {{ field.tag }}
