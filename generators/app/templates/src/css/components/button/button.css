@@ -72,7 +72,7 @@
  */
 
 .Button--lg {
-    font-size: calc(var(--base-typography-fontSize) + 3);
+    font-size: calc(var(--base-typography-fontSize) + 3px);
     padding: var(--Button-paddingLg);
 }
 
