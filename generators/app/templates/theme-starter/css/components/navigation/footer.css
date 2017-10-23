@@ -7,7 +7,7 @@
 /** @define FooterNav */
 
 :root {
-    --FooterNav-fontSize: 15px;
+    --FooterNav-fontSize: var(--theme-footer-nav-font-size);
     --FooterNav-lineHeight: 1;
     --FooterNav-link-color: var(--theme-footer-nav-color);
     --FooterNav-link-colorHover: var(--theme-footer-nav-color-hover);

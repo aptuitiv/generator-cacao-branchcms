@@ -8,6 +8,7 @@
 .Footer {
     background: #9f9f9f;
     color: #fff;
+    font-size: 1.5rem;
     padding: 1.5rem var(--g-gutter);
     text-align: center;
 }

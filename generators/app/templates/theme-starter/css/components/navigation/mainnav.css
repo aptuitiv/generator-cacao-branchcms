@@ -8,8 +8,8 @@
     --MainNav-fontFamily: var(--theme-nav-font);
     --MainNav-fontSize: var(--theme-nav-font-size);
     --MainNav-lineHeight: var(--theme-nav-line-height);
-    --MainNav-link-background: transparent;
-    --MainNav-link-backgroundHover: transparent;
+    --MainNav-link-background: var(--theme-nav-item-bg);
+    --MainNav-link-backgroundHover: var(--theme-nav-item-bg-hover);
     --MainNav-link-color: var(--theme-nav-color);
     --MainNav-link-colorHover: var(--theme-nav-color-hover);
 }

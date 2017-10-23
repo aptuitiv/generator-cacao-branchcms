@@ -53,8 +53,10 @@
     --theme-navbar-bg: var(--theme-primary-color);
     --theme-nav-color: #fff;
     --theme-nav-color-hover: #fff;
+    --theme-nav-item-bg: transparent;
+    --theme-nav-item-bg-hover: transparent;
     --theme-nav-font: var(--theme-typography-fontFamily);
-    --theme-nav-font-size: 18px;
+    --theme-nav-font-size: 1em;
     --theme-nav-line-height: 1.5;
     --theme-nav-dropdown-background: color(var(--theme-primary-color) shade(15%));
     --theme-nav-dropdown-color: #fff;
@@ -66,7 +68,9 @@
 :root {
     --theme-footer-bg: var(--theme-primary-color);
     --theme-footer-color: #fff;
+    --theme-footer-font-size: 1.5rem;
     --theme-footer-nav-font: var(--theme-typography-fontFamily);
+    --theme-footer-nav-font-size: 1em;
     --theme-footer-nav-color: #fff;
     --theme-footer-nav-color-hover: #fff;
 }
