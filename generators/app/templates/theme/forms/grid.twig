@@ -13,7 +13,7 @@
                 {{ field.label.tag }}
             </div>
             <div class="Grid-cell u-size3of4 u-md-sizeFull">
-                {% if field.fieldType in ['email', 'text', 'url'] %}
+                {% if field.fieldType in ['email', 'number', 'text', 'url'] %}
                     {% set field.class = field.class ~ ' TextInput u-sizeFull' %}
                     {{ field.tag }}
                 {%  elseif field.fieldType in ['date'] %}

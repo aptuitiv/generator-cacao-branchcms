@@ -9,7 +9,7 @@
                 {% set field.label.text = field.label.text ~ ' <span class="FormRequired">*</span>' %}
             {% endif %}
             {{ field.label.tag }}
-            {% if field.fieldType in ['email', 'text', 'url'] %}
+            {% if field.fieldType in ['email', 'number', 'text', 'url'] %}
                 {% set field.class = field.class ~ ' TextInput u-sizeFull' %}
                 {{ field.tag }}
             {%  elseif field.fieldType in ['date'] %}
