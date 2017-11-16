@@ -57,9 +57,7 @@ module.exports = class extends Generator {
      */
     prompting() {
         // Have Yeoman greet the user.
-        this.log(yosay(
-            'Starting the ' + chalk.red('Cacao BranchCMS') + ' website generator!'
-        ));
+        this.log(yosay('Starting the ' + chalk.red('Cacao BranchCMS') + ' website generator!'));
 
         var prompts = [];
 
@@ -113,7 +111,7 @@ module.exports = class extends Generator {
             // Tests to see if a value was selected in an answer
             const hasAnswer = (val, test) => val && val.indexOf(test) !== -1;
 
-            this.isThemeWebsite = answers.istheme.toLowerCase();
+            this.isThemeWebsite = answers.istheme.toLowerCase() === 'yes';
 
             this.includeMagnific = hasAnswer(answers.libraries, 'magnific');
             this.includeSlick = hasAnswer(answers.libraries, 'slick');
@@ -177,14 +175,18 @@ module.exports = class extends Generator {
             {
                 includeDriftZoom: this.includeDrift,
                 includeMagnific: this.includeMagnific,
-                includeSlick: this.includeSlick
+                includeSlick: this.includeSlick,
+                isThemeWebsite: this.isThemeWebsite
             }
         );
 
         // Gulpfile.js
-        this.fs.copy(
+        this.fs.copyTpl(
             this.templatePath('gulpfile.js'),
-            this.destinationPath('gulpfile.js')
+            this.destinationPath('gulpfile.js'),
+            {
+                isThemeWebsite: this.isThemeWebsite
+            }
         );
     }
 
@@ -197,7 +199,7 @@ module.exports = class extends Generator {
             this.destinationPath() + '/src'
         );
 
-        if (this.isThemeWebsite === 'yes') {
+        if (this.isThemeWebsite) {
             // Include the theme files in the main css file
             let themeInclude = `
                     /**

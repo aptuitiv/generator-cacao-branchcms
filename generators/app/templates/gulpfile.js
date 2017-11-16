@@ -191,7 +191,24 @@ gulp.task('fonts', ['fontello'], () => {
     return gulp.src(config.paths.build.fontello + '/fonts/**')
         .pipe(gulp.dest(config.paths.dist.fonts));
 });
+<%_ if (isThemeWebsite) { _%>
 
+/**
+ * Export theme files into a folder for distribution
+ */
+gulp.task('export-theme', () => {
+    var assets = config.export.src.map(function (entry) {
+        return gulp.src(entry.src)
+            .pipe($.newer(config.export.dist + '/' + entry.src))
+            .pipe($.tap((file) => {
+                $.fancyLog($.chalk.cyan('exporting the file ') + $.chalk.blue(path.relative(file.cwd, file.path)) + ' to ' + $.chalk.green(config.export.dest + '/' + entry.dest))
+            }))
+            .pipe($.plumber({errorHandler: onError}))
+            .pipe(gulp.dest(config.export.dest + '/' + entry.dest));
+    });
+    return $.mergeStream(assets);
+});
+<% } %>
 /**
  * Flattens an array and joins two together
  * @param {Array} prev
