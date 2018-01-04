@@ -15,12 +15,16 @@
     --theme-body-background: #fff;
 }
 
-/* Core typography */
+/*
+   Core typography
+   Serif and monospace fonts from https://css-tricks.com/snippets/css/system-font-stack/#comment-1606328
+*/
 
 :root {
     --theme-typography-color: #333;
-    --theme-typography-serif: Georgia, 'Times New Roman', serif;
-    --theme-typography-sans-serif: 'Verdana', sans-serif;
+    --theme-typography-serif: 'Apple Garamond', 'Baskerville', 'Times New Roman', 'Droid Serif', 'Times', 'Source Serif Pro', serif;
+    --them-typography-monospace: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Mono', 'Droid Sans Mono', 'Source Code Pro', monospace;
+    --theme-typography-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     --theme-typography-fontFamily: var(--theme-typography-sans-serif);
 }
 
