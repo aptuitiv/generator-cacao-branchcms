@@ -32,11 +32,43 @@ const banner = [
     ""
 ].join("\n");
 
-// Logging function
+/**
+ * Logs the current file being dealt with
+ * @param {object} file The file object
+ * @param {string} [prefix] The log prefix
+ */
 function logFile(file, prefix) {
     prefix = prefix || 'Using'
-    $.fancyLog($.chalk.cyan(prefix) + ' ' + $.chalk.magenta(path.relative(file.cwd, file.path)));
+    log(path.relative(file.cwd, file.path), prefix);
 }
+
+/**
+ * Log something with an optional prefix
+ * @param {string} content The string to log
+ * @param {string} [prefix] The log prefix
+ */
+function log(content, prefix) {
+    if (typeof prefix !== 'undefined' && prefix.length > 0) {
+        $.fancyLog($.chalk.cyan(prefix) + ' ' + $.chalk.magenta(content));
+    } else {
+        $.fancyLog($.chalk.magenta(content));
+    }
+}
+
+/**
+ * Logs moving a file from one location to another
+ * @param {string} message The text to prefix the files
+ * @param {object|string} file The file being moved
+ * @param {string} dest The destination location
+ */
+function logFileTo(message, file, dest) {
+    if (typeof file === 'string') {
+        $.fancyLog($.chalk.cyan(message) + ' ' + $.chalk.blue(file) + ' to ' + $.chalk.green(dest));
+    } else {
+        $.fancyLog($.chalk.cyan(message) + ' ' + $.chalk.blue(path.relative(file.cwd, file.path)) + ' to ' + $.chalk.green(dest));
+    }
+}
+
 /**
  * Process an array of data synchronously.
  *
@@ -74,7 +106,7 @@ gulp.task('copy', () => {
         return gulp.src(entry.src)
             .pipe($.newer(config.paths.dist.base + '/' + entry.dest))
             .pipe($.tap((file) => {
-                $.fancyLog($.chalk.cyan('copying ') + $.chalk.blue(path.relative(file.cwd, file.path)) + ' to ' + $.chalk.green(config.paths.dist.base + '/' + entry.dest))
+                logFileTo('Copying', file, config.paths.dist.base + '/' + entry.dest);
             }))
             .pipe($.plumber({errorHandler: onError}))
             .pipe(gulp.dest(config.paths.dist.base + '/' + entry.dest));
@@ -92,7 +124,6 @@ gulp.task('copy', () => {
 gulp.task('images', () => {
     return gulp.src(config.paths.src.img)
         .pipe($.newer(config.paths.dist.img))
-
         .pipe($.plumber({errorHandler: onError}))
         .pipe($.image())
         .pipe(gulp.dest(config.paths.dist.img));
@@ -106,7 +137,7 @@ gulp.task('scripts', function () {
         return gulp.src(entry.src)
             .pipe($.newer(config.paths.dist.js + '/' + entry.name))
             .pipe($.tap((file) => {
-                $.fancyLog($.chalk.cyan('Merging script ') + $.chalk.blue(path.relative(file.cwd, file.path)) + ' into ' + $.chalk.green(config.paths.dist.js + '/' + entry.name));
+                logFileTo('Merging script', file, config.paths.dist.js + '/' + entry.name);
             }))
             .pipe($.plumber({errorHandler: onError}))
             .pipe($.uglify({mangle: false}))
@@ -159,7 +190,7 @@ gulp.task('criticalcss', (callback) => {
 function generateCriticalCSS(data, i, callback) {
     const src = config.url + data.url;
     const dest = config.paths.src.themeFolder + '/snippets/criticalcss-' + data.template + '.twig';
-    $.fancyLog($.chalk.cyan('Critical CSS ') + $.chalk.magenta(src) + ' to ' + $.chalk.magenta(dest));
+    logFileTo('Critical CSS', src, dest);
 
     $.penthouse({
         url: src,
@@ -241,7 +272,7 @@ gulp.task('export-theme', () => {
         return gulp.src(entry.src)
             .pipe($.newer(config.export.dist + '/' + entry.src))
             .pipe($.tap((file) => {
-                $.fancyLog($.chalk.cyan('exporting the file ') + $.chalk.blue(path.relative(file.cwd, file.path)) + ' to ' + $.chalk.green(config.export.dest + '/' + entry.dest))
+                logFileTo('Exporting the file', file, config.export.dest + '/' + entry.dest);
             }))
             .pipe($.plumber({errorHandler: onError}))
             .pipe(gulp.dest(config.export.dest + '/' + entry.dest));
@@ -273,7 +304,10 @@ gulp.task('svg-icon-sprite', () => {
         }))
         .pipe($.svgstore({ inlineSvg: true }))
         .pipe($.rename('svg-icons.twig'))
-        .pipe(gulp.dest(config.paths.src.themeFolder + '/snippets'));
+        .pipe(gulp.dest(config.paths.src.themeFolder + '/snippets'))
+        .pipe($.tap((file) => {
+            logFile(file, 'Generated SVG Twig File');
+        }));
 });
 
 /**
