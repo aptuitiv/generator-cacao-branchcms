@@ -252,8 +252,7 @@ gulp.task('export-theme', () => {
 
 /**
  * Take the icons in src/icons folder and generate an SVG sprite from them.
- * Insert the SVG sprite into the header where the following code is:
- * <!-- inject:svg --><!-- endinject -->
+ * Insert the SVG sprite into a snippet
  */
 gulp.task('svg-icon-sprite', () => {
     return gulp.src(config.paths.src.base + '/icons/**/*.svg')
