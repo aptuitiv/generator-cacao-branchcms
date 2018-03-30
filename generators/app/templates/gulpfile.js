@@ -1,6 +1,5 @@
 // Configuration
 const config = require('./config.js');
-const fontelloConfig = require('./' + config.paths.src.fontello);
 
 // Load gulp
 const gulp = require('gulp');
@@ -15,6 +14,7 @@ const $ = require('gulp-load-plugins')({
 // Load node packages
 const del = require('del');
 const path = require('path');
+const fs = require('fs');
 
 // Error handler
 const onError = (err) => {
@@ -36,6 +36,34 @@ const banner = [
 function logFile(file, prefix) {
     prefix = prefix || 'Using'
     $.fancyLog($.chalk.cyan(prefix) + ' ' + $.chalk.magenta(path.relative(file.cwd, file.path)));
+}
+/**
+ * Process an array of data synchronously.
+ *
+ * @link https://gist.github.com/steve-taylor/5075717
+ * Updated slightly to be ES6
+ *
+ * @param data An array of data.
+ * @param processData A function that processes an item of data.
+ *                    Signature: function(item, i, callback), where {@code item} is the i'th item,
+ *                               {@code i} is the loop index value and {@code calback} is the
+ *                               parameterless function to call on completion of processing an item.
+ */
+function doSynchronousLoop(data, processData, done) {
+    if (data.length > 0) {
+        const loop = (data, i, processData, done) => {
+            processData(data[i], i, () => {
+                if (++i < data.length) {
+                    loop(data, i, processData, done);
+                } else {
+                    done();
+                }
+            });
+        };
+        loop(data, 0, processData, done);
+    } else {
+        done();
+    }
 }
 
 /**
@@ -100,7 +128,7 @@ var processors = [
     $.postcssCssnext()
 ];
 
-gulp.task('buildcss', ['stylelint'], function () {
+gulp.task('css', ['stylelint'], () => {
     return gulp.src(config.paths.src.css)
         .pipe($.tap((file) => {
             logFile(file, 'Build CSS');
@@ -108,23 +136,52 @@ gulp.task('buildcss', ['stylelint'], function () {
         .pipe($.plumber({errorHandler: onError}))
         .pipe($.postcss(processors))
         .pipe($.rename('main.css'))
-        .pipe(gulp.dest(config.paths.build.css));
-});
-
-gulp.task('css', ['buildcss'], () => {
-    return gulp.src([
-            config.paths.build.css + '/' + config.cssName,
-            config.paths.build.fontello + '/css/icon.css'
-        ])
-        .pipe($.tap((file) => {
-            $.fancyLog($.chalk.cyan('Merging CSS ') + $.chalk.blue(path.relative(file.cwd, file.path)) + ' into ' + $.chalk.green(config.paths.dist.css + '/' + config.cssName));
-        }))
-        .pipe($.plumber({errorHandler: onError}))
-        .pipe($.concat(config.cssName))
         .pipe($.cleanCss({level: 2, compatibility: 'ie8'}))
         .pipe($.header(banner))
         .pipe(gulp.dest(config.paths.dist.css))
 });
+
+/**
+ * Generate the critical CSS for each template
+ */
+gulp.task('criticalcss', (callback) => {
+    doSynchronousLoop(config.criticalCss, generateCriticalCSS, () => {
+        callback();
+    });
+});
+
+/**
+ * Generate the critical CSS
+ * @param {object} data The template data
+ * @param {integer} i The loop value index
+ * @param {function} callback The parameterless function to call on completion
+ */
+function generateCriticalCSS(data, i, callback) {
+    const src = config.url + data.url;
+    const dest = config.paths.src.themeFolder + '/snippets/criticalcss-' + data.template + '.twig';
+    $.fancyLog($.chalk.cyan('Critical CSS ') + $.chalk.magenta(src) + ' to ' + $.chalk.magenta(dest));
+
+    $.penthouse({
+        url: src,
+        css: config.paths.dist.css  + '/' + config.cssName,
+        width: 1200,
+        height: 800
+    })
+        .then(criticalCss => {
+            fs.writeFile(
+                dest,
+                '<style>' + criticalCss + '</style>',
+                (err) => {
+                    if (err) throw err;
+                }
+            );
+            callback();
+        })
+        .catch(err => {
+            $.fancyLog($.chalk.red('ERROR generating Critial CSS: ') + err);
+            callback();
+        });
+}
 
 /**
  * Stylesheet lint
@@ -174,23 +231,6 @@ gulp.task('pull-theme', function() {
         .pipe(gulp.dest(config.paths.src.themeFolder))
 });
 
-/**
- * Build fonts
- */
-gulp.task('fontello', (cb) => {
-    if (typeof fontelloConfig.glyphs !== 'undefined' && fontelloConfig.glyphs.length > 0) {
-        return gulp.src(config.paths.src.fontello)
-            .pipe($.fontello({font: 'fonts'}))
-            .pipe(gulp.dest(config.paths.build.fontello));
-    } else {
-        cb();
-    }
-});
-
-gulp.task('fonts', ['fontello'], () => {
-    return gulp.src(config.paths.build.fontello + '/fonts/**')
-        .pipe(gulp.dest(config.paths.dist.fonts));
-});
 <%_ if (isThemeWebsite) { _%>
 
 /**
@@ -209,6 +249,34 @@ gulp.task('export-theme', () => {
     return $.mergeStream(assets);
 });
 <% } %>
+
+/**
+ * Take the icons in src/icons folder and generate an SVG sprite from them.
+ * Insert the SVG sprite into the header where the following code is:
+ * <!-- inject:svg --><!-- endinject -->
+ */
+gulp.task('svg-icon-sprite', () => {
+    return gulp.src(config.paths.src.base + '/icons/**/*.svg')
+        .pipe($.tap((file) => {
+            logFile(file, 'SVG Icon Sprite');
+        }))
+        .pipe($.rename({prefix: 'icon-'}))
+        .pipe($.svgmin(function (file) {
+            var prefix = path.basename(file.relative, path.extname(file.relative));
+            return {
+                plugins: [{
+                    cleanupIDs: {
+                        prefix: prefix + '-',
+                        minify: true
+                    }
+                }]
+            }
+        }))
+        .pipe($.svgstore({ inlineSvg: true }))
+        .pipe($.rename('svg-icons.twig'))
+        .pipe(gulp.dest(config.paths.src.themeFolder + '/snippets'));
+});
+
 /**
  * Flattens an array and joins two together
  * @param {Array} prev
@@ -249,6 +317,11 @@ gulp.task('watch', function () {
         $.runSequence('copy', cb);
     });
 
+    // SVG Icons
+    $.globWatcher(config.paths.src.icon, function(cb) {
+        $.runSequence('svg-icon-sprite', cb);
+    });
+
     // Images
     $.globWatcher(config.paths.src.img, function(cb) {
         $.runSequence('images', cb);
@@ -283,9 +356,9 @@ var buildTasks = [
 ];
 
 gulp.task('build', function (cb) {
-    $.runSequence('fonts', buildTasks, cb);
+    $.runSequence(buildTasks, cb);
 });
 
 gulp.task('default', function (cb) {
-    $.runSequence('fonts', buildTasks, 'watch', cb);
+    $.runSequence(buildTasks, 'watch', cb);
 });
