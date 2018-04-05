@@ -27,7 +27,9 @@ module.exports = {
     paths: {
         src: {
             base: src,
-            css: [src + '/css/index.css'],
+            css: [
+                src + '/css/main.css'
+            ],
             icon: src + '/icons/**/*.svg',
             img: src + '/images/**/*.{png,jpg,gif,svg}',
             stylelint: [src + '/css/**/*.css'],
