@@ -20,6 +20,7 @@
         "gulp": "^3.9.1",
         "gulp-cached": "^1.1.1",
         "gulp-changed": "^3.2.1",
+        "gulp-changed-in-place": "^2.3.0",
         "gulp-clean-css": "^3.9.2",
         "gulp-concat": "^2.6.1",
         "gulp-fontello": "^0.4.6",

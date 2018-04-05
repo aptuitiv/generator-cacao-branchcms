@@ -162,14 +162,17 @@ var processors = [
 gulp.task('css', ['stylelint'], () => {
     var tasks = config.paths.src.css.map(function(cssFile) {
         return gulp.src(cssFile)
-            .pipe($.cached('css'))
             .pipe($.tap((file) => {
-                logFile(file, 'Build CSS');
+                logFile(file, 'Start Build CSS');
             }))
             .pipe($.plumber({errorHandler: onError}))
             .pipe($.postcss(processors))
             .pipe($.cleanCss({level: 2, compatibility: 'ie8'}))
+            .pipe($.changedInPlace({firstPass: true}))
             .pipe($.header(banner))
+            .pipe($.tap((file) => {
+                logFile(file, 'Output CSS');
+            }))
             .pipe(gulp.dest(config.paths.dist.css));
     });
     return $.mergeStream(tasks);
