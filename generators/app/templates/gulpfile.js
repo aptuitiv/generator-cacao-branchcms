@@ -203,22 +203,20 @@ function generateCriticalCSS(data, i, callback) {
         css: config.paths.dist.css  + '/' + config.cssName,
         renderWaitTime: 500,
         width: 1200,
-        height: 800
-    })
-        .then(criticalCss => {
-            fs.writeFile(
-                dest,
-                '<style>' + criticalCss + '</style>',
-                (err) => {
-                    if (err) throw err;
-                }
-            );
-            callback();
-        })
-        .catch(err => {
-            $.fancyLog($.chalk.red('ERROR generating Critial CSS: ') + err);
-            callback();
-        });
+        height: 1200
+    }).then(criticalCss => {
+        fs.writeFile(
+            dest,
+            '<style>' + criticalCss + '</style>',
+            (err) => {
+                if (err) throw err;
+            }
+        );
+        callback();
+    }).catch(err => {
+        $.fancyLog($.chalk.red('ERROR generating Critial CSS: ') + err);
+        callback();
+    });
 }
 
 /**
