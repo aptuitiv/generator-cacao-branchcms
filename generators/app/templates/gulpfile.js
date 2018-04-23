@@ -268,6 +268,17 @@ gulp.task('pull-theme', function() {
         .pipe(gulp.dest(config.paths.src.themeFolder))
 });
 
+/**
+ * Process the theme config file
+ */
+gulp.task('theme-config', () => {
+    return gulp.src(config.paths.src.base + '/theme.json')
+        .pipe($.tap((file) => {
+            logFile(file, 'Theme Config');
+        }))
+        .pipe(gulp.dest(config.paths.dist.base));
+});
+
 <%_ if (isThemeWebsite) { _%>
 
 /**
@@ -383,6 +394,11 @@ gulp.task('watch', function () {
         $.runSequence('theme', cb);
     }).on('unlink', function(file) {
         deleteFile(file, config.paths.src.theme, config.paths.dist.theme, 'theme file');
+    });
+
+    // Theme config
+    $.globWatcher(config.paths.src.base + '/theme.json', function(cb) {
+        $.runSequence('theme-config', cb);
     });
 });
 
