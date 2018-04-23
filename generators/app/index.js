@@ -225,6 +225,12 @@ module.exports = class extends Generator {
         const src = this.templatePath() + '/theme/';
         const dest = this.destinationPath() + '/src/theme/';
 
+        // Copy the theme.json file
+        this.fs.copy(
+            src + 'theme.json',
+            this.destinationPath() + '/src/theme.json'
+        );
+
         // Copy the default site template
         this.fs.copy(
             src + 'default.twig',
