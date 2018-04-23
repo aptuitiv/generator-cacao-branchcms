@@ -201,6 +201,7 @@ function generateCriticalCSS(data, i, callback) {
     $.penthouse({
         url: src,
         css: config.paths.dist.css  + '/' + config.cssName,
+        renderWaitTime: 500,
         width: 1200,
         height: 800
     })
