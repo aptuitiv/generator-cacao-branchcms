@@ -38,7 +38,7 @@
         "gulp-uglify": "^3.0.0",
         "merge-stream": "^1.0.1",
         "moment": "^2.20.1",
-        "penthouse": "^1.4.1",
+        "penthouse": "^1.4.2",
         "postcss-bem-linter": "^3.1.0",
         "postcss-cssnext": "^3.0.2",
         "postcss-import": "^11.0.0",
@@ -48,7 +48,7 @@
         "stylelint-order": "^0.8.1"
     },
     "dependencies": {
-        "cacao-css": "^3.5.0",<% if (includeDriftZoom) { %>
+        "cacao-css": "^3.6.0",<% if (includeDriftZoom) { %>
         "drift-zoom": "^1.2.0",<% } %>
         "jquery": "^3.2.1",
         "jquery-form": "^4.2.2",
