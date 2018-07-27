@@ -31,7 +31,7 @@ module.exports = {
                 src + '/css/main.css'
             ],
             icon: src + '/icons/**/*.svg',
-            img: src + '/images/**/*.{png,jpg,gif,svg}',
+            img: src + '/images/**/*.{png,jpg,jpeg,gif,svg}',
             stylelint: [src + '/css/**/*.css'],
             theme: src + '/theme/**/*.twig',
             themeFolder: src + '/theme'
