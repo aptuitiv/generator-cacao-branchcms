@@ -283,7 +283,7 @@ module.exports = class extends Generator {
      */
     _build() {
         this.log('\n\n' + chalk.bold('Running ' + chalk.yellow('gulp `build`') + ' task'));
-        this.spawnCommand('gulp', ['build']).on('close', () => {
+        this.spawnCommand('gulp', ['build', 'theme-config']).on('close', () => {
             this._done();
         });
     }
