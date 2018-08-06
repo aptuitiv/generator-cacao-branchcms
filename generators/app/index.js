@@ -43,7 +43,6 @@ module.exports = class extends Generator {
     initializing() {
         // Initialize configuration
         this.appName = 'Website';
-        this.installer = 'yarn';
 
         // If the app name was passed as an argument then set it here
         if (typeof this.options.name !== 'undefined') {
