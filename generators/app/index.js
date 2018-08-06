@@ -269,9 +269,14 @@ module.exports = class extends Generator {
             bower: false,
             yarn: hasYarn,
             skipMessage: true
-        }).then(() => {
-            this._build();
         });
+    }
+
+    /**
+     * Finish
+     */
+    end() {
+        this._build();
     }
 
     /**
