@@ -206,7 +206,7 @@ module.exports = class extends Generator {
                      */
                      
                     @import './theme';`;
-            this.fs.append(this.destinationPath() + '/src/css/index.css', stripIndent(themeInclude));
+            this.fs.append(this.destinationPath() + '/src/css/main.css', stripIndent(themeInclude));
 
             // Include the theme config files
             this.fs.copy(
