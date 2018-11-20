@@ -418,7 +418,7 @@
                         "fields": []
                     },
                     {
-                        "key": "2-columns-1-2-1-2-bottom-align-2",
+                        "key": "2-columns-1-2-1-2-bottom-align",
                         "name": "2 Columns (1\/2 - 1\/2) Bottom Align",
                         "type": "grid",
                         "template": "2-columns-1-2-1-2-bottom-align",
@@ -431,7 +431,7 @@
                         "fields": []
                     },
                     {
-                        "key": "2-columns-1-2-1-2-bottom-align-2-2",
+                        "key": "2-columns-1-2-1-2-center-align",
                         "name": "2 Columns (1\/2 - 1\/2) Center Align",
                         "type": "grid",
                         "template": "2-columns-1-2-1-2-center-align",
