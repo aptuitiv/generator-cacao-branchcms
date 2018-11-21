@@ -406,7 +406,7 @@ gulp.task('watch', function () {
  * Main build tasks
  */
 var buildTasks = [
-    'copy', 'images', 'scripts', 'css', 'stylelint', 'theme', 'push-theme'
+    'copy', 'images', 'scripts', 'css', 'stylelint', 'theme', 'push-theme', 'theme-config'
 ];
 
 gulp.task('build', function (cb) {
