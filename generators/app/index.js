@@ -167,19 +167,6 @@ module.exports = class extends Generator {
             this.destinationPath('.stylelintrc'),
         );
 
-        // Config.js
-        //this.fs.copyTpl(
-        //    this.templatePath('config.js'),
-        //    this.destinationPath('config.js'),
-        //    {
-        //        includeDriftZoom: this.includeDrift,
-        //        includeMagnific: this.includeMagnific,
-        //        includeSlick: this.includeSlick,
-        //        isThemeWebsite: this.isThemeWebsite
-        //    }
-        //);
-
-        this.fs.copy(
             this.templatePath() + '/gulp/**/*',
             this.destinationPath() + '/gulp',
             {
