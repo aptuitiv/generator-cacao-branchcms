@@ -32,7 +32,7 @@ module.exports = {
             ],
             font: src + '/fonts/**/*',
             icon: src + '/icons/**/*.svg',
-            img: src + '/images/**/*.{png,jpg,gif,svg}',
+            img: src + '/images/**/*.{gif,jpg,jpeg,png,svg,webp}',
             stylelint: [src + '/css/**/*.css'],
             theme: src + '/theme/**/*.twig',
             themeFolder: src + '/theme'
