@@ -19,7 +19,7 @@ module.exports = {
      * It should include the closing "/"
      * http://www.mysite.com/
      */
-    url: 'http://ridge-theme.branchcms.com',
+    url: 'http://harvest-theme.branchcms.com',
 
     /**
      * Paths for different asset sources and their distribution path
@@ -28,10 +28,10 @@ module.exports = {
         src: {
             base: src,
             css: [
-                src + '/css/main.css'
+                src + '/css/main.css',
             ],
             icon: src + '/icons/**/*.svg',
-            img: src + '/images/**/*.{png,jpg,jpeg,gif,svg}',
+            img: src + '/images/**/*.{png,jpg,gif,svg}',
             stylelint: [src + '/css/**/*.css'],
             theme: src + '/theme/**/*.twig',
             themeFolder: src + '/theme'
@@ -60,28 +60,28 @@ module.exports = {
      * dest is the folder within the root 'dist' folder to put
      */
     copy: [
-        <%_ if (includeDriftZoom) { _%>
-            {
-                src: ['node_modules/drift-zoom/dist/**/*.{min.css,min.js}'],
-                    dest: 'drift-zoom'
-            },
-        <%_ } _%>
-        <%_ if (includeMagnific) { _%>
+    <%_ if (includeDriftZoom) { _%>
         {
-            src: ['node_modules/magnific-popup/dist/**/*.{css,min.js}'],
-            dest: 'magnific'
+            src: ['node_modules/drift-zoom/dist/**/*.{min.css,min.js}'],
+            dest: 'drift-zoom'
         },
         <%_ } _%>
-        <%_ if (includeSlick) { _%>
-        {
-            src: ['node_modules/slick-carousel/slick/*.{css,min.js,gif}'],
-            dest: 'slick'
-        },
-        {
-            src: ['node_modules/slick-carousel/slick/fonts/*'],
-            dest: 'slick/fonts'
-        }
-        <%_ } _%>
+    <%_ if (includeMagnific) { _%>
+    {
+        src: ['node_modules/magnific-popup/dist/**/*.{css,min.js}'],
+        dest: 'magnific'
+    },
+    <%_ } _%>
+    <%_ if (includeSlick) { _%>
+    {
+        src: ['node_modules/slick-carousel/slick/*.{css,min.js,gif}'],
+        dest: 'slick'
+    },
+    {
+        src: ['node_modules/slick-carousel/slick/fonts/*'],
+        dest: 'slick/fonts'
+    }
+    <%_ } _%>
     ],
 
     /**
@@ -90,7 +90,7 @@ module.exports = {
      * 'url' is a sample URL of a page using that template to generate the critical CSS from
      */
     criticalCss: [
-        {'template': 'default', 'url': ''}
+        {'template': 'default', 'url': ''},
     ],
 
     <%_ if (isThemeWebsite) { _%>
@@ -119,8 +119,8 @@ module.exports = {
                 dest: ''
             },
             {
-                src: 'config.js',
-                dest: ''
+                src: 'gulp/**/*',
+                dest: 'gulp'
             },
             {
                 src: 'gulpfile.js',
@@ -132,7 +132,9 @@ module.exports = {
             }
         ]
     },
+
     <% } %>
+
     /**
      * Scripts to build
      * name: The name of the file to build
@@ -142,7 +144,7 @@ module.exports = {
         {
             name: 'main.js',
             src: [
-                src + '/scripts/modernizr-flexbox-detection.js',
+                src + '/js/modernizr-flexbox-detection.js',
                 'node_modules/jquery/dist/jquery.js',
                 src + '/js/main.js'
             ]

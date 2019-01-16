@@ -15,7 +15,6 @@ describe('generator-cacao-branchcms:app', () => {
             '.gitignore',
             '.stylelintrc',
             'package.json',
-            'config.js',
             'gulpfile.js'
         ]);
     });
