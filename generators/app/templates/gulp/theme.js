@@ -16,8 +16,8 @@ const mergeStream = require('merge-stream');
 const newer = require('gulp-newer');
 const plumber = require('gulp-plumber');
 const tap = require('gulp-tap');
-
 <%_ if (isThemeWebsite) { _%>
+
 /**
  * Exports the theme files to be used in another website
  * @returns {PassThrough}
@@ -92,7 +92,8 @@ pullTheme.description = 'Copies all the theme files from the dist theme director
 
 // Export
 module.exports = {
-    config: processThemeConfig,<%_ if (isThemeWebsite) { _%>
+    config: processThemeConfig,
+    <%_ if (isThemeWebsite) { _%>
     exportTheme: exportTheme,<% } %>
     pull: pullTheme,
     push: pushTheme,

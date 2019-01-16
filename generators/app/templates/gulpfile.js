@@ -74,7 +74,8 @@ module.exports = {
     copy: copy.copy,
     criticalCss: css.criticalCss,
     css: css.css,
-    exportTheme: theme.exportTheme,
+            <%_ if (isThemeWebsite) { _%>
+    exportTheme: theme.exportTheme,<% } %>
     images: image.images,
     pullTheme: theme.pull,
     pushTheme: theme.push,
