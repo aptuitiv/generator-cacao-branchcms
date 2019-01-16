@@ -8,6 +8,7 @@ const gulp = require('gulp');
 // Load gulp modules
 const css = require('./gulp/css');
 const copy = require('./gulp/copy');
+const font = require('./gulp/font');
 const image = require('./gulp/image');
 const js = require('./gulp/javascript');
 const svg = require('./gulp/svg');
@@ -24,6 +25,12 @@ function watch(done) {
 
     // CSS
     gulp.watch(config.paths.watch.css, {events: 'all'}, css.css);
+
+    // Fonts
+    gulp.watch(config.paths.src.font, {events: ['add', 'change']}, font.font)
+        .on('unlink', function(file) {
+            util.deleteFile(file, config.paths.src.font, config.paths.dist.font, 'font');
+        });
 
     // Images
     gulp.watch(config.paths.src.img, {events: ['add', 'change']}, image.images)
@@ -58,6 +65,7 @@ const build = gulp.series(
     gulp.parallel(
         copy.copy,
         css.css,
+        font.font,
         image.images,
         js.scripts,
         svg.sprite,
@@ -74,7 +82,8 @@ module.exports = {
     copy: copy.copy,
     criticalCss: css.criticalCss,
     css: css.css,
-            <%_ if (isThemeWebsite) { _%>
+    font: font.font,
+    <%_ if (isThemeWebsite) { _%>
     exportTheme: theme.exportTheme,<% } %>
     images: image.images,
     pullTheme: theme.pull,
