@@ -167,6 +167,7 @@ module.exports = class extends Generator {
             this.destinationPath('.stylelintrc'),
         );
 
+        this.fs.copyTpl(
             this.templatePath() + '/gulp/**/*',
             this.destinationPath() + '/gulp',
             {
