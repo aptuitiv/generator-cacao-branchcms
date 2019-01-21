@@ -44,22 +44,22 @@
 /* headings */
 
 :root {
-    --base-typography-h1-fontSize: 1.5em;
-    --base-typography-h2-fontSize: 1.4em;
-    --base-typography-h3-fontSize: 1.3em;
-    --base-typography-h4-fontSize: 1.1em;
-    --base-typography-h5-fontSize: 1em;
-    --base-typography-h6-fontSize: 1em;
+    --base-typography-h1-fontSize: var(--theme-typography-h1-fontSize);
+    --base-typography-h2-fontSize: var(--theme-typography-h2-fontSize);
+    --base-typography-h3-fontSize: var(--theme-typography-h3-fontSize);
+    --base-typography-h4-fontSize: var(--theme-typography-h4-fontSize);
+    --base-typography-h5-fontSize: var(--theme-typography-h5-fontSize);
+    --base-typography-h6-fontSize: var(--theme-typography-h6-fontSize);
     --base-typography-h1-lineHeight: 1.2;
     --base-typography-h2-lineHeight: 1.2;
     --base-typography-h3-lineHeight: 1.2;
     --base-typography-h4-lineHeight: 1.2;
     --base-typography-h5-lineHeight: 1.2;
     --base-typography-h6-lineHeight: 1.2;
-    --base-typography-heading-color: inherit;
-    --base-typography-heading-fontFamily: sans-serif;
-    --base-typography-heading-fontWeight: 700;
-    --base-typography-heading-letterSpacing: 0;
+    --base-typography-heading-color: var(--theme-typography-heading-color);
+    --base-typography-heading-fontFamily: var(--theme-typography-heading-fontFamily);
+    --base-typography-heading-fontWeight: var(--theme-typography-heading-fontWeight);
+    --base-typography-heading-letterSpacing: var(--theme-typography-heading-letterSpacing);
 }
 
 /* General
@@ -215,8 +215,8 @@ h3,
 h4,
 h5,
 h6 {
-    color: var(--theme-typography-heading-color);
-    font-family: var(--theme-typography-heading-fontFamily);
+    color: var(--base-typography-heading-color);
+    font-family: var(--base-typography-heading-fontFamily);
     font-weight: var(--base-typography-heading-fontWeight);
     letter-spacing: var(--base-typography-heading-letterSpacing);
     margin: calc(var(--base-typography-spacing) * 1.2) 0 calc(var(--base-typography-spacing) / 3);

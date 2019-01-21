@@ -49,6 +49,14 @@
 :root {
     --theme-typography-heading-color: var(--theme-primary-color);
     --theme-typography-heading-fontFamily: var(--theme-typography-fontFamily);
+    --theme-typography-heading-fontWeight: 700;
+    --theme-typography-heading-letterSpacing: 1px;
+    --theme-typography-h1-fontSize: 4.5rem;
+    --theme-typography-h2-fontSize: 3.5rem;
+    --theme-typography-h3-fontSize: 3rem;
+    --theme-typography-h4-fontSize: 2.5rem;
+    --theme-typography-h5-fontSize: 1.8rem;
+    --theme-typography-h6-fontSize: 1.8rem;
 }
 
 /* Main Navigation and Navigation Bar */
