@@ -1,0 +1,13 @@
+{%  include 'snippets/header' %}
+{% block header %}
+    {{ _page.content('header') }}
+{% endblock %}
+<div class="Container">
+    {% if _page.isHome == false %}
+        {{ _page.breadcrumb }}
+    {% endif %}
+    <div class="Content u-cf">
+        <main>{% block main %}{{ _page.content() }}{% endblock %}</main>
+    </div>
+</div>
+{%  include 'snippets/footer' %}

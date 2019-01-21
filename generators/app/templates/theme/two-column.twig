@@ -1,15 +1,19 @@
 {%  include 'snippets/header' %}
+{% block header %}
+    {{ _page.content('header') }}
+{% endblock %}
 <div class="Container">
     {% if _page.isHome == false %}
         {{ _page.breadcrumb }}
     {% endif %}
-    <div class="Content">
+    <div class="Content u-cf">
         <div class="Grid Grid--withGutterXlg">
             <div class="Grid-cell u-size3of4 u-md-sizeFull u-push1of4 u-md-pushNone">
-                {{ _page.content() }}
+                <main>{% block main %}{{ _page.content() }}{% endblock %}</main>
             </div>
             <div class="Grid-cell u-size1of4 u-md-sizeFull u-pull3of4 u-md-pullNone">
                 {{ _api.navigation.getSubNavigationByUrl.key('main').getParentItem('yes').showSubNav('yes').template('sidebar') }}
+                {% block sidebar %}{% endblock %}
             </div>
         </div>
     </div>
