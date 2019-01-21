@@ -5,6 +5,18 @@
 
 $(function() {
     smallScreenNav.init();
+
+    // Back to top link handler
+    var link = document.querySelector('.js-btop');
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+    });
 });
 
 /**
