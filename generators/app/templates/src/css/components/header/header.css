@@ -14,3 +14,7 @@
         padding: var(--g-gutter-sm);
     }
 }
+
+.Header-logo {
+    max-width: 480px;
+}

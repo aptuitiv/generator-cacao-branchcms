@@ -8,9 +8,14 @@
 .Footer {
     background: var(--theme-footer-bg);
     color: var(--theme-footer-color);
+    display: block;
     font-size: var(--theme-footer-font-size);
-    padding: 1.5rem var(--g-gutter);
+    letter-spacing: 1px;
+    padding: 30px var(--g-gutter);
+    position: relative;
     text-align: center;
+    text-transform: uppercase;
+    z-index: 10;
 }
 
 @media (--c-bp-sm) {
@@ -19,6 +24,13 @@
     }
 }
 
+.Footer-contact {
+    margin: 15px 0;
+}
+
+.Footer-logo {
+    max-width: 300px;
+}
 
 .Footer-link {
     color: #fff;
@@ -33,18 +45,24 @@
 }
 
 .Footer-credit {
+    font-size: .9em;
+    line-height: 1;
+    margin: 10px 0;
+}
+
+.Footer-creditLink {
     border-left: 1px solid #fff;
     display: inline-block;
     line-height: 1;
     padding: 0 1rem;
 }
 
-.Footer-credit:first-child {
+.Footer-creditLink:first-child {
     border-left: none;
 }
 
 @media (max-width: 750px) {
-    .Footer-credit {
+    .Footer-creditLink {
         border-left: none;
         display: block;
         line-height: 1.5;

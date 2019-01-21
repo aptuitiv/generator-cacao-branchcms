@@ -35,7 +35,7 @@
 
 
 {# ASSIGN MENU CLASS #}
-{% set menu.class = menu.class ~ ' MainNav js-mainNav' %}
+{% set menu.class = menu.class ~ ' MainNav js-mainNav MainNav--' ~ _core.theme.settings.navigationStyle %}
 <ul{{menu.class.attr}}{{ menu.id.attr }}>
     {% for item in items %}
         {# ASSIGN MENU ITEM CLASS #}

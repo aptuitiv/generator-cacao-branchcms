@@ -19,7 +19,7 @@
 
 .FooterNav {
     box-sizing: border-box;
-    display: inline-block;
+    display: block;
     font-size: var(--FooterNav-fontSize);
     line-height: var(--FooterNav-lineHeight);
     list-style: none;
