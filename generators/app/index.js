@@ -231,8 +231,12 @@ module.exports = class extends Generator {
 
         // Copy the default site template
         this.fs.copy(
-            src + 'default.twig',
-            dest + 'default.twig'
+            src + 'one-column.twig',
+            dest + 'one-column.twig'
+        );
+        this.fs.copy(
+            src + 'two-column.twig',
+            dest + 'two-column.twig'
         );
 
         // Copy the app templates
