@@ -168,7 +168,7 @@
                         "label": "Logo",
                         "type": "image",
                         "path": "images",
-                        "default": "\/theme\/custom\/images\/logo.svg"
+                        "default": "/theme/custom/images/logo.svg"
                     },
                     {
                         "name": "headerLogoSize",
@@ -177,10 +177,10 @@
                         "options": {
                             "auto": "Auto",
                             "full": "Full Width",
-                            "1of3": "1\/3 Width",
-                            "1of2": "1\/2 Width",
-                            "2of3": "2\/3 Width",
-                            "3of4": "3\/4 Width"
+                            "1of3": "1/3 Width",
+                            "1of2": "1/2 Width",
+                            "2of3": "2/3 Width",
+                            "3of4": "3/4 Width"
                         },
                         "default": "auto",
                         "description": "How much of the width of the header that the logo fills"
@@ -256,7 +256,7 @@
                         "label": "Logo",
                         "type": "image",
                         "path": "images",
-                        "default": "\/theme\/custom\/images\/logo.svg"
+                        "default": "/theme/custom/images/logo.svg"
                     },
                     {
                         "name": "footerLogoSize",
@@ -265,10 +265,10 @@
                         "options": {
                             "auto": "Auto",
                             "full": "Full Width",
-                            "1of3": "1\/3 Width",
-                            "1of2": "1\/2 Width",
-                            "2of3": "2\/3 Width",
-                            "3of4": "3\/4 Width"
+                            "1of3": "1/3 Width",
+                            "1of2": "1/2 Width",
+                            "2of3": "2/3 Width",
+                            "3of4": "3/4 Width"
                         },
                         "default": "auto",
                         "description": "How much of the width of the footer that the logo fills"
@@ -426,7 +426,7 @@
                                 "name": "Image",
                                 "type": "image",
                                 "configuration": {
-                                    "path": "\/images",
+                                    "path": "/images",
                                     "width": 1200
                                 },
                                 "value": "",
@@ -548,7 +548,7 @@
                                         "name": "Image",
                                         "type": "image",
                                         "configuration": {
-                                            "path": "\/images\/staff",
+                                            "path": "/images/staff",
                                             "height": 500,
                                             "width": 500
                                         },
@@ -676,7 +676,7 @@
                                         "name": "Image",
                                         "type": "image",
                                         "configuration": {
-                                            "path": "\/images\/grid",
+                                            "path": "/images/grid",
                                             "height": 500,
                                             "width": 500
                                         },
@@ -832,7 +832,7 @@
                                         "name": "Image",
                                         "type": "image",
                                         "configuration": {
-                                            "path": "\/images\/grid",
+                                            "path": "/images/grid",
                                             "height": 500,
                                             "width": 500
                                         },
@@ -979,7 +979,7 @@
                                         "name": "Image",
                                         "type": "image",
                                         "configuration": {
-                                            "path": "\/images\/slides",
+                                            "path": "/images/slides",
                                             "height": 600,
                                             "width": 600
                                         },
@@ -1191,7 +1191,7 @@
                                         "name": "Image",
                                         "type": "image",
                                         "configuration": {
-                                            "path": "\/images\/staff",
+                                            "path": "/images/staff",
                                             "height": 500,
                                             "width": 500
                                         },
@@ -1223,7 +1223,7 @@
                                 "name": "Image",
                                 "type": "image",
                                 "configuration": {
-                                    "path": "\/images",
+                                    "path": "/images",
                                     "height": 400,
                                     "width": 400
                                 },
@@ -1264,6 +1264,123 @@
                                 },
                                 "value": "",
                                 "description": ""
+                            }
+                        ]
+                    },
+                    {
+                        "key": "featured-content-wrapper",
+                        "name": "Featured Content Wrapper",
+                        "type": "grid",
+                        "template": "featured-content-wrapper",
+                        "enabled": true,
+                        "parse": true,
+                        "columns": "1",
+                        "sizes": "12",
+                        "size": "12",
+                        "description": "",
+                        "fields": []
+                    },
+                    {
+                        "key": "featured-text",
+                        "name": "Featured Text",
+                        "type": "full",
+                        "template": "featured-text",
+                        "enabled": true,
+                        "parse": false,
+                        "description": "",
+                        "fields": [
+                            {
+                                "key": "content",
+                                "name": "Content",
+                                "type": "textarea",
+                                "configuration": {
+                                    "allowCode": "no"
+                                },
+                                "value": "",
+                                "description": ""
+                            },
+                            {
+                                "key": "subTitle",
+                                "name": "Sub Title",
+                                "type": "text",
+                                "configuration": {
+                                    "allowCode": "no"
+                                },
+                                "value": "",
+                                "description": ""
+                            }
+                        ]
+                    },
+                    {
+                        "key": "columned-feature",
+                        "name": "Columned Feature",
+                        "type": "full",
+                        "template": "columned-feature",
+                        "enabled": true,
+                        "parse": true,
+                        "description": "",
+                        "fields": [
+                            {
+                                "key": "columns",
+                                "name": "Columns",
+                                "type": "repeating",
+                                "configuration": {
+                                    "collectionItemSort": "1",
+                                    "collectionItemDelete": "1",
+                                    "collectionMinNumItems": "",
+                                    "collectionMaxNumItems": 4,
+                                    "collectionOrientation": "vertical"
+                                },
+                                "value": "",
+                                "description": "",
+                                "fields": [
+                                    {
+                                        "key": "heading",
+                                        "name": "Heading",
+                                        "type": "text",
+                                        "configuration": {
+                                            "allowCode": "no"
+                                        },
+                                        "value": "",
+                                        "description": ""
+                                    },
+                                    {
+                                        "key": "image",
+                                        "name": "Image",
+                                        "type": "image",
+                                        "configuration": {
+                                            "path": "/images/columned-feature",
+                                            "height": 400,
+                                            "width": 400
+                                        },
+                                        "value": "",
+                                        "description": ""
+                                    },
+                                    {
+                                        "key": "content",
+                                        "name": "Content",
+                                        "type": "richTextEditor",
+                                        "value": "",
+                                        "description": ""
+                                    },
+                                    {
+                                        "key": "link",
+                                        "name": "Link",
+                                        "type": "url",
+                                        "value": "",
+                                        "description": ""
+                                    },
+                                    {
+                                        "key": "buttonText",
+                                        "name": "Button Text",
+                                        "type": "text",
+                                        "configuration": {
+                                            "allowCode": "no"
+                                        },
+                                        "value": "Learn More",
+                                        "description": ""
+                                    }
+                                ]
                             }
                         ]
                     }
@@ -1389,7 +1506,7 @@
                 "elements": [
                     {
                         "key": "_bd-grid2-12-12",
-                        "name": "2 Columns (1\/2 - 1\/2)",
+                        "name": "2 Columns (1/2 - 1/2)",
                         "type": "grid",
                         "template": "2-columns-1-2-1-2",
                         "enabled": "1",
@@ -1402,7 +1519,7 @@
                     },
                     {
                         "key": "2-columns-1-2-1-2-bottom-align",
-                        "name": "2 Columns (1\/2 - 1\/2) Bottom Align",
+                        "name": "2 Columns (1/2 - 1/2) Bottom Align",
                         "type": "grid",
                         "template": "2-columns-1-2-1-2-bottom-align",
                         "enabled": "1",
@@ -1415,7 +1532,7 @@
                     },
                     {
                         "key": "2-columns-1-2-1-2-center-align",
-                        "name": "2 Columns (1\/2 - 1\/2) Center Align",
+                        "name": "2 Columns (1/2 - 1/2) Center Align",
                         "type": "grid",
                         "template": "2-columns-1-2-1-2-center-align",
                         "enabled": "1",
@@ -1428,7 +1545,7 @@
                     },
                     {
                         "key": "_bd-grid2-13-23",
-                        "name": "2 Columns (1\/3 - 2\/3)",
+                        "name": "2 Columns (1/3 - 2/3)",
                         "type": "grid",
                         "template": "2-columns-1-3-2-3",
                         "enabled": "1",
@@ -1441,7 +1558,7 @@
                     },
                     {
                         "key": "_bd-grid2-14-34",
-                        "name": "2 Columns (1\/4 - 3\/4)",
+                        "name": "2 Columns (1/4 - 3/4)",
                         "type": "grid",
                         "template": "2-columns-1-4-3-4",
                         "enabled": "1",
@@ -1454,7 +1571,7 @@
                     },
                     {
                         "key": "_bd-grid2-23-13",
-                        "name": "2 Columns (2\/3 - 1\/3)",
+                        "name": "2 Columns (2/3 - 1/3)",
                         "type": "grid",
                         "template": "2-columns-2-3-1-3",
                         "enabled": "1",
@@ -1467,7 +1584,7 @@
                     },
                     {
                         "key": "_bd-grid2-34-14",
-                        "name": "2 Columns (3\/4 - 1\/4)",
+                        "name": "2 Columns (3/4 - 1/4)",
                         "type": "grid",
                         "template": "2-columns-3-4-1-4",
                         "enabled": "1",
@@ -1480,7 +1597,7 @@
                     },
                     {
                         "key": "_bd-grid3-12-14-14",
-                        "name": "3 Columns (1\/2 - 1\/4 - 1\/4)",
+                        "name": "3 Columns (1/2 - 1/4 - 1/4)",
                         "type": "grid",
                         "template": "3-columns-1-2-1-4-1-4",
                         "enabled": "1",
@@ -1493,7 +1610,7 @@
                     },
                     {
                         "key": "_bd-grid3-13-13-13",
-                        "name": "3 Columns (1\/3 - 1\/3 - 1\/3)",
+                        "name": "3 Columns (1/3 - 1/3 - 1/3)",
                         "type": "grid",
                         "template": "3-columns-1-3-1-3-1-3",
                         "enabled": "1",
@@ -1506,7 +1623,7 @@
                     },
                     {
                         "key": "_bd-grid3-14-12-14",
-                        "name": "3 Columns (1\/4 - 1\/2 - 1\/4)",
+                        "name": "3 Columns (1/4 - 1/2 - 1/4)",
                         "type": "grid",
                         "template": "3-columns-1-4-1-2-1-4",
                         "enabled": "1",
@@ -1519,7 +1636,7 @@
                     },
                     {
                         "key": "_bd-grid3-14-14-12",
-                        "name": "3 Columns (1\/4 - 1\/4- 1\/2)",
+                        "name": "3 Columns (1/4 - 1/4- 1/2)",
                         "type": "grid",
                         "template": "3-columns-1-4-1-4-1-2",
                         "enabled": "1",
@@ -1532,7 +1649,7 @@
                     },
                     {
                         "key": "_bd-grid4-14-14-14-14",
-                        "name": "4 Columns (1\/4 - 1\/4 - 1\/4 - 1\/4)",
+                        "name": "4 Columns (1/4 - 1/4 - 1/4 - 1/4)",
                         "type": "grid",
                         "template": "4-columns-1-4-1-4-1-4-1-4",
                         "enabled": "1",
@@ -1545,7 +1662,7 @@
                     },
                     {
                         "key": "_bd-grid5-15-15-15-15-15",
-                        "name": "5 Columns (1\/5 - 1\/5 - 1\/5 - 1\/5 - 1\/5)",
+                        "name": "5 Columns (1/5 - 1/5 - 1/5 - 1/5 - 1/5)",
                         "type": "grid",
                         "template": "5-columns-1-5-1-5-1-5-1-5-1-5",
                         "enabled": "1",
@@ -1558,7 +1675,7 @@
                     },
                     {
                         "key": "_bd-grid6-16-16-16-16-16-16",
-                        "name": "6 Columns (1\/6 - 1\/6 - 1\/6 - 1\/6 - 1\/6 - 1\/6)",
+                        "name": "6 Columns (1/6 - 1/6 - 1/6 - 1/6 - 1/6 - 1/6)",
                         "type": "grid",
                         "template": "6-columns-1-6-1-6-1-6-1-6-1-6-1-6",
                         "enabled": "1",
@@ -1594,202 +1711,202 @@
             ]
         },
         {
-            "key": "snippets\/footer",
+            "key": "snippets/footer",
             "name": "footer"
         },
         {
-            "key": "snippets\/header",
+            "key": "snippets/header",
             "name": "header"
         },
         {
-            "key": "snippets\/pagination",
+            "key": "snippets/pagination",
             "name": "pagination"
         },
         {
-            "key": "snippets\/svg-icons",
+            "key": "snippets/svg-icons",
             "name": "svg-icons"
         },
         {
-            "key": "navigation\/embeded-navigation",
+            "key": "navigation/embeded-navigation",
             "name": "Embeded Navigation"
         },
         {
-            "key": "navigation\/sidebar",
+            "key": "navigation/sidebar",
             "name": "Sidebar"
         },
         {
-            "key": "navigation\/main",
+            "key": "navigation/main",
             "name": "Main"
         },
         {
-            "key": "navigation\/footer",
+            "key": "navigation/footer",
             "name": "Footer"
         },
         {
-            "key": "content-builder\/content",
+            "key": "content-builder/content",
             "name": "Content"
         },
         {
-            "key": "content-builder\/form",
+            "key": "content-builder/form",
             "name": "Form"
         },
         {
-            "key": "content-builder\/full-width-image",
+            "key": "content-builder/full-width-image",
             "name": "Full Width Image"
         },
         {
-            "key": "content-builder\/html-code",
+            "key": "content-builder/html-code",
             "name": "HTML Code"
         },
         {
-            "key": "content-builder\/iframe-embed",
+            "key": "content-builder/iframe-embed",
             "name": "Iframe Embed"
         },
         {
-            "key": "content-builder\/media-embed",
+            "key": "content-builder/media-embed",
             "name": "Media Embed"
         },
         {
-            "key": "content-builder\/small-image",
+            "key": "content-builder/small-image",
             "name": "Small Image"
         },
         {
-            "key": "content-builder\/spacer",
+            "key": "content-builder/spacer",
             "name": "Spacer"
         },
         {
-            "key": "content-builder\/heading-1",
+            "key": "content-builder/heading-1",
             "name": "Heading 1"
         },
         {
-            "key": "content-builder\/heading-2",
+            "key": "content-builder/heading-2",
             "name": "Heading 2"
         },
         {
-            "key": "content-builder\/heading-3",
+            "key": "content-builder/heading-3",
             "name": "Heading 3"
         },
         {
-            "key": "content-builder\/heading-4",
+            "key": "content-builder/heading-4",
             "name": "Heading 4"
         },
         {
-            "key": "content-builder\/heading-5",
+            "key": "content-builder/heading-5",
             "name": "Heading 5"
         },
         {
-            "key": "content-builder\/heading-6",
+            "key": "content-builder/heading-6",
             "name": "Heading 6"
         },
         {
-            "key": "content-builder\/2-columns-1-2-1-2",
-            "name": "2 Columns (1\/2 - 1\/2)"
+            "key": "content-builder/2-columns-1-2-1-2",
+            "name": "2 Columns (1/2 - 1/2)"
         },
         {
-            "key": "content-builder\/2-columns-1-2-1-2-bottom-align",
-            "name": "2 Columns (1\/2 - 1\/2) Bottom Align"
+            "key": "content-builder/2-columns-1-2-1-2-bottom-align",
+            "name": "2 Columns (1/2 - 1/2) Bottom Align"
         },
         {
-            "key": "content-builder\/2-columns-1-2-1-2-center-align",
-            "name": "2 Columns (1\/2 - 1\/2) Center Align"
+            "key": "content-builder/2-columns-1-2-1-2-center-align",
+            "name": "2 Columns (1/2 - 1/2) Center Align"
         },
         {
-            "key": "content-builder\/2-columns-1-3-2-3",
-            "name": "2 Columns (1\/3 - 2\/3)"
+            "key": "content-builder/2-columns-1-3-2-3",
+            "name": "2 Columns (1/3 - 2/3)"
         },
         {
-            "key": "content-builder\/2-columns-1-4-3-4",
-            "name": "2 Columns (1\/4 - 3\/4)"
+            "key": "content-builder/2-columns-1-4-3-4",
+            "name": "2 Columns (1/4 - 3/4)"
         },
         {
-            "key": "content-builder\/2-columns-2-3-1-3",
-            "name": "2 Columns (2\/3 - 1\/3)"
+            "key": "content-builder/2-columns-2-3-1-3",
+            "name": "2 Columns (2/3 - 1/3)"
         },
         {
-            "key": "content-builder\/2-columns-3-4-1-4",
-            "name": "2 Columns (3\/4 - 1\/4)"
+            "key": "content-builder/2-columns-3-4-1-4",
+            "name": "2 Columns (3/4 - 1/4)"
         },
         {
-            "key": "content-builder\/3-columns-1-2-1-4-1-4",
-            "name": "3 Columns (1\/2 - 1\/4 - 1\/4)"
+            "key": "content-builder/3-columns-1-2-1-4-1-4",
+            "name": "3 Columns (1/2 - 1/4 - 1/4)"
         },
         {
-            "key": "content-builder\/3-columns-1-3-1-3-1-3",
-            "name": "3 Columns (1\/3 - 1\/3 - 1\/3)"
+            "key": "content-builder/3-columns-1-3-1-3-1-3",
+            "name": "3 Columns (1/3 - 1/3 - 1/3)"
         },
         {
-            "key": "content-builder\/3-columns-1-4-1-2-1-4",
-            "name": "3 Columns (1\/4 - 1\/2 - 1\/4)"
+            "key": "content-builder/3-columns-1-4-1-2-1-4",
+            "name": "3 Columns (1/4 - 1/2 - 1/4)"
         },
         {
-            "key": "content-builder\/3-columns-1-4-1-4-1-2",
-            "name": "3 Columns (1\/4 - 1\/4- 1\/2)"
+            "key": "content-builder/3-columns-1-4-1-4-1-2",
+            "name": "3 Columns (1/4 - 1/4- 1/2)"
         },
         {
-            "key": "content-builder\/4-columns-1-4-1-4-1-4-1-4",
-            "name": "4 Columns (1\/4 - 1\/4 - 1\/4 - 1\/4)"
+            "key": "content-builder/4-columns-1-4-1-4-1-4-1-4",
+            "name": "4 Columns (1/4 - 1/4 - 1/4 - 1/4)"
         },
         {
-            "key": "content-builder\/5-columns-1-5-1-5-1-5-1-5-1-5",
-            "name": "5 Columns (1\/5 - 1\/5 - 1\/5 - 1\/5 - 1\/5)"
+            "key": "content-builder/5-columns-1-5-1-5-1-5-1-5-1-5",
+            "name": "5 Columns (1/5 - 1/5 - 1/5 - 1/5 - 1/5)"
         },
         {
-            "key": "content-builder\/6-columns-1-6-1-6-1-6-1-6-1-6-1-6",
-            "name": "6 Columns (1\/6 - 1\/6 - 1\/6 - 1\/6 - 1\/6 - 1\/6)"
+            "key": "content-builder/6-columns-1-6-1-6-1-6-1-6-1-6-1-6",
+            "name": "6 Columns (1/6 - 1/6 - 1/6 - 1/6 - 1/6 - 1/6)"
         },
         {
-            "key": "content-builder\/large-image",
+            "key": "content-builder/large-image",
             "name": "Full Width Image"
         },
         {
-            "key": "content-builder\/content-grid",
+            "key": "content-builder/content-grid",
             "name": "Content Grid"
         },
         {
-            "key": "content-builder\/image-grid",
+            "key": "content-builder/image-grid",
             "name": "Image Grid"
         },
         {
-            "key": "content-builder\/image-grid-with-content",
+            "key": "content-builder/image-grid-with-content",
             "name": "Image Grid With Content"
         },
         {
-            "key": "content-builder\/staff",
+            "key": "content-builder/staff",
             "name": "Staff"
         },
         {
-            "key": "content-builder\/image-beside-content",
+            "key": "content-builder/image-beside-content",
             "name": "Image Beside Content"
         },
         {
-            "key": "content-builder\/image-slider",
+            "key": "content-builder/image-slider",
             "name": "Image Slider"
         },
         {
-            "key": "forms\/grid",
+            "key": "forms/grid",
             "name": "Grid"
         },
         {
-            "key": "forms\/label-above-field",
+            "key": "forms/label-above-field",
             "name": "Label Above Field"
         },
         {
-            "key": "content-layouts\/header",
+            "key": "content-layouts/header",
             "name": "Header"
         }
     ],
     "siteSettings": {
         "breadcrumb_active_template": "{{ item.text }}",
-        "breadcrumb_container_template": "<div class=\"breadcrumb\">{{ breadcrumb }}<\/div>",
-        "breadcrumb_custom_template": "<div class=\"Breadcrumb\">\n    {% for item in items %}\n        {% if item.isActive %}\n            {{ item.text }}\n        {% else %}\n            <a href=\"{{ item.link }}\" class=\"Breadcrumb-link\">{{ item.text }}<\/a> &gt;\n        {% endif %}\n    {% endfor %}\n<\/div>",
-        "breadcrumb_inactive_template": "<a href=\"{{ item.link }}\">{{ item.text }}<\/a>",
+        "breadcrumb_container_template": "<div class=\"breadcrumb\">{{ breadcrumb }}</div>",
+        "breadcrumb_custom_template": "<div class=\"Breadcrumb\">\n    {% for item in items %}\n        {% if item.isActive %}\n            {{ item.text }}\n        {% else %}\n            <a href=\"{{ item.link }}\" class=\"Breadcrumb-link\">{{ item.text }}</a> &gt;\n        {% endif %}\n    {% endfor %}\n</div>",
+        "breadcrumb_inactive_template": "<a href=\"{{ item.link }}\">{{ item.text }}</a>",
         "breadcrumb_separator": " &gt; ",
         "breadcrumb_template_type": "custom",
         "customFavicon": "",
         "doctype": "HTML5",
-        "navigationImagePath": "\/images\/navigation\/",
+        "navigationImagePath": "/images/navigation/",
         "public_admin_bar_enabled": "no",
-        "robotsText": "User-agent: *\nDisallow: \/",
+        "robotsText": "User-agent: *\nDisallow: /",
         "tinymce_allow_scripts": "0",
         "tinymce_allow_unsafe_link_target_protection": "1",
         "tinymce_block_classes": "",
@@ -1877,7 +1994,7 @@
         "tinymce_image_title": "0",
         "tinymce_import_stylesheets": [
             {
-                "import_file": "\/theme\/custom\/css\/main.css"
+                "import_file": "/theme/custom/css/main.css"
             }
         ],
         "tinymce_inline_classes": "",
@@ -1940,7 +2057,7 @@
                 {
                     "key": "displayType",
                     "name": "Display Type",
-                    "description": "\u201cSingle slide\u201d will display only the first slide content",
+                    "description": "“Single slide” will display only the first slide content",
                     "type": "select",
                     "size": "medium",
                     "value": "",
