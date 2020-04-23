@@ -18,23 +18,23 @@
         "branchcms"
     ],
     "devDependencies": {
-        "coveralls": "^3.0.2",
-        "eslint": "^5.12.0",
-        "eslint-config-xo": "^0.26.0",
-        "jest": "^23.6.0",
-        "jest-cli": "^23.6.0",
+        "coveralls": "^3.0.13",
+        "eslint": "^6.8.0",
+        "eslint-config-xo": "^0.29.1",
+        "jest": "^25.4.0",
+        "jest-cli": "^25.4.0",
         "nsp": "^3.2.1",
         "yeoman-assert": "^3.1.1",
-        "yeoman-test": "^1.9.1"
+        "yeoman-test": "^2.4.1"
     },
     "dependencies": {
-        "chalk": "^2.4.2",
-        "command-exists": "^1.2.8",
+        "chalk": "^4.0.0",
+        "command-exists": "^1.2.9",
         "cowsay": "^1.4.0",
-        "npm": "^6.5.0",
-        "strip-indent": "^2.0.0",
-        "update-notifier": "^2.5.0",
-        "yeoman-generator": "^3.2.0",
+        "npm": "^6.14.4",
+        "strip-indent": "^3.0.0",
+        "update-notifier": "^4.1.0",
+        "yeoman-generator": "^4.8.3",
         "yosay": "^2.0.2"
     },
     "jest": {
