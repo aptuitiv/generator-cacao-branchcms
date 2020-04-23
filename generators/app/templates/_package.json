@@ -21,10 +21,10 @@
         "gulp-cached": "^1.1.1",
         "gulp-changed": "^4.0.2",
         "gulp-changed-in-place": "^2.3.0",
-        "gulp-clean-css": "^4.2.0",
+        "gulp-clean-css": "^4.3.0",
         "gulp-concat": "^2.6.1",
         "gulp-header": "^2.0.9",
-        "gulp-image": "^6.0.0",
+        "gulp-image": "^6.1.0",
         "gulp-newer": "^1.4.0",
         "gulp-plumber": "^1.2.1",
         "gulp-postcss": "^8.0.0",
@@ -40,7 +40,7 @@
         "postcss-bem-linter": "^3.3.0",
         "postcss-import": "^12.0.1",
         "postcss-preset-env": "^6.7.0",
-        "stylelint": "^13.0.0",
+        "stylelint": "^13.2.1",
         "stylelint-order": "^4.0.0"
     },
     "dependencies": {
