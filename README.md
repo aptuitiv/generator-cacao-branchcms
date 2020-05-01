@@ -199,6 +199,22 @@ Add `is-` in front of each class. You will end up with something like:
 
 **Start Building!**
 
+## Updating this repository on NPM
+
+[Update the package version number](https://docs.npmjs.com/updating-your-published-package-version-number). Also see [npm-version CLI documentation](https://docs.npmjs.com/cli/version). 
+
+```
+npm version <update_type>
+```
+
+`<update_type>` could be one of `patch`, `minor`, `major`, `prepatch`, `preminor`, `premajor`, `prerelease`.
+
+[Publish the package to NPM](https://docs.npmjs.com/cli/publish).
+
+```
+npm publish
+```
+
 ## License
 
 MIT © [Aptuitiv](https://www.aptuitiv.com)
