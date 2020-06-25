@@ -45,10 +45,10 @@
     },
     "dependencies": {
         "cacao-css": "^3.6.1",<% if (includeDriftZoom) { %>
-        "drift-zoom": "^1.2.0",<% } %>
+        "drift-zoom": "^1.4.0",<% } %>
         "jquery": "^3.5.1",
         "jquery-form": "^4.3.0",
-        "jquery-validation": "^1.19.1"<% if (includeMagnific) { %>,
+        "jquery-validation": "^1.19.2"<% if (includeMagnific) { %>,
         "magnific-popup": "^1.1.0"<% } %><% if (includeSlick) { %>,
         "slick-carousel": "^1.8.1"<% } %>
     },
