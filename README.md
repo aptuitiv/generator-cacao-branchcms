@@ -203,7 +203,12 @@ Add `is-` in front of each class. You will end up with something like:
 
 Use `npm link` to do local development with this repository so that you can test your changes before pushing to NPM.
 
-- [Understanding npm-link](https://medium.com/dailyjs/how-to-use-npm-link-7375b6219557)
+Navigate to the folder for this repository on your computer. Run `npm link`.
+
+That will create a link between the repository folder and the global node_modules folder on your computer. You can now navigate to another folder outside this project and
+run `yo cacao-branchcms` and Yeoman will use the files from this project on your computer instead of package you may have installed globally from NPM.
+
+You will want to avoid installing this package from NPM globally on your computer as it may create problems with the `npm link`.
 
 ## Updating this repository on NPM
 
