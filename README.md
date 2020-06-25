@@ -199,6 +199,12 @@ Add `is-` in front of each class. You will end up with something like:
 
 **Start Building!**
 
+## Editing this Repository
+
+Use `npm link` to do local development with this repository so that you can test your changes before pushing to NPM.
+
+- [Understanding npm-link](https://medium.com/dailyjs/how-to-use-npm-link-7375b6219557)
+
 ## Updating this repository on NPM
 
 [Update the package version number](https://docs.npmjs.com/updating-your-published-package-version-number). Also see [npm-version CLI documentation](https://docs.npmjs.com/cli/version). 
