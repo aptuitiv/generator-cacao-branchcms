@@ -164,7 +164,7 @@ module.exports = class extends Generator {
         // Stylelint
         this.fs.copy(
             this.templatePath('_stylelintrc'),
-            this.destinationPath('.stylelintrc'),
+            this.destinationPath('.stylelintrc')
         );
 
         this.fs.copyTpl(
@@ -250,9 +250,11 @@ module.exports = class extends Generator {
         if (this.appBlog) {
             apps.push('blog');
         }
+
         if (this.appStore) {
             apps.push('store');
         }
+
         for (let app of apps) {
             this.fs.copy(
                 src + app + '/**/*',
