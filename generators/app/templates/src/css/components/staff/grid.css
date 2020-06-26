@@ -26,5 +26,5 @@
 .StaffGrid-icon:active,
 .StaffGrid-icon:focus,
 .StaffGrid-icon:hover {
-    color: var(--theme-typography-link-colorHover);
+    color: var(--base-typography-link-colorHover);
 }

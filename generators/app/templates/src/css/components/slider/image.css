@@ -2,12 +2,26 @@
     Image Slider
 \* =========================================================================== */
 
+:root {
+    --ImageSlider-background: #f2f2f2;
+    --ImageSlider-color: var(--base-typography-color);
+    --ImageSlider-title-background: inherit;
+    --ImageSlider-title-color: #fff;
+    --ImageSlider-title-background-hover: inherit;
+    --ImageSlider-title-color-hover: #fff;
+    --ImageSlider-title-font-size: 1.2em;
+    --ImageSlider-title-font-weight: 300;
+    --ImageSlider-hover-background: inherit;
+    --ImageSlider-hover-color: #fff;
+    --ImageSlider-cover-background: inherit;
+    --ImageSlider-cover-color: #fff;
+}
 
 /* @define ImageSlider */
 
 .ImageSlider {
-    background: var(--theme-image-slider-background);
-    color: var(--theme-image-slider-color);
+    background: var(--ImageSlider-background);
+    color: var(--ImageSlider-color);
 }
 
 .ImageSlider-inner {
@@ -59,11 +73,11 @@
 }
 
 .ImageSlider-title {
-    background: var(--theme-image-slider-title-background);
+    background: var(--ImageSlider-title-background);
     box-sizing: border-box;
-    color: var(--theme-image-slider-title-color);
-    font-size: var(--theme-image-slider-title-font-size);
-    font-weight: var(--theme-image-slider-title-font-weight);
+    color: var(--ImageSlider-title-color);
+    font-size: var(--ImageSlider-title-font-size);
+    font-weight: var(--ImageSlider-title-font-weight);
     letter-spacing: 1px;
     padding: 0 8px;
     text-align: center;
@@ -78,7 +92,7 @@
 }
 
 .ImageSlider-link {
-    color: var(--theme-image-slider-title-color);
+    color: var(--ImageSlider-title-color);
     display: block;
     text-decoration: none;
 }
@@ -86,8 +100,8 @@
 .ImageSlider-link:active,
 .ImageSlider-link:focus,
 .ImageSlider-link:hover {
-    background: var(--theme-image-slider-title-background-hover);
-    color: var(--theme-image-slider-title-color-hover);
+    background: var(--ImageSlider-title-background-hover);
+    color: var(--ImageSlider-title-color-hover);
     text-decoration: none;
 }
 
@@ -114,7 +128,7 @@
 .ImageSlider-gridContent .ImageSlider-link:focus,
 .ImageSlider-gridContent .ImageSlider-link:hover {
     background: transparent;
-    color: var(--theme-typography-color);
+    color: var(--base-typography-color);
 }
 
 .ImageSlider-gridContent .ImageSlider-link:active,
@@ -136,9 +150,9 @@
 }
 
 .ImageSlider-hoverContent {
-    background: var(--theme-image-slider-hover-background);
+    background: var(--ImageSlider-hover-background);
     box-sizing: border-box;
-    color: var(--theme-image-slider-hover-color);
+    color: var(--ImageSlider-hover-color);
     display: none;
     height: 100%;
     left: 0;
@@ -165,9 +179,9 @@
 .ImageSlider-hoverContentHeading:focus,
 .ImageSlider-hoverContentHeading:hover {
     background: transparent;
-    color: var(--theme-image-slider-hover-color);
-    font-size: var(--theme-image-slider-title-font-size);
-    font-weight: var(--theme-image-slider-title-font-weight);
+    color: var(--ImageSlider-hover-color);
+    font-size: var(--ImageSlider-title-font-size);
+    font-weight: var(--ImageSlider-title-font-weight);
     margin-bottom: 15px;
     position: relative;
     text-decoration: none;
@@ -175,7 +189,7 @@
 }
 
 .ImageSlider-hoverContentHeading::after {
-    border-top: 1px solid var(--theme-image-slider-title-color);
+    border-top: 1px solid var(--ImageSlider-title-color);
     bottom: -4px;
     content: '';
     left: 50%;
@@ -196,7 +210,7 @@
 .ImageSlider-hoverLink:active,
 .ImageSlider-hoverLink:focus,
 .ImageSlider-hoverLink:hover {
-    color: var(--theme-image-slider-hover-color);
+    color: var(--ImageSlider-hover-color);
     text-decoration: none;
 }
 
@@ -209,9 +223,9 @@
 }
 
 .ImageSlider-coverContent {
-    background: var(--theme-image-slider-cover-background);
+    background: var(--ImageSlider-cover-background);
     box-sizing: border-box;
-    color: var(--theme-image-slider-cover-color);
+    color: var(--ImageSlider-cover-color);
     height: 100%;
     left: 0;
     overflow: hidden;
@@ -238,9 +252,9 @@
 .ImageSlider-coverContentHeading:focus,
 .ImageSlider-coverContentHeading:hover {
     background: transparent;
-    color: var(--theme-image-slider-cover-color);
-    font-size: var(--theme-image-slider-title-font-size);
-    font-weight: var(--theme-image-slider-title-font-weight);
+    color: var(--ImageSlider-cover-color);
+    font-size: var(--ImageSlider-title-font-size);
+    font-weight: var(--ImageSlider-title-font-weight);
     margin-bottom: 15px;
     position: relative;
     text-decoration: none;
@@ -248,7 +262,7 @@
 }
 
 .ImageSlider-coverContentHeading::after {
-    border-top: 1px solid var(--theme-image-slider-title-color);
+    border-top: 1px solid var(--ImageSlider-title-color);
     bottom: -4px;
     content: '';
     left: 50%;
@@ -271,7 +285,7 @@
 .ImageSlider-coverLink:active,
 .ImageSlider-coverLink:focus,
 .ImageSlider-coverLink:hover {
-    color: var(--theme-image-slider-cover-color);
+    color: var(--ImageSlider-cover-color);
     text-decoration: none;
 }
 
