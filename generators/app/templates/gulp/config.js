@@ -19,7 +19,7 @@ module.exports = {
      * It should include the closing "/"
      * http://www.mysite.com/
      */
-    url: 'http://harvest-theme.branchcms.com',
+    url: 'https://www.mywebsite.com',
 
     /**
      * Paths for different asset sources and their distribution path
