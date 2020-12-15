@@ -25,6 +25,7 @@ const postcss = require('gulp-postcss');
 const postcssImport = require('postcss-import');
 const postcssCssNext = require('postcss-cssnext');
 const gulpStylelint = require('gulp-stylelint');
+const rename = require('gulp-rename');
 const tap = require('gulp-tap');
 
 
@@ -85,6 +86,7 @@ function processCss() {
             .pipe(cleanCss({level: 2, compatibility: 'ie8'}))
             .pipe(changedInPlace({firstPass: true}))
             .pipe(header(util.banner))
+            .pipe(rename(config.cssName))
             .pipe(tap((file) => {
                 util.logFile(file, 'Output CSS');
             }))
