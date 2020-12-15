@@ -2,6 +2,9 @@
     SLIDER
 \* =========================================================================== */
 
+:root {
+    --Slider-caption-small-screen-background: inherit;
+}
 
 /** @define Slider */
 
@@ -261,7 +264,7 @@
 
 @media (--c-bp-md) {
     .Slider-content {
-        background: var(--theme-slider-caption-small-screen-background);
+        background: var(--Slider-caption-small-screen-background);
         bottom: auto;
         display: block;
         left: auto;
