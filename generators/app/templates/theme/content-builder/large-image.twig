@@ -2,6 +2,7 @@
     {% set image.alt = caption %}
 {% endif %}
 {% set image.class = 'u-sizeFull' %}
+{% set image.loading = 'lazy' %}
 <div class="ImageWrapper">
     {{ image.tag }}
     {% if caption %}

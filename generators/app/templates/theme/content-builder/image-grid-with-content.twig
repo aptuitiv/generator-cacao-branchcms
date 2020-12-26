@@ -41,6 +41,7 @@
                 {% if column.displayImage == 'Fit' %}
                     {% set column.image.class = column.image.class ~ ' ImageGrid-image--fit' %}
                 {% endif %}
+                {% set column.image.loading = 'lazy' %}
             {% endif %}
             <div class="Grid-cell {{ class }} ImageGrid-col">
                 <div class="ImageGrid-item{% if displayContent == 'Behind Image' %} ImageGrid-hover{% elseif displayContent == 'Over Image' %} ImageGrid-cover{% else %} ImageGrid-withContent{% endif %}">

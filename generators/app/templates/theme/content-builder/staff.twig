@@ -8,6 +8,7 @@
             {% if person.image.alt|length == 0 %}
                 {% set person.image.alt = person.name %}
             {% endif %}
+            {% set person.image.loading = 'lazy' %}
             {% set person.image.class = 'u-sizeFull u-lg-sizeAuto u-sm-sizeFull' %}
         {% endif %}
         <div class="Grid Grid--withGutter u-margBottom3">

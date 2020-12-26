@@ -8,6 +8,8 @@
     {% set caption = '<div class="ImageCaption">' ~ caption ~ '</div>' %}
 {% endif %}
 
+{% set image.loading = 'lazy' %}
+
 {# Display the image based on alignment #}
 {% if alignment == 'Center' %}
     <div class="ImageWrapper ImageWrapper--center">{{ image.tag }}{{ caption }}</div>

@@ -6,6 +6,7 @@
             {% set row.image.alt = row.name %}
         {% endif %}
         {% set row.image.class = 'u-sizeFull u-lg-sizeAuto u-sm-sizeFull' %}
+        {% set row.image.loading = 'lazy' %}
     {% endif %}
     <div class="Grid Grid--withGutter u-margBottom3">
         {% if row.image %}
