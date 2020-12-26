@@ -120,6 +120,7 @@
 
     {{ form.closeTag }}
 </div>
+<div class="FormOverlay 'js-formOverlay"><div class="FormOverlay-text">Please wait&hellip;</div></div>
 
 {# JAVASCRIPT FILES #}
 
@@ -158,6 +159,7 @@ $(document).ready(function(){
             $('#errorContainer li').addClass('FormError-listItem');
         },
         submitHandler: function(form) {
+            $('.js-formOverlay').show();
             {% if form.captcha.type == 'recaptchaV3' %}
                 {# Call the Javascript Promise function to execute the reCAPTCHA #}
                 {{ form.captcha.script.function }}(grecaptcha).then(function() {
