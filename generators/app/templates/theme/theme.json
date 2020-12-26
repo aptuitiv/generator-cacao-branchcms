@@ -506,6 +506,13 @@
                                 "type": "iframeEmbed",
                                 "value": "",
                                 "description": "Description: Use this to embed an iframe like a Google Map iframe. Use the Media Embed element for YouTube videos or other media."
+                            },
+                            {
+                                "key": "title",
+                                "name": "Title",
+                                "type": "text",
+                                "value": "",
+                                "description": "This is like the \"Alt text\" for images, but for iframes."
                             }
                         ]
                     },
