@@ -203,7 +203,7 @@ module.exports = class extends Generator {
                     /**
                      * Theme configuration
                      */
-                     
+
                     @import './theme';`;
             this.fs.append(this.destinationPath() + '/src/css/main.css', stripIndent(themeInclude));
 
@@ -242,6 +242,7 @@ module.exports = class extends Generator {
         // Copy the app templates
         let apps = [
             'content-builder',
+            'content-layouts',
             'forms',
             'navigation',
             'search',
