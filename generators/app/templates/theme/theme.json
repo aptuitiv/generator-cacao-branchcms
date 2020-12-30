@@ -2135,11 +2135,17 @@
             "key": "header",
             "name": "Header",
             "description": "",
+            "availableOnSnippets": true,
+            "availableOnContentAreas": "specific",
+            "contentAreas": [
+                "header"
+            ],
+            "parseOnRequest": false,
             "attributes": [
                 {
                     "key": "displayType",
                     "name": "Display Type",
-                    "description": "“Single slide” will display only the first slide content",
+                    "description": "\"Single slide\" will display only the first slide content",
                     "type": "select",
                     "size": "medium",
                     "value": "",
