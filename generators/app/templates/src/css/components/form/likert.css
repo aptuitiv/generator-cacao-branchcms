@@ -8,6 +8,7 @@
 .LikertTbl {
     border-spacing: 0;
     height: auto !important;
+    margin-top: 20px;
 }
 
 .LikertTbl-heading {
