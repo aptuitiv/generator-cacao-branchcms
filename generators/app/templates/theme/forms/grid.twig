@@ -41,6 +41,30 @@
                     {% else %}
                         {{ field.tag|replace({"error": "is-invalid"}) }}
                     {% endif %}
+                {% elseif field.fieldType == 'likert' %}
+                    {{ field.label }}
+                    <table class="LikertTbl" cellpadding="0" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th class="LikertTbl-heading"><!--empty--></th>
+                            {% for option in field.options %}
+                                <th class="LikertTbl-heading">{{ option.value }}</th>
+                            {% endfor %}
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for likertField in field.childFields %}
+                            <tr class="LikertTbl-row">
+                                <td class="LikertTbl-item">{{ likertField.label }}</td>
+                                {% for option in likertField.options %}
+                                    <td class="LikertTbl-choice">
+                                        <label>{{  option.tagNoLabel }}<span class="u-hiddenVisually">{{ likertField.label }}: {{ option.label }}</span></label>
+                                    </td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
                 {% else %}
                     {{ field.tag|replace({"error": "is-invalid"}) }}
                 {% endif %}
