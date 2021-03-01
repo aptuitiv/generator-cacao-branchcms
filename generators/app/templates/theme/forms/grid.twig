@@ -209,7 +209,7 @@ loadjs.ready('form', {
                     $('.js-serverError').remove();
                     this.defaultShowErrors();
                     $('#errorContainer li').addClass('FormError-listItem');
-                }
+                },
                 submitHandler: function(form) {
                     $('.js-formOverlay').show();
                     {% if form.captcha.type == 'recaptchaV3' %}
