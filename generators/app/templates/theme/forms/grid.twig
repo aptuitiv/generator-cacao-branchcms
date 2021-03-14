@@ -1,7 +1,6 @@
 {# Display regular form fields #}
-{% macro buildField(field) %}
+{% macro buildFieldRow(field) %}
     {% if field.fieldType != "hidden" %}
-
         {% set field.class = field.class|replace({"error": "is-invalid"}) %}
         <div class="Grid Grid--withGutter u-margBottom2">
             <div class="Grid-cell u-size1of4 u-md-sizeFull">
@@ -13,66 +12,101 @@
                 {{ field.label.tag }}
             </div>
             <div class="Grid-cell u-size3of4 u-md-sizeFull">
-                {% if field.fieldType in ['email', 'number', 'password', 'tel', 'text', 'url'] %}
-                    {% set field.class = field.class ~ ' TextInput u-sizeFull' %}
-                    {{ field.tag }}
-                {%  elseif field.fieldType in ['date', 'datetime-local', 'month', 'time', 'week'] %}
-                    {% set field.class = field.class ~ ' TextInput' %}
-                    {{ field.tag }}
-                {% elseif field.fieldType == 'textarea' %}
-                    {% if field.size == 'small' %}
-                        {% set field.rows = 2 %}
-                    {% elseif field.size == 'medium' %}
-                        {% set field.rows = 5 %}
-                    {% elseif field.size == 'large' %}
-                        {% set field.rows = 10 %}
-                    {% endif %}
-                    {% set field.class = field.class ~ ' TextInput u-sizeFull' %}
-                    {{ field.tag }}
-                {% elseif field.fieldType == 'select' %}
-                    <div class="SelectInput u-sizeFull">
-                        {{ field.tag }}
-                    </div>
-                {% elseif field.fieldType == 'radio' or field.fieldType == 'multiCheckbox' %}
-                    {% if field.config.separator == 'space' %}
-                        {% for option in field.options %}
-                            <label class="u-padRight2">{{ option.tagNoLabel }} {{ option.label }}</label>
-                        {% endfor %}
-                    {% else %}
-                        {{ field.tag|replace({"error": "is-invalid"}) }}
-                    {% endif %}
-                {% elseif field.fieldType == 'likert' %}
-                    <table class="LikertTbl" cellpadding="0" cellspacing="0">
-                        <thead>
-                        <tr>
-                            <th class="LikertTbl-heading"><!--empty--></th>
-                            {% for option in field.options %}
-                                <th class="LikertTbl-heading">{{ option.value }}</th>
-                            {% endfor %}
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {% for likertField in field.childFields %}
-                            <tr class="LikertTbl-row">
-                                <td class="LikertTbl-item">{{ likertField.label }}</td>
-                                {% for option in likertField.options %}
-                                    <td class="LikertTbl-choice">
-                                        <label>{{  option.tagNoLabel }}<span class="u-hiddenVisually">{{ likertField.label }}: {{ option.label }}</span></label>
-                                    </td>
-                                {% endfor %}
-                            </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                {% else %}
-                    {{ field.tag|replace({"error": "is-invalid"}) }}
-                {% endif %}
-                {% if field.description %}<p class="u-margBottom0 u-fontSize2">{{ field.description }}</p>{% endif %}
+                {{ _self.buildField(field) }}
             </div>
         </div>
     {% else %}
         {{ field.tag }}
     {% endif %}
+{% endmacro %}
+
+{# Build out each field #}
+{% macro buildField(field) %}
+    {% if field.fieldType in ['email', 'number', 'password', 'tel', 'text', 'url'] %}
+        {% set field.class = field.class ~ ' TextInput u-sizeFull' %}
+        {{ field.tag }}
+    {%  elseif field.fieldType in ['date', 'datetime-local', 'month', 'time', 'week'] %}
+        {% set field.class = field.class ~ ' TextInput' %}
+        {{ field.tag }}
+    {% elseif field.fieldType == 'button' %}
+        {% set field.class = field.class ~ ' Button' %}
+        {{ field.tag }}
+    {% elseif field.fieldType == 'textarea' %}
+        {% if field.size == 'small' %}
+            {% set field.rows = 2 %}
+        {% elseif field.size == 'medium' %}
+            {% set field.rows = 5 %}
+        {% elseif field.size == 'large' %}
+            {% set field.rows = 10 %}
+        {% endif %}
+        {% set field.class = field.class ~ ' TextInput u-sizeFull' %}
+        {{ field.tag }}
+    {% elseif field.fieldType == 'select' %}
+        <div class="SelectInput u-sizeFull">
+            {{ field.tag }}
+        </div>
+    {% elseif field.fieldType == 'radio' or field.fieldType == 'multiCheckbox' %}
+        {% if field.config.separator == 'space' %}
+            {% for option in field.options %}
+                <label class="u-padRight2">{{ option.tagNoLabel }} {{ option.label }}</label>
+            {% endfor %}
+        {% else %}
+            {{ field.tag|replace({"error": "is-invalid"}) }}
+        {% endif %}
+    {% elseif field.fieldType == 'repeatingGrid' || field.fieldType == 'grid' %}
+        <div class="Grid Grid--withGutter">
+            {% for column in field.columns %}
+                {% set class = 'u-size1of' ~ loop.length  %}
+                {% if column.class %}
+                    {% if 'u-size' in column.class %}
+                        {% set class = column.class %}
+                    {% else %}
+                        {% set class = class ~ ' ' ~ column.class %}
+                    {% endif %}
+                {% endif %}
+                {% set class = class ~ ' u-md-sizeFull' %}
+                <div class="Grid-cell {{ class }}">
+                    {% for child in column.childFields %}
+                        <div class="u-margBottom2">
+                            {% set child.label.class = child.label.class ~ ' FormLabel FormLabel--block' %}
+                            {% if child.isRequired %}
+                                {% set child.required = true %}
+                                {% set child.label.text = child.label.text ~ ' <span class="FormRequired">*</span>' %}
+                            {% endif %}
+                            {{ child.label.tag }}
+                            {{ _self.buildField(child) }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    {% elseif field.fieldType == 'likert' %}
+        <table class="LikertTbl" cellpadding="0" cellspacing="0">
+            <thead>
+            <tr>
+                <th class="LikertTbl-heading"><!--empty--></th>
+                {% for option in field.options %}
+                    <th class="LikertTbl-heading">{{ option.value }}</th>
+                {% endfor %}
+            </tr>
+            </thead>
+            <tbody>
+            {% for likertField in field.childFields %}
+                <tr class="LikertTbl-row">
+                    <td class="LikertTbl-item">{{ likertField.label }}</td>
+                    {% for option in likertField.options %}
+                        <td class="LikertTbl-choice">
+                            <label>{{  option.tagNoLabel }}<span class="u-hiddenVisually">{{ likertField.label }}: {{ option.label }}</span></label>
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        {{ field.tag|replace({"error": "is-invalid"}) }}
+    {% endif %}
+    {% if field.description %}<p class="u-margBottom0 u-fontSize2">{{ field.description }}</p>{% endif %}
 {% endmacro %}
 
 {% import _self as macros %}
@@ -98,13 +132,13 @@
     <div class="js-fieldsContainer">
         {% for field in form.fields %}
             {% if field.isFormField %}
-                {{ macros.buildField(field) }}
+                {{ macros.buildFieldRow(field) }}
             {% else %}
                 {# Handle field groups separately as they have child fields to loop through #}
                 {% if field.fieldType == "fieldGroup" %}
                     {% for child in field.childFields %}
                         {% if child.isFormField %}
-                            {{ macros.buildField(child) }}
+                            {{ macros.buildFieldRow(field) }}
                         {% else %}
                             {# The child field is not an actual form field or a field group. It could be an HTML, Content or Section Heading field. Just output the tag. #}
                             {{ child.tag }}
