@@ -1,0 +1,46 @@
+{# Macro to build an accessible icon with a title #}
+{% macro iconImg(icon, title, class) %}
+    {% spaceless %}
+        {% set class = (class ~ ' Icon')|trim %}
+        {% set id = 'iconTitle-' ~ random_string(6) %}
+        <svg class="{{ class }}" role="img" alt="{{ title }}" aria-labelledby="{{ id }}" focusable="false"><title id="{{ id }}">{{ title }}</title><use xlink:href="#icon-{{ icon }}" /></svg>
+    {% endspaceless %}
+{% endmacro %}
+
+{# Macro to build an icon that should be hidden from screen readers #}
+{% macro iconAriaHidden(icon, class) %}
+    {% spaceless %}
+        {% set class = (class ~ ' Icon')|trim %}
+        <svg class="{{ class }}" aria-hidden="true" focusable="false"><use xlink:href="#icon-{{ icon }}" /></svg>
+    {% endspaceless %}
+{% endmacro %}
+
+{# Macro to load Slick Slider #}
+{% macro loadSlick() %}
+    {% if _page.hasJs('slick/slick.min.js'|theme_url) == false %}
+        {% do _page.addCss('/slick/slick.css'|theme_url, {'preload': true}) %}
+        {% inlinejs %}
+            loadjs.ready('main', {
+                success: function() {
+                    loadjs(['{{ 'slick/slick.min.js'|theme_url }}'], 'slickheader');
+                }
+            });
+        {% endinlinejs %}
+        {% do _page.registerJs('slick/slick.min.js'|theme_url) %}
+    {% endif %}
+{% endmacro %}
+
+{# Macro to load Magnific Popup #}
+{% macro loadMagnific() %}
+    {% if _page.hasJs('magnific/jquery.magnific-popup.min.js'|theme_url) == false %}
+        {% do _page.addCss('/magnific/magnific-popup.css'|theme_url, {'preload': true}) %}
+        {% inlinejs %}
+            loadjs.ready('main', {
+                success: function() {
+                    loadjs(['{{ 'magnific/jquery.magnific-popup.min.js'|theme_url }}'], 'magnific');
+                }
+            });
+        {% endinlinejs %}
+        {% do _page.registerJs('magnific/jquery.magnific-popup.min.js'|theme_url) %}
+    {% endif %}
+{% endmacro %}
