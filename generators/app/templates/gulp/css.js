@@ -86,7 +86,6 @@ function processCss() {
             .pipe(cleanCss({level: 2, compatibility: 'ie8'}))
             .pipe(changedInPlace({firstPass: true}))
             .pipe(header(util.banner))
-            .pipe(rename(config.cssName))
             .pipe(tap((file) => {
                 util.logFile(file, 'Output CSS');
             }))
