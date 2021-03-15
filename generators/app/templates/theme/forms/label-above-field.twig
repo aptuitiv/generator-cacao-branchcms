@@ -2,7 +2,7 @@
 {% macro buildField(field) %}
     {% if field.fieldType != "hidden" %}
         {% set field.class = field.class|replace({"error": "is-invalid"}) %}
-        <div class="u-margBottom2">
+        <div class="u-margBottom2{% if field.wrapperClass %} {{ field.wrapperClass }}{% endif %}">
             {% if field.fieldType != 'grid' and field.fieldType != 'repeatingGrid' %}
                 {# Don't show the Grid field type label  #}
                 {% set field.label.class = field.label.class ~ ' FormLabel FormLabel--block' %}
