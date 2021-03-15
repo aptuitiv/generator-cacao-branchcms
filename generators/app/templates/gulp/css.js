@@ -124,7 +124,7 @@ function generateCriticalCSS(data, i, callback) {
 
     penthouse({
         url: src,
-        css: config.paths.dist.css  + '/' + config.cssName,
+        css: config.paths.criticalCss.src,
         renderWaitTime: 500,
         width: 1200,
         height: 1200

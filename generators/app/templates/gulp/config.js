@@ -10,11 +10,6 @@ var dist = 'dist/theme/custom';
  */
 module.exports = {
     /**
-     * Holds the name of the CSS file to be generated
-     */
-    cssName: 'main.css',
-
-    /**
      * Holds the base URL for the site to use within the gulp scripts.
      * It should include the closing "/"
      * http://www.mysite.com/
@@ -40,6 +35,9 @@ module.exports = {
         build: {
             base: build,
             css: build + '/css'
+        },
+        criticalCss: {
+            src: dist + '/css/main.css'
         },
         dist: {
             base: dist,
