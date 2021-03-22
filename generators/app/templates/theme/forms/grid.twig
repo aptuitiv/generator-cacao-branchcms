@@ -1,6 +1,7 @@
 {# Display regular form fields #}
 {% macro buildFieldRow(field) %}
     {% if field.fieldType != "hidden" %}
+        {% import _self as macros %}
         {% set field.class = field.class|replace({"error": "is-invalid"}) %}
         <div class="Grid Grid--withGutter u-margBottom2{% if field.wrapperClass %} {{ field.wrapperClass }}{% endif %}">
             <div class="Grid-cell u-size1of4 u-md-sizeFull">
@@ -12,7 +13,7 @@
                 {{ field.label.tag }}
             </div>
             <div class="Grid-cell u-size3of4 u-md-sizeFull">
-                {{ _self.buildField(field) }}
+                {{ macros.buildField(field) }}
             </div>
         </div>
     {% else %}
@@ -54,6 +55,7 @@
             {{ field.tag|replace({"error": "is-invalid"}) }}
         {% endif %}
     {% elseif field.fieldType == 'repeatingGrid' || field.fieldType == 'grid' %}
+        {% import _self as macros %}
         <div class="Grid Grid--withGutter">
             {% for column in field.columns %}
                 {% set class = 'u-size1of' ~ loop.length  %}
@@ -74,7 +76,7 @@
                                 {% set child.label.text = child.label.text ~ ' <span class="FormRequired">*</span>' %}
                             {% endif %}
                             {{ child.label.tag }}
-                            {{ _self.buildField(child) }}
+                            {{ macros.buildField(child) }}
                         </div>
                     {% endfor %}
                 </div>
