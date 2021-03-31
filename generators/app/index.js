@@ -143,10 +143,22 @@ module.exports = class extends Generator {
             this.destinationPath('.editorconfig')
         );
 
+        // Eslint Config
+        this.fs.copy(
+            this.templatePath('_eslintrc.js'),
+            this.destinationPath('.eslintrc.js')
+        );
+
         // Gitignore
         this.fs.copy(
             this.templatePath('_gitignore'),
             this.destinationPath('.gitignore')
+        );
+
+        // Prettier Config
+        this.fs.copy(
+            this.templatePath('_prettierrc.js'),
+            this.destinationPath('.prettierrc.js')
         );
 
         // Package.json
