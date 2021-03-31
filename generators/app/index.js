@@ -148,6 +148,10 @@ module.exports = class extends Generator {
             this.templatePath('_eslintrc.js'),
             this.destinationPath('.eslintrc.js')
         );
+        this.fs.copy(
+            this.templatePath('eslintignore'),
+            this.destinationPath('.eslintignore')
+        );
 
         // Gitignore
         this.fs.copy(
@@ -159,6 +163,10 @@ module.exports = class extends Generator {
         this.fs.copy(
             this.templatePath('_prettierrc.js'),
             this.destinationPath('.prettierrc.js')
+        );
+        this.fs.copy(
+            this.templatePath('_prettierignore'),
+            this.destinationPath('._prettierignore')
         );
 
         // Package.json
