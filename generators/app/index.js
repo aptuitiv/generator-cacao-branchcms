@@ -149,7 +149,7 @@ module.exports = class extends Generator {
             this.destinationPath('.eslintrc.js')
         );
         this.fs.copy(
-            this.templatePath('eslintignore'),
+            this.templatePath('_eslintignore'),
             this.destinationPath('.eslintignore')
         );
 
