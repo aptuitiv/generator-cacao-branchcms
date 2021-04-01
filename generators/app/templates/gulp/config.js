@@ -113,7 +113,23 @@ module.exports = {
                 dest: ''
             },
             {
+                src: '.eslintignore',
+                dest: ''
+            },
+            {
+                src: '.eslintrc.js',
+                dest: ''
+            },
+            {
                 src: '.gitignore',
+                dest: ''
+            },
+            {
+                src: '.prettierignore',
+                dest: ''
+            },
+            {
+                src: '.prettierrc.js',
                 dest: ''
             },
             {
