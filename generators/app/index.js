@@ -18,6 +18,16 @@ module.exports = class extends Generator {
         // Noinspection JSAnnotator
         super(args, opts);
 
+        this.appName = 'Website';
+        this.isThemeWebsite = false;
+        this.includeDrift = false;
+        this.includeMagnific = false;
+        this.includeSlick = false;
+        this.appBlog = false;
+        this.appStore = false;
+        this.installWith = 'npm';
+
+
         // Check for newer versions of this generator and notify
         updateNotifier({pkg}).notify();
 
