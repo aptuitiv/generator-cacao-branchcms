@@ -86,7 +86,7 @@ module.exports = {
     <%_ if (isThemeWebsite) { _%>
     exportTheme: theme.exportTheme,<% } %>
     images: image.images,
-    jslint: js.jslint,  
+    jslint: js.jslint,
     pullTheme: theme.pull,
     pushTheme: theme.push,
     scripts: js.scripts,
