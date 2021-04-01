@@ -166,7 +166,7 @@ module.exports = class extends Generator {
         );
         this.fs.copy(
             this.templatePath('_prettierignore'),
-            this.destinationPath('._prettierignore')
+            this.destinationPath('.prettierignore')
         );
 
         // Package.json
