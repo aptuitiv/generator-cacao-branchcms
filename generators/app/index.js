@@ -51,9 +51,6 @@ module.exports = class extends Generator {
      * Initialization
      */
     initializing() {
-        // Initialize configuration
-        this.appName = 'Website';
-
         // If the app name was passed as an argument then set it here
         if (typeof this.options.name !== 'undefined') {
             this._setAppName(this.options.name);
@@ -78,6 +75,15 @@ module.exports = class extends Generator {
                 message: 'What is the name of the website project?'
             });
         }
+
+        // How to install packages - NPM or Yarn?
+        prompts.push({
+            type: 'list',
+            name: 'installwith',
+            message: 'Install packages with NPM or Yarn?',
+            choices: ['NPM', 'Yarn'],
+            default: 'NPM'
+        });
 
         // Is this a theme website for BranchCMS?
         prompts.push({
@@ -120,6 +126,7 @@ module.exports = class extends Generator {
             // Tests to see if a value was selected in an answer
             const hasAnswer = (val, test) => val && val.indexOf(test) !== -1;
 
+            this.installWith = answers.installwith.toLowerCase();
             this.isThemeWebsite = answers.istheme.toLowerCase() === 'yes';
 
             this.includeMagnific = hasAnswer(answers.libraries, 'magnific');
@@ -298,11 +305,12 @@ module.exports = class extends Generator {
      * Installation via yarn or npm
      */
     install() {
-        this.log('\n');
-        if (commandExists('yarn')) {
-            this.yarnInstall();
-        } else {
+        if (this.installWith === 'npm') {
+            this.log('\n' + chalk.bold('Installing with ' + chalk.yellow('NPM')) + '\n');
             this.npmInstall();
+        } else if (this.installWith === 'yarn') {
+            this.log('\n' + chalk.bold('Installing with ' + chalk.yellow('Yarn')) + '\n');
+            this.yarnInstall();
         }
     }
 
@@ -318,7 +326,7 @@ module.exports = class extends Generator {
      * @private
      */
     _build() {
-        this.log('\n\n' + chalk.bold('Running ' + chalk.yellow('gulp `build`') + ' task'));
+        this.log('\n\n' + chalk.bold('Running ' + chalk.yellow('gulp `build`') + ' task') + '\n');
         this.spawnCommand('gulp', ['build']).on('close', () => {
             this._done();
         });
