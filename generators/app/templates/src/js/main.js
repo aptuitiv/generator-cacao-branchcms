@@ -38,7 +38,7 @@ const smallScreenNav = {
         $('.js-dropdown').on('click', (e) => {
             if ($(window).width() <= self.width) {
                 e.preventDefault();
-                $(this)
+                $(e.target)
                     .toggleClass('is-active')
                     .parent()
                     .toggleClass('is-active');
