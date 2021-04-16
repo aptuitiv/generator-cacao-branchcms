@@ -18,7 +18,6 @@ const header = require('gulp-header');
 const mergeStream = require('merge-stream');
 const newer = require('gulp-newer');
 const plumber = require('gulp-plumber');
-const prettier = require('gulp-prettier');
 const remember = require('gulp-remember');
 const tap = require('gulp-tap');
 const terser = require('gulp-terser');
@@ -68,11 +67,6 @@ function scripts() {
     let tasks = config.scripts.map(function (entry, index) {
         return gulp.src(entry.src)
             .pipe(newer(config.paths.dist.js + '/' + entry.name))
-            // Run prettier
-            .pipe(tap((file) => {
-                util.logFile(file, 'JS Prettier');
-            }))
-            .pipe(prettier())
             // Lint the script using eslint
             .pipe(tap((file) => {
                 util.logFile(file, 'JS Linting');
