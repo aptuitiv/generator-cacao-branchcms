@@ -163,6 +163,7 @@ module.exports = {
             name: 'main.js',
             src: [
                 'node_modules/jquery/dist/jquery.js',
+                src + '/js/navigation.js',
                 src + '/js/main.js'
             ]
         },
