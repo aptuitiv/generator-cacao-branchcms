@@ -5,8 +5,9 @@
 /**
  * Small screen navigation
  */
+
 // eslint-disable-next-line
- const smallScreenNav = {
+const smallScreenNav = {
     button: null,
     /**
      * Holds the navigation object
@@ -26,24 +27,54 @@
      * Initialization
      */
     init() {
-        const self = this;
-        this.button = $('.js-ssNavBtn');
-        this.nav = $('.js-mainNav');
+        // The max window width where the small screen navigation is shown
+        const width = 1050;
 
-        this.button.on('click', (e) => {
-            e.preventDefault();
-            self.button.toggleClass('is-active');
-            self.nav.toggle();
+        // Select elements
+        const button = document.querySelector('.js-ssNavBtn');
+        const nav = document.querySelector('.js-mainNav');
+        const navLinks = document.querySelectorAll('.js-navLink');
+        const dropdowns = document.querySelectorAll('.js-dropdown');
+
+        // Make sure that the navigation gets displayed if the window resizes.
+        // If you resize to make the small screen nav display, show and hide the nav,
+        // and then resize so that regular nav should show, the regular nav doesn't show
+        // because there are inline styles on the nav to hide it.
+        // We do this by clearing out any inline CSS styles so that the styles
+        // from the stylesheet are used.
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= width) {
+                nav.style.display = '';
+                nav.style.opacity = '';
+            }
         });
 
-        $('.js-dropdown').on('click', (e) => {
-            if ($(window).width() <= self.width) {
-                e.preventDefault();
-                $(e.target)
-                    .toggleClass('is-active')
-                    .parent()
-                    .toggleClass('is-active');
+        // Function to toggle showing and hiding the small screen navigation
+        function toggleNav() {
+            button.classList.toggle('is-active');
+            if (nav.style.display === 'block') {
+                nav.style.display = 'none';
+            } else {
+                nav.style.display = 'block';
             }
+        }
+
+        if (button !== null) {
+            // Small screen nav menu (hamburger) button click
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                toggleNav();
+            });
+        }
+
+        Array.from(dropdowns).forEach((dropdown) => {
+            dropdown.addEventListener('click', (e) => {
+                if (window.innerWidth <= width) {
+                    e.preventDefault();
+                    e.target.classList.toggle('is-active');
+                    e.target.parentElement.classList.toggle('is-active');
+                }
+            });
         });
     },
 };
