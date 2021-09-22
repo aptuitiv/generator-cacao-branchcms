@@ -2140,7 +2140,7 @@
             "contentAreas": [
                 "banner"
             ],
-            "parseOnRequest": false,
+            "parseOnRequest": true,
             "attributes": [
                 {
                     "key": "displayType",
