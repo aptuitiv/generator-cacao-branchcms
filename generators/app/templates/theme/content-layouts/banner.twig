@@ -9,7 +9,13 @@
     {{ slide.images.medium.tag }}
     {% if slide.captionTitle or slide.caption  %}
         <span class="Slider-content Slider-content--{{ slide.captionPosition|camel }}">
-            {% if slide.captionTitle %}<span class="Slider-captionTitle">{{ slide.captionTitle }}</span>{% endif %}
+            {% if slide.captionTitle %}
+                {% if slide.captionHeading != false %}
+                    <h1 class="Slider-captionTitle">{{ slide.captionTitle }}</h1>
+                {% else %}
+                    <span class="Slider-captionTitle">{{ slide.captionTitle }}</span>
+                {% endif %}
+            {% endif %}
             {% if slide.caption %}<span class="Slider-caption">{{ slide.caption }}</span>{% endif %}
         </span>
     {% endif %}

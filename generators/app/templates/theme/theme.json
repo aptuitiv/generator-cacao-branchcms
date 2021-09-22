@@ -2451,6 +2451,20 @@
                             }
                         },
                         {
+                            "key": "captionHeading",
+                            "name": "Caption title is a heading",
+                            "description": "",
+                            "type": "selectYesNo",
+                            "configuration": {
+                                "yesNoSelectLabels": "yesno",
+                                "labels": "yesno",
+                                "yesNoSelectValue": "1",
+                                "defaultValue": "1"
+                            },
+                            "size": "medium",
+                            "value": ""
+                        },
+                        {
                             "key": "caption",
                             "name": "Caption",
                             "description": "",
