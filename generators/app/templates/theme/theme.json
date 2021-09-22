@@ -279,8 +279,8 @@
     },
     "contentAreas": [
         {
-            "key": "header",
-            "name": "Header"
+            "key": "banner",
+            "name": "Banner"
         }
     ],
     "contentBuilder": {
@@ -1735,7 +1735,7 @@
             "default": true,
             "adminBar": true,
             "contentAreas": [
-                "header"
+                "banner"
             ]
         },
         {
@@ -1744,7 +1744,7 @@
             "default": false,
             "adminBar": true,
             "contentAreas": [
-                "header"
+                "banner"
             ]
         },
         {
@@ -1928,8 +1928,8 @@
             "name": "2 Columns (1/2 - 1/2) Center Align"
         },
         {
-            "key": "content-layouts/header",
-            "name": "Header"
+            "key": "content-layouts/banner",
+            "name": "Banner"
         },
         {
             "key": "forms/grid",
@@ -2132,13 +2132,13 @@
     "appSettings": [],
     "contentLayouts": [
         {
-            "key": "header",
-            "name": "Header",
+            "key": "banner",
+            "name": "Banner",
             "description": "",
             "availableOnSnippets": true,
             "availableOnContentAreas": "specific",
             "contentAreas": [
-                "header"
+                "banner"
             ],
             "parseOnRequest": false,
             "attributes": [
@@ -2354,7 +2354,7 @@
                                     "value": "",
                                     "configuration": {
                                         "height": 720,
-                                        "path": "/images/header",
+                                        "path": "/images/banner",
                                         "width": 2000
                                     }
                                 },
@@ -2367,7 +2367,7 @@
                                     "value": "",
                                     "configuration": {
                                         "height": 432,
-                                        "path": "/images/header",
+                                        "path": "/images/banner",
                                         "width": 1200
                                     }
                                 },
@@ -2380,7 +2380,7 @@
                                     "value": "",
                                     "configuration": {
                                         "height": 216,
-                                        "path": "/images/header",
+                                        "path": "/images/banner",
                                         "width": 600
                                     }
                                 }
