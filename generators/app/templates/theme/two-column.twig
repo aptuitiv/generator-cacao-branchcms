@@ -1,7 +1,10 @@
-{%  include 'snippets/header' %}
+
+{% include 'snippets/header' %}
+
 {% block header %}
-    {{ _page.content('header') }}
+    {{ _page.content('banner') }}
 {% endblock %}
+
 <div class="Container">
     {% if _page.isHome == false %}
         {{ _page.breadcrumb }}
@@ -18,4 +21,5 @@
         </div>
     </div>
 </div>
-{%  include 'snippets/footer' %}
+
+{% include 'snippets/footer' %}
