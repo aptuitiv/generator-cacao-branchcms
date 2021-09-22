@@ -38,7 +38,11 @@
                 {{ macros.slide(slide) }}
             </div>
         </div>
-    {% elseif displayType == 'Slideshow' %}
+    {% elseif displayType == 'Slideshow' || displayType == 'Random slideshow' %}
+        {% if displayType == 'Random slideshow' %}
+            {% set slides = slides|shuffle %}
+        {% endif %}
+
         <div class="Slider js-slider">
             {% for slide in slides %}
                 <div class="Slider-slide{% if loop.index > 1 %} Slider-slide--hidden{% endif %}">
@@ -61,25 +65,24 @@
         {% endif %}
 
         {% inlinejs %}
-        loadjs.ready('slickheader', {
-            success: function() {
-                $(function() {
-                    $('.js-slider').slick({
-                        adaptiveHeight: true,
-                        arrows: {{ showArrows ? 'true' : 'false' }},
-                        autoplay: {{ autoPlaySlides ? 'true' : 'false' }},
-                        autoplaySpeed: {{ sliderSpeed ? sliderSpeed * 1000 : 4000 }},
-                        dots: {{ showDots ? 'true' : 'false' }},
-                        dotsClass: 'Slider-dots Slider-dots--{{ dotPosition|lower }}',
-                        fade: {{ slideTransition == 'Fade' ? 'true' : 'false' }},
-                        prevArrow: '<a href="#" class="Slider-nav Slider-navPrev"><svg class="Slider-navIcon Icon"><use xlink:href="#icon-chevron-thin-left" /></svg></a>',
-                        nextArrow: '<a href="#" class="Slider-nav Slider-navNext"><svg class="Slider-navIcon Icon"><use xlink:href="#icon-chevron-thin-right" /></svg></a>',
-                        speed: 500
+            loadjs.ready('slickheader', {
+                success: function() {
+                    $(function() {
+                        $('.js-slider').slick({
+                            adaptiveHeight: true,
+                            arrows: {{ showArrows ? 'true' : 'false' }},
+                            autoplay: {{ autoPlaySlides ? 'true' : 'false' }},
+                            autoplaySpeed: {{ sliderSpeed ? sliderSpeed * 1000 : 4000 }},
+                            dots: {{ showDots ? 'true' : 'false' }},
+                            dotsClass: 'Slider-dots Slider-dots--{{ dotPosition|lower }}',
+                            fade: {{ slideTransition == 'Fade' ? 'true' : 'false' }},
+                            prevArrow: '<a href="#" class="Slider-nav Slider-navPrev"><svg class="Slider-navIcon Icon"><use xlink:href="#icon-chevron-thin-left" /></svg></a>',
+                            nextArrow: '<a href="#" class="Slider-nav Slider-navNext"><svg class="Slider-navIcon Icon"><use xlink:href="#icon-chevron-thin-right" /></svg></a>',
+                            speed: 500
+                        });
                     });
-                });
-            }
-        });
-
+                }
+            });
         {% endinlinejs %}
     {% endif %}
 {% endif %}

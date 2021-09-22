@@ -2155,6 +2155,10 @@
                             "default": false
                         },
                         {
+                            "value": "Random slideshow",
+                            "default": false
+                        },
+                        {
                             "value": "Single slide",
                             "default": false
                         },
