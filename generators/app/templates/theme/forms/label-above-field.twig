@@ -1,4 +1,5 @@
-{% import 'forms/macros' as macros %}
+
+{% import 'macros/form-macros.twig' as macros %}
 
 {{ macros.formSuccessMessage(form) }}
 
@@ -6,7 +7,7 @@
 {{ form.openTag }}
 
     {% set errorContainerId = 'errorContainer' ~ random_string() %}
-    {{ macros.formErrorContainer(errorContainerId, form, 'custom message') }}
+    {{ macros.formErrorContainer(errorContainerId, form) }}
 
     {{ macros.buildLabelAboveFieldFields(form) }}
 

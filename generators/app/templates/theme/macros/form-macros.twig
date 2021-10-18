@@ -1,3 +1,4 @@
+
 {# Show a success message if necessary #}
 {# form.success only used if you don't redirect to another page after a successful submission #}
 {% macro formSuccessMessage(form, message) %}
@@ -14,9 +15,11 @@
         {% else %}
             {# Handle field groups separately as they have child fields to loop through #}
             {% if field.fieldType == "fieldGroup" %}
+                {# Output the field group heading #}
+                {{ field.tag }}
                 {% for child in field.childFields %}
                     {% if child.isFormField %}
-                        {{ _self.buildGridFieldRow(field) }}
+                        {{ _self.buildGridFieldRow(child) }}
                     {% else %}
                         {# The child field is not an actual form field or a field group. It could be an HTML, Content or Section Heading field. Just output the tag. #}
                         {{ child.tag }}
@@ -101,6 +104,10 @@
                     {% for child in column.childFields %}
                         <div class="u-margBottom2">
                             {% set child.label.class = child.label.class ~ ' FormLabel FormLabel--block' %}
+                            {% if child.isRequired %}
+                                {% set child.required = true %}
+                                {% set child.label.text = child.label.text ~ ' <span class="FormRequired">*</span>' %}
+                            {% endif %}
                             {{ child.label.tag }}
                             {{ _self.buildGridField(child) }}
                         </div>
@@ -296,7 +303,7 @@
     {% endif %}
 
     {% inlinejs %}
-    {% if filesToLoad is iterable and filesToLoad|length > 0%}
+    {% if filesToLoad is iterable and filesToLoad|length > 0 %}
         loadjs.ready('forms', {
             success: function() {
                 loadjs([{% for file in filesToLoad %}{% if loop.first == false and loop.lsat == false %},{% endif %}'{{ file }}'{% endfor %}], 'formExtraFiles');
@@ -314,12 +321,53 @@
                     }
                 },
                 messages: {
-                    {% set i = 0 %}
-                    {% for field in form.fields %}
-                        {% if field.isFormField %}{% for rule in field.rules %}{% if rule.type == 'required' %}{% set i = i + 1 %}{% if i > 1 %},{% endif %}'{{ field.name }}': '{{ rule.message|escape }}'
-                        {% endif %}{% endfor %}{% else %}{% if field.fieldType == "fieldGroup" %}{% for child in field.childFields %}{% if child.isFormField %}{% for rule in child.rules %}{% if rule.type == 'required' %}{% set i = i + 1 %}{% if i > 1 %},{% endif %}'{{ child.name }}': '{{ rule.message|escape }}'
-                        {% endif %}{% endfor %}{% endif %}{% endfor %}{% endif %}{% endif %}
-                    {% endfor %}
+                    {% apply spaceless %}
+                        {% set i = 0 %}
+                        {% for field in form.fields %}
+                            {% if field.isFormField %}
+                                {% for rule in field.rules %}
+                                    {% if rule.type == 'required' %}
+                                        {% set i = i + 1 %}
+                                        {% if i > 1 %}
+                                            ,
+                                        {% endif %}
+                                        '{{ field.name }}': '{{ rule.message|escape }}'
+                                    {% endif %}
+                                {% endfor %}
+                                {% if field.fieldType == 'repeatingGrid' || field.fieldType == 'grid' %}
+                                    {% for column in field.columns %}
+                                        {% for child in column.childFields %}
+                                            {% for rule in child.rules %}
+                                                {% if rule.type == 'required' %}
+                                                    {% set i = i + 1 %}
+                                                    {% if i > 1 %}
+                                                        ,
+                                                    {% endif %}
+                                                    '{{ child.name }}': '{{ rule.message|escape }}'
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endfor %}
+                                    {% endfor %}
+                                {% endif %}
+                            {% else %}
+                                {% if field.fieldType == "fieldGroup" %}
+                                    {% for child in field.childFields %}
+                                        {% if child.isFormField %}
+                                            {% for rule in child.rules %}
+                                                {% if rule.type == 'required' %}
+                                                    {% set i = i + 1 %}
+                                                    {% if i > 1 %}
+                                                        ,
+                                                    {% endif %}
+                                                    '{{ child.name }}': '{{ rule.message|escape }}'
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endapply %}
                 },
                 errorClass: 'is-invalid',
                 errorElement: "li",
