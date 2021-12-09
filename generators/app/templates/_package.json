@@ -51,7 +51,7 @@
         "stylelint-selector-bem-pattern": "^2.1.1"
     },
     "dependencies": {
-        "cacao-css": "^3.11.0",<% if (includeDriftZoom) { %>
+        "cacao-css": "^3.12.0",<% if (includeDriftZoom) { %>
         "drift-zoom": "^1.4.3",<% } %>
         "jquery": "^3.6.0",
         "jquery-form": "^4.3.0",
