@@ -29,7 +29,7 @@
         "gulp-eslint": "^6.0.0",
         "gulp-header": "^2.0.9",
         "gulp-if": "^3.0.0",
-        "gulp-image": "^6.2.1",
+        "gulp-image": "~6.2.1",
         "gulp-newer": "^1.4.0",
         "gulp-plumber": "^1.2.1",
         "gulp-postcss": "^9.0.1",
