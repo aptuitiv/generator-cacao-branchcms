@@ -1,13 +1,11 @@
 'use strict';
-var path = require('path');
-var assert = require('yeoman-assert');
-var helpers = require('yeoman-test');
+const path = require('path');
+const assert = require('yeoman-assert');
+const helpers = require('yeoman-test');
 
 describe('generator-cacao-branchcms:app', () => {
-    beforeAll(() => {
-        return helpers.run(path.join(__dirname, '../generators/app'))
-            .withPrompts({name: 'Test Project'});
-    });
+    beforeAll(() => helpers.run(path.join(__dirname, '../generators/app'))
+        .withPrompts({name: 'Test Project'}));
 
     it('creates files', () => {
         assert.file([
@@ -15,7 +13,7 @@ describe('generator-cacao-branchcms:app', () => {
             '.gitignore',
             '.stylelintrc',
             'package.json',
-            'gulpfile.js'
+            'gulpfile.js',
         ]);
     });
 });

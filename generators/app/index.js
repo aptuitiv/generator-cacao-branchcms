@@ -1,7 +1,7 @@
 'use strict';
 const Generator = require('yeoman-generator');
+_.extend(Generator.prototype, require('yeoman-generator/lib/actions/install'));
 const chalk = require('chalk');
-const commandExists = require('command-exists').sync;
 const cowsay = require('cowsay');
 const updateNotifier = require('update-notifier');
 const pkg = require('../../package.json');
@@ -34,7 +34,7 @@ module.exports = class extends Generator {
         this.argument('name', {
             type: String,
             required: false,
-            description: 'The name of the project. If not set then you will be prompted.'
+            description: 'The name of the project. If not set then you will be prompted.',
         });
     }
 
@@ -65,14 +65,14 @@ module.exports = class extends Generator {
         // Have Yeoman greet the user.
         this.log(yosay('Starting the ' + chalk.red('Cacao BranchCMS') + ' website generator!'));
 
-        var prompts = [];
+        const prompts = [];
 
         // Ask for the website project name if it's not already set
         if (typeof this.options.name === 'undefined') {
             prompts.push({
                 type: 'input',
                 name: 'name',
-                message: 'What is the name of the website project?'
+                message: 'What is the name of the website project?',
             });
         }
 
@@ -82,7 +82,7 @@ module.exports = class extends Generator {
             name: 'installwith',
             message: 'Install packages with NPM or Yarn?',
             choices: ['NPM', 'Yarn'],
-            default: 'NPM'
+            default: 'NPM',
         });
 
         // Is this a theme website for BranchCMS?
@@ -91,7 +91,7 @@ module.exports = class extends Generator {
             name: 'istheme',
             message: 'Is this a new theme website?',
             choices: ['Yes', 'No'],
-            default: 'No'
+            default: 'No',
         });
 
         // Front-end libraries to include
@@ -102,8 +102,8 @@ module.exports = class extends Generator {
             choices: [
                 {name: 'Magnific Popup', value: 'magnific', checked: true},
                 {name: 'Slick slider', value: 'slick', checked: true},
-                {name: 'Drift image zoom', value: 'driftzoom'}
-            ]
+                {name: 'Drift image zoom', value: 'driftzoom'},
+            ],
         });
 
         // BranchCMS App templates to include
@@ -113,8 +113,8 @@ module.exports = class extends Generator {
             message: 'Check which BranchCMS apps you will use for this website',
             choices: [
                 {name: 'Blog', value: 'blog'},
-                {name: 'Store', value: 'store'}
-            ]
+                {name: 'Store', value: 'store'},
+            ],
         });
 
         return this.prompt(prompts).then(answers => {
@@ -157,33 +157,33 @@ module.exports = class extends Generator {
         // Editor Config
         this.fs.copy(
             this.templatePath('_editorconfig'),
-            this.destinationPath('.editorconfig')
+            this.destinationPath('.editorconfig'),
         );
 
         // Eslint Config
         this.fs.copy(
             this.templatePath('_eslintrc.js'),
-            this.destinationPath('.eslintrc.js')
+            this.destinationPath('.eslintrc.js'),
         );
         this.fs.copy(
             this.templatePath('_eslintignore'),
-            this.destinationPath('.eslintignore')
+            this.destinationPath('.eslintignore'),
         );
 
         // Gitignore
         this.fs.copy(
             this.templatePath('_gitignore'),
-            this.destinationPath('.gitignore')
+            this.destinationPath('.gitignore'),
         );
 
         // Prettier Config
         this.fs.copy(
             this.templatePath('_prettierrc.js'),
-            this.destinationPath('.prettierrc.js')
+            this.destinationPath('.prettierrc.js'),
         );
         this.fs.copy(
             this.templatePath('_prettierignore'),
-            this.destinationPath('.prettierignore')
+            this.destinationPath('.prettierignore'),
         );
 
         // Package.json
@@ -194,14 +194,14 @@ module.exports = class extends Generator {
                 name: this.appName,
                 includeDriftZoom: this.includeDrift,
                 includeMagnific: this.includeMagnific,
-                includeSlick: this.includeSlick
-            }
+                includeSlick: this.includeSlick,
+            },
         );
 
         // Stylelint
         this.fs.copy(
             this.templatePath('_stylelintrc'),
-            this.destinationPath('.stylelintrc')
+            this.destinationPath('.stylelintrc'),
         );
 
         this.fs.copyTpl(
@@ -211,8 +211,8 @@ module.exports = class extends Generator {
                 includeDriftZoom: this.includeDrift,
                 includeMagnific: this.includeMagnific,
                 includeSlick: this.includeSlick,
-                isThemeWebsite: this.isThemeWebsite
-            }
+                isThemeWebsite: this.isThemeWebsite,
+            },
         );
 
         // Gulpfile.js
@@ -220,8 +220,8 @@ module.exports = class extends Generator {
             this.templatePath('gulpfile.js'),
             this.destinationPath('gulpfile.js'),
             {
-                isThemeWebsite: this.isThemeWebsite
-            }
+                isThemeWebsite: this.isThemeWebsite,
+            },
         );
     }
 
@@ -231,12 +231,12 @@ module.exports = class extends Generator {
     _copySourceFiles() {
         this.fs.copy(
             this.templatePath() + '/src/**/*',
-            this.destinationPath() + '/src'
+            this.destinationPath() + '/src',
         );
 
         if (this.isThemeWebsite) {
             // Include the theme files in the main css file
-            let themeInclude = `
+            const themeInclude = `
                     /**
                      * Theme configuration
                      */
@@ -247,7 +247,7 @@ module.exports = class extends Generator {
             // Include the theme config files
             this.fs.copy(
                 this.templatePath() + '/theme-starter/css/**/*',
-                this.destinationPath() + '/src/css'
+                this.destinationPath() + '/src/css',
             );
         }
     }
@@ -263,27 +263,27 @@ module.exports = class extends Generator {
         // Copy the theme.json file
         this.fs.copy(
             src + 'theme.json',
-            this.destinationPath() + '/src/theme.json'
+            this.destinationPath() + '/src/theme.json',
         );
 
         // Copy the default site template
         this.fs.copy(
             src + 'one-column.twig',
-            dest + 'one-column.twig'
+            dest + 'one-column.twig',
         );
         this.fs.copy(
             src + 'two-column.twig',
-            dest + 'two-column.twig'
+            dest + 'two-column.twig',
         );
 
         // Copy the app templates
-        let apps = [
+        const apps = [
             'content-builder',
             'content-layouts',
             'forms',
             'navigation',
             'search',
-            'snippets'
+            'snippets',
         ];
         if (this.appBlog) {
             apps.push('blog');
@@ -293,10 +293,10 @@ module.exports = class extends Generator {
             apps.push('store');
         }
 
-        for (let app of apps) {
+        for (const app of apps) {
             this.fs.copy(
                 src + app + '/**/*',
-                dest + app
+                dest + app,
             );
         }
     }
@@ -364,12 +364,12 @@ module.exports = class extends Generator {
             'vader-koala',
             'vader',
             'whale',
-            'www'
+            'www',
         ];
         const cow = cows[Math.floor(Math.random() * cows.length)];
         this.log(cowsay.say({
             text: '\nAll Done! Now go and build something great!\n',
-            f: cow
+            f: cow,
         }) + '\n');
     }
 };
