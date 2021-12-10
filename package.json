@@ -18,23 +18,25 @@
         "branchcms"
     ],
     "devDependencies": {
-        "coveralls": "^3.1.0",
-        "eslint": "^7.16.0",
-        "eslint-config-xo": "^0.33.1",
-        "jest": "^26.6.3",
-        "jest-cli": "^26.6.3",
+        "coveralls": "^3.1.1",
+        "eslint": "^8.4.1",
+        "eslint-config-xo": "^0.39.0",
+        "jest": "^27.4.4",
+        "jest-cli": "^27.4.4",
         "nsp": "^3.2.1",
         "yeoman-assert": "^3.1.1",
-        "yeoman-test": "^4.0.0"
+        "yeoman-test": "^6.2.0"
     },
     "dependencies": {
-        "chalk": "^4.1.0",
-        "command-exists": "^1.2.9",
-        "cowsay": "^1.4.0",
-        "strip-indent": "^3.0.0",
-        "update-notifier": "^5.0.1",
-        "yeoman-generator": "^4.12.0",
+        "chalk": "^5.0.0",
+        "cowsay": "^1.5.0",
+        "strip-indent": "^4.0.0",
+        "update-notifier": "^5.1.0",
+        "yeoman-generator": "^5.4.2",
         "yosay": "^2.0.2"
+    },
+    "engines": {
+        "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
     },
     "jest": {
         "testEnvironment": "node"
@@ -58,5 +60,6 @@
         }
     },
     "repository": "aptuitiv/generator-cacao-branchcms",
-    "license": "MIT"
+    "license": "MIT",
+    "type": "module"
 }

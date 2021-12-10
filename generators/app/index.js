@@ -1,35 +1,35 @@
 'use strict';
-const Generator = require('yeoman-generator');
-_.extend(Generator.prototype, require('yeoman-generator/lib/actions/install'));
-const chalk = require('chalk');
-const cowsay = require('cowsay');
-const updateNotifier = require('update-notifier');
+// Const Generator = require('yeoman-generator');
+import {createRequire} from 'module';
+const require = createRequire(import.meta.url);
 const pkg = require('../../package.json');
-const stripIndent = require('strip-indent');
-const yosay = require('yosay');
 
-module.exports = class extends Generator {
+import Generator from 'yeoman-generator';
+import chalk from 'chalk';
+import cowsay from 'cowsay';
+import stripIndent from 'strip-indent';
+import UpdateNotifier from 'update-notifier';
+import yosay from 'yosay';
+
+// Esmodule export for the constructor
+export default class MG extends Generator {
     /**
      * Constructor
      * @param {String|Array} args
      * @param {Object} opts
      */
     constructor(args, opts) {
-        // Noinspection JSAnnotator
         super(args, opts);
 
         this.appName = 'Website';
         this.isThemeWebsite = false;
-        this.includeDrift = false;
         this.includeMagnific = false;
         this.includeSlick = false;
         this.appBlog = false;
         this.appStore = false;
-        this.installWith = 'npm';
-
 
         // Check for newer versions of this generator and notify
-        updateNotifier({pkg}).notify();
+        UpdateNotifier({pkg}).notify();
 
         this.argument('name', {
             type: String,
@@ -43,7 +43,7 @@ module.exports = class extends Generator {
      * @param {string} name
      * @private
      */
-    _setAppName(name) {
+     _setAppName(name) {
         this.appName = name.replace(/\s+/g, '-').toLowerCase();
     }
 
@@ -61,7 +61,7 @@ module.exports = class extends Generator {
      * Questions
      * @returns {Promise.<TResult>|Promise}
      */
-    prompting() {
+     prompting() {
         // Have Yeoman greet the user.
         this.log(yosay('Starting the ' + chalk.red('Cacao BranchCMS') + ' website generator!'));
 
@@ -100,9 +100,8 @@ module.exports = class extends Generator {
             name: 'libraries',
             message: 'Check which libraries to include',
             choices: [
-                {name: 'Magnific Popup', value: 'magnific', checked: true},
-                {name: 'Slick slider', value: 'slick', checked: true},
-                {name: 'Drift image zoom', value: 'driftzoom'},
+                {name: 'Magnific Popup', value: 'magnific', checked: false},
+                {name: 'Slick slider', value: 'slick', checked: true}
             ],
         });
 
@@ -126,12 +125,13 @@ module.exports = class extends Generator {
             // Tests to see if a value was selected in an answer
             const hasAnswer = (val, test) => val && val.indexOf(test) !== -1;
 
-            this.installWith = answers.installwith.toLowerCase();
+            // Set the node package manager option on the yeoman environment
+            this.env.options.nodePackageManager = answers.installwith.toLowerCase();
+
             this.isThemeWebsite = answers.istheme.toLowerCase() === 'yes';
 
             this.includeMagnific = hasAnswer(answers.libraries, 'magnific');
             this.includeSlick = hasAnswer(answers.libraries, 'slick');
-            this.includeDrift = hasAnswer(answers.libraries, 'driftzoom');
 
             this.appBlog = hasAnswer(answers.apps, 'blog');
             this.appStore = hasAnswer(answers.apps, 'store');
@@ -141,7 +141,7 @@ module.exports = class extends Generator {
     /**
      * Create the source files
      */
-    writing() {
+     writing() {
         this.log('\n' + chalk.bold('Writing files') + '\n');
 
         this._setupConfigFiles();
@@ -191,12 +191,25 @@ module.exports = class extends Generator {
             this.templatePath('_package.json'),
             this.destinationPath('package.json'),
             {
-                name: this.appName,
-                includeDriftZoom: this.includeDrift,
                 includeMagnific: this.includeMagnific,
                 includeSlick: this.includeSlick,
             },
         );
+
+        // Set the name value in the package.json
+        this.packageJson.set('name', this.appName);
+
+        let dependencies = {};
+        if (this.includeMagnific) {
+            dependencies['magnific-popup'] = '^1.1.0';
+        }
+        if (this.includeSlick) {
+            dependencies['slick-carousel'] = '^1.8.1';
+        }
+        if (Object.keys(dependencies).length > 0) {
+            this.addDependencies(dependencies);
+        }
+
 
         // Stylelint
         this.fs.copy(
@@ -204,20 +217,38 @@ module.exports = class extends Generator {
             this.destinationPath('.stylelintrc'),
         );
 
+        // Copy the gulp configuration
         this.fs.copyTpl(
-            this.templatePath() + '/gulp/**/*',
+            this.templatePath() + '/gulp/**/*.ejs',
             this.destinationPath() + '/gulp',
             {
-                includeDriftZoom: this.includeDrift,
                 includeMagnific: this.includeMagnific,
                 includeSlick: this.includeSlick,
                 isThemeWebsite: this.isThemeWebsite,
             },
+            null,
+            {
+                /**
+                 * Changes the ".ejs" file extension to ".js"
+                 * @link https://github.com/SBoudrias/mem-fs-editor#copyfrom-to-options-context-templateoptions-
+                 * @param {string} file
+                 * @returns {string}
+                 */
+                processDestinationPath: function(destinationFile) {
+                    return destinationFile.replace('.ejs', '.js');
+                }
+            }
+        );
+
+        // Copy other gulp files
+        this.fs.copy(
+            this.templatePath() + '/gulp/**/*.js',
+            this.destinationPath() + '/gulp',
         );
 
         // Gulpfile.js
         this.fs.copyTpl(
-            this.templatePath('gulpfile.js'),
+            this.templatePath('gulpfile.ejs'),
             this.destinationPath('gulpfile.js'),
             {
                 isThemeWebsite: this.isThemeWebsite,
@@ -302,22 +333,9 @@ module.exports = class extends Generator {
     }
 
     /**
-     * Installation via yarn or npm
-     */
-    install() {
-        if (this.installWith === 'npm') {
-            this.log('\n' + chalk.bold('Installing with ' + chalk.yellow('NPM')) + '\n');
-            this.npmInstall();
-        } else if (this.installWith === 'yarn') {
-            this.log('\n' + chalk.bold('Installing with ' + chalk.yellow('Yarn')) + '\n');
-            this.yarnInstall();
-        }
-    }
-
-    /**
      * Finish
      */
-    end() {
+     end() {
         this._build();
     }
 
@@ -364,12 +382,13 @@ module.exports = class extends Generator {
             'vader-koala',
             'vader',
             'whale',
-            'www',
+            'www'
         ];
         const cow = cows[Math.floor(Math.random() * cows.length)];
         this.log(cowsay.say({
             text: '\nAll Done! Now go and build something great!\n',
-            f: cow,
+            f: cow
         }) + '\n');
     }
-};
+}
+
