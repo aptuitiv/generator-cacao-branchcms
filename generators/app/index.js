@@ -4,6 +4,8 @@ import {createRequire} from 'module';
 const require = createRequire(import.meta.url);
 const pkg = require('../../package.json');
 
+import config from './config.js';
+
 import Generator from 'yeoman-generator';
 import chalk from 'chalk';
 import cowsay from 'cowsay';
@@ -201,10 +203,10 @@ export default class MG extends Generator {
 
         let dependencies = {};
         if (this.includeMagnific) {
-            dependencies['magnific-popup'] = '^1.1.0';
+            dependencies['magnific-popup'] = config.packages['magnific-popup'];
         }
         if (this.includeSlick) {
-            dependencies['slick-carousel'] = '^1.8.1';
+            dependencies['slick-carousel'] = config.packages['slick-carousel'];
         }
         if (Object.keys(dependencies).length > 0) {
             this.addDependencies(dependencies);

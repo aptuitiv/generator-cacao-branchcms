@@ -128,6 +128,13 @@ run `yo cacao-branchcms` and Yeoman will use the files from this project on your
 
 You will want to avoid installing this package from NPM globally on your computer as it may create problems with the `npm link`.
 
+### Editing package versions
+
+If you need to update the packages in the `package.json` file that is used in the templates then there are two places to update:
+
+1. Within `app/templates/_package.json`. Update it like you would with any other `package.json` file.
+2. For `magnific-popup` and `slick-carousel` update the versions in `app/config.js`.
+
 ## Updating this repository on NPM
 
 [Update the package version number](https://docs.npmjs.com/updating-your-published-package-version-number). Also see [npm-version CLI documentation](https://docs.npmjs.com/cli/version). 
