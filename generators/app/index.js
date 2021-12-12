@@ -164,8 +164,8 @@ export default class MG extends Generator {
 
         // Eslint Config
         this.fs.copy(
-            this.templatePath('_eslintrc.js'),
-            this.destinationPath('.eslintrc.js'),
+            this.templatePath('_eslintrc.cjs'),
+            this.destinationPath('.eslintrc.cjs'),
         );
         this.fs.copy(
             this.templatePath('_eslintignore'),
@@ -247,6 +247,11 @@ export default class MG extends Generator {
             this.templatePath() + '/gulp/**/*.js',
             this.destinationPath() + '/gulp',
         );
+
+        // If it's not a theme site them remove the gulp/export-theme.js file
+        if (!this.isThemeWebsite) {
+            this.fs.delete(this.destinationPath(0 + '/gulp/export-theme.js'));
+        }
 
         // Gulpfile.js
         this.fs.copyTpl(

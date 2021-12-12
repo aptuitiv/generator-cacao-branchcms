@@ -8,7 +8,7 @@ var dist = 'dist/theme/custom';
 /**
  * Data that is set to the config variable in gulpfile.js
  */
-module.exports = {
+const config = {
     /**
      * Holds the base URL for the site to use within the gulp scripts.
      * It should include the closing "/"
@@ -58,25 +58,30 @@ module.exports = {
 
     /**
      * Files to copy from another folder, typically node_modules.
+     *
+     * {
+     *     src: 'path/to/files',
+     *     dest: 'path/to/destination'
+     * }
      * src is the files to get
      * dest is the folder within the root 'dist' folder to put
      */
     copy: [
     <%_ if (includeMagnific) { _%>
-    {
-        src: ['node_modules/magnific-popup/dist/**/*.{css,min.js}'],
-        dest: 'magnific'
-    },
+        {
+            src: ['node_modules/magnific-popup/dist/**/*.{css,min.js}'],
+            dest: 'magnific'
+        },
     <%_ } _%>
     <%_ if (includeSlick) { _%>
-    {
-        src: ['node_modules/slick-carousel/slick/*.{css,min.js,gif}'],
-        dest: 'slick'
-    },
-    {
-        src: ['node_modules/slick-carousel/slick/fonts/*'],
-        dest: 'slick/fonts'
-    }
+        {
+            src: ['node_modules/slick-carousel/slick/*.{css,min.js,gif}'],
+            dest: 'slick'
+        },
+        {
+            src: ['node_modules/slick-carousel/slick/fonts/*'],
+            dest: 'slick/fonts'
+        }
     <%_ } _%>
     ],
 
@@ -88,64 +93,6 @@ module.exports = {
     criticalCss: [
         {'template': 'default', 'url': ''},
     ],
-
-    <%_ if (isThemeWebsite) { _%>
-
-    /**
-     * Path to export the theme files to and from.
-     * This creates a folder that can simply be copied to start a new website from this theme
-     */
-    export: {
-        dest: '_export',
-        src: [
-            {
-                src: src + '/**/*',
-                dest: 'src'
-            },
-            {
-                src: '.editorconfig',
-                dest: ''
-            },
-            {
-                src: '.eslintignore',
-                dest: ''
-            },
-            {
-                src: '.eslintrc.js',
-                dest: ''
-            },
-            {
-                src: '.gitignore',
-                dest: ''
-            },
-            {
-                src: '.prettierignore',
-                dest: ''
-            },
-            {
-                src: '.prettierrc.js',
-                dest: ''
-            },
-            {
-                src: '.stylelintrc',
-                dest: ''
-            },
-            {
-                src: 'gulp/**/*',
-                dest: 'gulp'
-            },
-            {
-                src: 'gulpfile.js',
-                dest: ''
-            },
-            {
-                src: 'package.json',
-                dest: ''
-            }
-        ]
-    },
-
-    <% } %>
 
     /**
      * Scripts to build
@@ -171,3 +118,5 @@ module.exports = {
         }
     ]
 };
+
+export {config};
