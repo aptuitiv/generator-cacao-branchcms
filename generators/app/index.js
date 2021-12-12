@@ -164,8 +164,8 @@ export default class MG extends Generator {
 
         // Eslint Config
         this.fs.copy(
-            this.templatePath('_eslintrc.js'),
-            this.destinationPath('.eslintrc.js'),
+            this.templatePath('_eslintrc.cjs'),
+            this.destinationPath('.eslintrc.cjs'),
         );
         this.fs.copy(
             this.templatePath('_eslintignore'),
