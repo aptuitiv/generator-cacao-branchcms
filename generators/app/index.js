@@ -248,6 +248,11 @@ export default class MG extends Generator {
             this.destinationPath() + '/gulp',
         );
 
+        // If it's not a theme site them remove the gulp/export-theme.js file
+        if (!this.isThemeWebsite) {
+            this.fs.delete(this.destinationPath(0 + '/gulp/export-theme.js'));
+        }
+
         // Gulpfile.js
         this.fs.copyTpl(
             this.templatePath('gulpfile.ejs'),
