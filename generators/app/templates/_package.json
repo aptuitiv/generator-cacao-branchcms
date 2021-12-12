@@ -61,7 +61,8 @@
 },
   "scripts": {
     "start": "gulp",
-    "build": "gulp build"
+    "build": "gulp build",
+    "updateBrowsersList": "npx browserslist@latest --update-db"
   },
   "bugs": {
     "email": "support@aptuitiv.com"
