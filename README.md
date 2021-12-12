@@ -1,4 +1,4 @@
-# generator-cacao-branchcms [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] 
+# generator-cacao-branchcms [![NPM version][npm-image]][npm-url]
 > [Yeoman](http://yeoman.io) generator that scaffolds out a new BranchCMS(https://www.branchcms.com) website that uses the Cacao CSS framework(https://github.com/aptuitiv/cacao).
 Gulp(http://gulpjs.com/) is used for the build process.
 
@@ -158,7 +158,3 @@ MIT © [Aptuitiv](https://www.aptuitiv.com)
 
 [npm-image]: https://badge.fury.io/js/generator-cacao-branchcms.svg
 [npm-url]: https://npmjs.org/package/generator-cacao-branchcms
-[travis-image]: https://travis-ci.com/aptuitiv/generator-cacao-branchcms.svg?branch=main
-[travis-url]: https://travis-ci.com/aptuitiv/generator-cacao-branchcms
-[daviddm-image]: https://david-dm.org/aptuitiv/generator-cacao-branchcms.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/aptuitiv/generator-cacao-branchcms
