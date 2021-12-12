@@ -8,10 +8,10 @@
   "private": true,
   "license": "UNLICENSED",
   "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "Explorer >= 8",
-    "Android >= 4.3"
+    "> 0.5%",
+    "last 2 years",
+    "Firefox ESR",
+    "not dead"
   ],
   "devDependencies": {
     "@aptuitiv/eslint-config-aptuitiv": "^0.3.0",
