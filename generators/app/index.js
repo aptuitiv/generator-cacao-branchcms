@@ -45,7 +45,7 @@ export default class MG extends Generator {
      * @param {string} name
      * @private
      */
-     _setAppName(name) {
+    _setAppName(name) {
         this.appName = name.replace(/\s+/g, '-').toLowerCase();
     }
 
@@ -63,7 +63,7 @@ export default class MG extends Generator {
      * Questions
      * @returns {Promise.<TResult>|Promise}
      */
-     prompting() {
+    prompting() {
         // Have Yeoman greet the user.
         this.log(yosay('Starting the ' + chalk.red('Cacao BranchCMS') + ' website generator!'));
 
@@ -103,7 +103,7 @@ export default class MG extends Generator {
             message: 'Check which libraries to include',
             choices: [
                 {name: 'Magnific Popup', value: 'magnific', checked: false},
-                {name: 'Slick slider', value: 'slick', checked: true}
+                {name: 'Slick slider', value: 'slick', checked: true},
             ],
         });
 
@@ -143,7 +143,7 @@ export default class MG extends Generator {
     /**
      * Create the source files
      */
-     writing() {
+    writing() {
         this.log('\n' + chalk.bold('Writing files') + '\n');
 
         this._setupConfigFiles();
@@ -201,17 +201,18 @@ export default class MG extends Generator {
         // Set the name value in the package.json
         this.packageJson.set('name', this.appName);
 
-        let dependencies = {};
+        const dependencies = {};
         if (this.includeMagnific) {
             dependencies['magnific-popup'] = config.packages['magnific-popup'];
         }
+
         if (this.includeSlick) {
             dependencies['slick-carousel'] = config.packages['slick-carousel'];
         }
+
         if (Object.keys(dependencies).length > 0) {
             this.addDependencies(dependencies);
         }
-
 
         // Stylelint
         this.fs.copy(
@@ -236,10 +237,10 @@ export default class MG extends Generator {
                  * @param {string} file
                  * @returns {string}
                  */
-                processDestinationPath: function(destinationFile) {
+                processDestinationPath(destinationFile) {
                     return destinationFile.replace('.ejs', '.js');
-                }
-            }
+                },
+            },
         );
 
         // Copy other gulp files
@@ -342,7 +343,7 @@ export default class MG extends Generator {
     /**
      * Finish
      */
-     end() {
+    end() {
         this._build();
     }
 
@@ -389,12 +390,12 @@ export default class MG extends Generator {
             'vader-koala',
             'vader',
             'whale',
-            'www'
+            'www',
         ];
         const cow = cows[Math.floor(Math.random() * cows.length)];
         this.log(cowsay.say({
             text: '\nAll Done! Now go and build something great!\n',
-            f: cow
+            f: cow,
         }) + '\n');
     }
 }

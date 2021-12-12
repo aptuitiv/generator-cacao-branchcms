@@ -10,8 +10,8 @@ const config = {
     // these packages
     packages: {
         'magnific-popup': '^1.1.0',
-        'slick-carousel': '^1.8.1'
-    }
-}
+        'slick-carousel': '^1.8.1',
+    },
+};
 
 export default config;
