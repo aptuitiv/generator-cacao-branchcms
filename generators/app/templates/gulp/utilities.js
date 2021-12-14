@@ -133,7 +133,7 @@ function logFileTo(message, file, dest) {
  * Error Handler
  * @param err
  */
-const onError = (err) => {
+const onError = function(err) {
     console.log(err);
     if (typeof this.emit === 'function') {
         this.emit('end');
