@@ -59,6 +59,17 @@
         .grecaptcha-badge { visibility: hidden; }
     {% endinlinecss %}
 {% endif %}
+{# Do this before you output any inline Javascript in the footer #}
+{% if _core.service.recaptchaV3.isUsable %}
+    {% if _page.hasJs('recaptchaV3') == false %}
+        {% do _page.registerJs('recaptchaV3') %}
+        {{ _core.service.recaptchaV3.js.tag }}
+        {{ _core.service.recaptchaV3.script.tag }}
+    {% endif %}
+    {% inlinecss %}
+        .grecaptcha-badge { visibility: hidden; }
+    {% endinlinecss %}
+{% endif %}
 {# Output any inline Javascript or script tags added to the page #}
 {{ _page.js() }}
     {#
