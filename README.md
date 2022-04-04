@@ -151,7 +151,7 @@ npm version <update_type>
 
 `<update_type>` could be one of `patch`, `minor`, `major`, `prepatch`, `preminor`, `premajor`, `prerelease`.
 
-Then finish the release branch and push the `develop` and `main` branch to GitHub.
+Then finish the release branch. **Don't tag the release branch because `npm version` already did that.**  Push the `develop` and `main` branch to GitHub.
 
 Then [publish the package to NPM](https://docs.npmjs.com/cli/publish).
 
