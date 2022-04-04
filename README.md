@@ -137,7 +137,13 @@ If you need to update the packages in the `package.json` file that is used in th
 
 ## Updating this repository on NPM
 
-[Update the package version number](https://docs.npmjs.com/updating-your-published-package-version-number). Also see [npm-version CLI documentation](https://docs.npmjs.com/cli/version). 
+You should be working off of the `develop` branch. If so, then start a new release branch with the version that you're updating to. The versioning should follow this pattern:
+
+```
+v1.7.0
+```
+
+Then [update the package version number](https://docs.npmjs.com/updating-your-published-package-version-number). Also see [npm-version CLI documentation](https://docs.npmjs.com/cli/version). 
 
 ```
 npm version <update_type>
@@ -145,7 +151,9 @@ npm version <update_type>
 
 `<update_type>` could be one of `patch`, `minor`, `major`, `prepatch`, `preminor`, `premajor`, `prerelease`.
 
-[Publish the package to NPM](https://docs.npmjs.com/cli/publish).
+Then finish the release branch and push the `develop` and `main` branch to GitHub.
+
+Then [publish the package to NPM](https://docs.npmjs.com/cli/publish).
 
 ```
 npm publish
