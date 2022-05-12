@@ -5,7 +5,7 @@
 \* =========================================================================== */
 
 // Initialization
-$(() => {
+document.onreadystatechange = function () {
     smallScreenNav.init();
     navAccess.init();
 
@@ -20,4 +20,4 @@ $(() => {
             behavior: 'smooth',
         });
     });
-});
+};
