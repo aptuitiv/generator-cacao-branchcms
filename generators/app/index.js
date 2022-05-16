@@ -320,6 +320,7 @@ export default class MG extends Generator {
             'content-builder',
             'content-layouts',
             'forms',
+            'macros',
             'navigation',
             'search',
             'snippets',
