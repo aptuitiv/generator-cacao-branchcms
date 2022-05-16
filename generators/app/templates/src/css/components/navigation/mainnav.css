@@ -81,6 +81,7 @@
     background: var(--MainNav-link-background);
     box-sizing: border-box;
     color: var(--MainNav-link-color);
+    cursor: pointer;
     display: block;
     padding: .5em 1.5rem;
     position: relative;
