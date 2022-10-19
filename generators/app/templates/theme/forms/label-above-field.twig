@@ -13,7 +13,7 @@
 
     {{ macros.captcha(form) }}
 
-    <p class="u-margBottom1"><em>* Required Fields</em></p>
+    {{ macros.requiredText(form.fields) }}
 
     <p><button type="submit" class="Button Button--lg">{{ form.submitButtonText }}</button></p>
 
