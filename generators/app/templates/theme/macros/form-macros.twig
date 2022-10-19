@@ -408,3 +408,33 @@
     });
     {% endinlinejs %}
 {% endmacro %}
+
+{% macro requiredText(fields) %}
+    {% set hadRequired = false %}
+    
+    {% for field in fields %}
+        {% if field.isRequired %}
+            {% set hasRequired = true %}
+        {% endif %}
+        
+        {% if field.fieldType == 'repeatingGrid' || field.fieldType == 'grid' %}
+            {% for column in field.columns %}
+                {% for child in column.childFields %}
+                    {% if child.isRequired %}
+                        {% set hasRequired = true %}
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        {% elseif field.fieldType == "fieldGroup" %}
+            {% for child in field.childFields %}
+                {% if child.isRequired %}
+                    {% set hasRequired = true %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+    
+    {% if hasRequired %}
+        <p class="u-margBottom1"><em>* Required Fields</em></p>
+    {% endif %}
+{% endmacro %}
