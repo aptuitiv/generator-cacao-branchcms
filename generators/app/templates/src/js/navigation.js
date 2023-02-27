@@ -33,7 +33,6 @@ const smallScreenNav = {
         // Select elements
         const button = document.querySelector('.js-ssNavBtn');
         const nav = document.querySelector('.js-mainNav');
-        const navLinks = document.querySelectorAll('.js-navLink');
         const dropdowns = document.querySelectorAll('.js-dropdown');
 
         // Make sure that the navigation gets displayed if the window resizes.
