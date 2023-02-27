@@ -169,17 +169,17 @@
 
 {% inlinejs %}
     {# Assuming jQuery is already loaded on the page #}
-    $('.js-copyShipping').click(function() {
+    document.querySelector('.js-copyShipping').addEventListener('click', () => {
         if (this.checked) {
-            $('.js-billFirstName').val('{{ billing.shippingValues.firstName }}');
-            $('.js-billLastName').val('{{ billing.shippingValues.lastName }}');
-            $('.js-billAddress').val('{{ billing.shippingValues.address }}');
-            $('.js-billCity').val('{{ billing.shippingValues.city }}');
-            $('.js-billStateText').val('{{ billing.shippingValues.stateText }}');
-            $('.js-billZipCode').val('{{ billing.shippingValues.zipCode }}');
-            $('.js-billCountry').val('{{ billing.shippingValues.country }}');
-            $('.js-billPhone').val('{{ billing.shippingValues.phone }}');
-            $('.js-billEmail').val('{{ billing.shippingValues.email }}');
+            document.querySelector('.js-billFirstName').value = '{{ billing.shippingValues.firstName }}';
+            document.querySelector('.js-billLastName').value = '{{ billing.shippingValues.lastName }}';
+            document.querySelector('.js-billAddress').value = '{{ billing.shippingValues.address }}';
+            document.querySelector('.js-billCity').value = '{{ billing.shippingValues.city }}';
+            document.querySelector('.js-billStateText').value = '{{ billing.shippingValues.stateText }}';
+            document.querySelector('.js-billZipCode').value = '{{ billing.shippingValues.zipCode }}';
+            document.querySelector('.js-billCountry').value = '{{ billing.shippingValues.country }}';
+            document.querySelector('.js-billPhone').value = '{{ billing.shippingValues.phone }}';
+            document.querySelector('.js-billEmail').value = '{{ billing.shippingValues.email }}';
         }
     });
 {% endinlinejs %}
