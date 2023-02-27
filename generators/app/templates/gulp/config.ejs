@@ -67,22 +67,22 @@ const config = {
      * dest is the folder within the root 'dist' folder to put
      */
     copy: [
-    <%_ if (includeMagnific) { _%>
         {
-            src: ['node_modules/magnific-popup/dist/**/*.{css,min.js}'],
-            dest: 'magnific'
-        },
-    <%_ } _%>
-    <%_ if (includeSlick) { _%>
-        {
-            src: ['node_modules/slick-carousel/slick/*.{css,min.js,gif}'],
-            dest: 'slick'
+            src: 'node_modules/@splidejs/splide/dist/**/*',
+            dest: 'splide'
         },
         {
-            src: ['node_modules/slick-carousel/slick/fonts/*'],
-            dest: 'slick/fonts'
+            src: 'node_modules/just-validate/dist/just-validate.production.min.js',
+            dest: 'just-validate'
+        },
+        {
+            src: ['node_modules/masonry-layout/dist/*.{pkgd.min.js, min.js}'],
+            dest: 'masonry'
+        },
+        {
+            src: 'node_modules/fslightbox/index.js',
+            dest: 'fslightbox'
         }
-    <%_ } _%>
     ],
 
     /**
