@@ -4,8 +4,6 @@ import {createRequire} from 'module';
 const require = createRequire(import.meta.url);
 const pkg = require('../../package.json');
 
-import config from './config.js';
-
 import Generator from 'yeoman-generator';
 import chalk from 'chalk';
 import cowsay from 'cowsay';
@@ -25,8 +23,6 @@ export default class MG extends Generator {
 
         this.appName = 'Website';
         this.isThemeWebsite = false;
-        this.includeMagnific = false;
-        this.includeSlick = false;
         this.appBlog = false;
         this.appStore = false;
 
@@ -96,17 +92,6 @@ export default class MG extends Generator {
             default: 'No',
         });
 
-        // Front-end libraries to include
-        prompts.push({
-            type: 'checkbox',
-            name: 'libraries',
-            message: 'Check which libraries to include',
-            choices: [
-                {name: 'Magnific Popup', value: 'magnific', checked: false},
-                {name: 'Slick slider', value: 'slick', checked: true},
-            ],
-        });
-
         // BranchCMS App templates to include
         prompts.push({
             type: 'checkbox',
@@ -131,9 +116,6 @@ export default class MG extends Generator {
             this.env.options.nodePackageManager = answers.installwith.toLowerCase();
 
             this.isThemeWebsite = answers.istheme.toLowerCase() === 'yes';
-
-            this.includeMagnific = hasAnswer(answers.libraries, 'magnific');
-            this.includeSlick = hasAnswer(answers.libraries, 'slick');
 
             this.appBlog = hasAnswer(answers.apps, 'blog');
             this.appStore = hasAnswer(answers.apps, 'store');
@@ -189,26 +171,15 @@ export default class MG extends Generator {
         );
 
         // Package.json
-        this.fs.copyTpl(
+        this.fs.copy(
             this.templatePath('_package.json'),
             this.destinationPath('package.json'),
-            {
-                includeMagnific: this.includeMagnific,
-                includeSlick: this.includeSlick,
-            },
         );
 
         // Set the name value in the package.json
         this.packageJson.set('name', this.appName);
 
         const dependencies = {};
-        if (this.includeMagnific) {
-            dependencies['magnific-popup'] = config.packages['magnific-popup'];
-        }
-
-        if (this.includeSlick) {
-            dependencies['slick-carousel'] = config.packages['slick-carousel'];
-        }
 
         if (Object.keys(dependencies).length > 0) {
             this.addDependencies(dependencies);
@@ -225,8 +196,6 @@ export default class MG extends Generator {
             this.templatePath() + '/gulp/**/*.ejs',
             this.destinationPath() + '/gulp',
             {
-                includeMagnific: this.includeMagnific,
-                includeSlick: this.includeSlick,
                 isThemeWebsite: this.isThemeWebsite,
             },
             null,
