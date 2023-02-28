@@ -10,7 +10,7 @@
                 {% set colSize = 'u-sizeFull' %}
             {% endif %}
             
-            <div class="Grid-cell {{ colSize }} js-zoomContainer u-posRelative">
+            <div class="Grid-cell {{ colSize }} u-posRelative">
                 <div class="u-fontSize5 u-weightBold u-margBottom1">
                     Price:
                     {% if product.orderingOptionsChangePrice %}
@@ -29,7 +29,7 @@
                                 {{ option.tag }}
                             </p>
                         {% endfor %}
-                        {% set product.orderForm.fields.quantity.class = 'TextInput Product-quantity' %}
+                        {% set product.orderForm.fields.quantity.class = 'TextInput' %}
                         {{ product.orderForm.fields.quantity.tag }}
                         {{ product.orderForm.fields.partialQuantity.tag }}
                         <button type="submit" class="Button">Add to cart</button>
@@ -40,7 +40,7 @@
             
             {% if product.images|length > 1 %}
                 <div class="Grid-cell u-size1of3 u-pull2of3 u-md-sizeFull u-md-pullNone">
-                    <div id="main-slider" role="group" class="splide" aria-label="Image Slider">
+                    <div id="main-slider" role="group" class="splide" aria-label="Product Image Slider">
                         <div class="splide__track">
                                 <ul class="splide__list">
                                     {% for image in product.images %}
@@ -55,7 +55,7 @@
                         </div>
                     </div>
                     
-                    <div id="thumbnail-slider" role="group" class="splide u-margTop1" aria-label="Thumbnail Slider">
+                    <div id="thumbnail-slider" role="group" class="splide u-margTop1" aria-label="Product Thumbnail Slider">
                         <div class="splide__track">
                                 <ul class="splide__list">
                                     {% for image in product.images %}
