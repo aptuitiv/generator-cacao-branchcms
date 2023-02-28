@@ -15,32 +15,43 @@
     {% endapply %}
 {% endmacro %}
 
-{# Macro to load Slick Slider #}
-{% macro loadSlick() %}
-    {% if _page.hasJs('slick/slick.min.js'|theme_url) == false %}
-        {% do _page.addCss('/slick/slick.css'|theme_url, {'preload': true}) %}
+{# Macro to load Splide #}
+{% macro loadSplide() %}
+    {% do _page.addCss('splide/css/splide.min.css'|theme_url, {'preload': true}) %}
+    {% if _page.hasJs('splide/js/splide.min.js'|theme_url) == false %}
         {% inlinejs %}
             loadjs.ready('main', {
                 success: function() {
-                    loadjs(['{{ 'slick/slick.min.js'|theme_url }}'], 'slick');
+                    loadjs(['{{ 'splide/js/splide.min.js'|theme_url }}'], 'splide');
                 }
             });
         {% endinlinejs %}
-        {% do _page.registerJs('slick/slick.min.js'|theme_url) %}
+        {% do _page.registerJs('splide/js/splide.min.js'|theme_url) %}
     {% endif %}
 {% endmacro %}
 
-{# Macro to load Magnific Popup #}
-{% macro loadMagnific() %}
-    {% if _page.hasJs('magnific/jquery.magnific-popup.min.js'|theme_url) == false %}
-        {% do _page.addCss('/magnific/magnific-popup.css'|theme_url, {'preload': true}) %}
+{# Macro to load fslightbox #}
+{% macro loadLightbox() %}
+    {% inlinejs %}
+        loadjs.ready('main', {
+            success: function() {
+                loadjs(['{{ 'fslightbox/index.js'|theme_url }}'], 'lightbox');
+            }
+        });
+    {% endinlinejs %}
+    {% do _page.registerJs('fslightbox/index.js'|theme_url) %}
+{% endmacro %}
+
+{# Macro to load Masonry Layout #}
+{% macro loadMasonry() %}
+    {% if _page.hasJs('masonry/masonry.pkgd.min.js'|theme_url) == false %}
         {% inlinejs %}
             loadjs.ready('main', {
                 success: function() {
-                    loadjs(['{{ 'magnific/jquery.magnific-popup.min.js'|theme_url }}'], 'magnific');
+                    loadjs(['{{ 'masonry/masonry.pkgd.min.js'|theme_url }}'], 'masonry');
                 }
             });
         {% endinlinejs %}
-        {% do _page.registerJs('magnific/jquery.magnific-popup.min.js'|theme_url) %}
+        {% do _page.registerJs('masonry/masonry.pkgd.min.js'|theme_url) %}
     {% endif %}
 {% endmacro %}
