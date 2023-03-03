@@ -268,11 +268,14 @@ export default class MG extends Generator {
         const src = this.templatePath() + '/theme/';
         const dest = this.destinationPath() + '/src/theme/';
 
-        // Copy the theme.json file
+        // Copy the legacy theme.json file
         this.fs.copy(
             src + 'theme.json',
             this.destinationPath() + '/src/theme.json',
         );
+
+        // Copy the theme config file
+        this.fs.copy(this.templatePath() + '/theme-config/**/*', this.destinationPath() + '/src/config');
 
         // Copy the default site template
         this.fs.copy(
