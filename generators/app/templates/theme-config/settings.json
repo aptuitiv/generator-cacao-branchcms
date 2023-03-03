@@ -1,0 +1,235 @@
+{
+    "groups": [
+        {
+            "name": "Social Icons",
+            "description": "Set the links and icons to use for your social networks in the footer of each page.",
+            "fields": [
+                {
+                    "name": "social",
+                    "label": "Social networks",
+                    "type": "repeating",
+                    "itemName": "Social Network",
+                    "children": [
+                        {
+                            "name": "name",
+                            "label": "Social network name",
+                            "type": "text"
+                        },
+                        {
+                            "name": "url",
+                            "label": "URL to your page on this social network",
+                            "type": "text"
+                        },
+                        {
+                            "name": "icon",
+                            "label": "Icon",
+                            "type": "select",
+                            "options": {
+                                "facebook": "Facebook",
+                                "instagram": "Instagram",
+                                "linkedin": "LinkedIn",
+                                "pinterest": "Pinterest",
+                                "twitter": "Twitter",
+                                "youtube": "YouTube"
+                            }
+                        }
+                    ],
+                    "default": [
+                        {
+                            "name": "Facebook",
+                            "icon": "facebook"
+                        },
+                        {
+                            "name": "Instagram",
+                            "icon": "instagram"
+                        },
+                        {
+                            "name": "LinkedIn",
+                            "icon": "linkedin"
+                        },
+                        {
+                            "name": "Pinterest",
+                            "icon": "pinterest"
+                        },
+                        {
+                            "name": "Twitter",
+                            "icon": "twitter"
+                        },
+                        {
+                            "name": "YouTube",
+                            "icon": "youtube"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Header",
+            "description": "Content for the header that is used on all pages",
+            "fields": [
+                {
+                    "name": "navigationStyle",
+                    "label": "Navigation style",
+                    "type": "radio",
+                    "options": {
+                        "left": "Left aligned",
+                        "right": "Right aligned",
+                        "centered": "Centered",
+                        "spaced": "Evenly spaced"
+                    },
+                    "default": "left"
+                },
+                {
+                    "name": "headerShowSocial",
+                    "label": "Show social",
+                    "type": "radio",
+                    "options": {
+                        "yes": "Yes",
+                        "no": "No"
+                    },
+                    "default": "yes"
+                },
+                {
+                    "name": "headerShowPhone",
+                    "label": "Show phone number",
+                    "type": "radio",
+                    "options": {
+                        "yes": "Yes",
+                        "no": "No"
+                    },
+                    "default": "yes"
+                },
+                {
+                    "name": "headerShowEmail",
+                    "label": "Show email",
+                    "type": "radio",
+                    "options": {
+                        "yes": "Yes",
+                        "no": "No"
+                    },
+                    "default": "yes"
+                },
+                {
+                    "name": "headerShowAddress",
+                    "label": "Show address",
+                    "type": "radio",
+                    "options": {
+                        "yes": "Yes",
+                        "no": "No"
+                    },
+                    "default": "yes"
+                },
+                {
+                    "name": "headerLogo",
+                    "label": "Logo",
+                    "type": "image",
+                    "path": "images",
+                    "default": "/theme/custom/images/logo.svg"
+                },
+                {
+                    "name": "headerLogoSize",
+                    "label": "Header logo size",
+                    "type": "radio",
+                    "options": {
+                        "auto": "Auto",
+                        "full": "Full Width",
+                        "1of3": "1/3 Width",
+                        "1of2": "1/2 Width",
+                        "2of3": "2/3 Width",
+                        "3of4": "3/4 Width"
+                    },
+                    "default": "auto",
+                    "description": "How much of the width of the header that the logo fills"
+                }
+            ]
+        },
+        {
+            "name": "Footer",
+            "description": "Content for the footer that is used on all pages",
+            "fields": [
+                {
+                    "name": "footerShowNavigation",
+                    "label": "Show navigation",
+                    "type": "radio",
+                    "options": {
+                        "yes": "Yes",
+                        "no": "No"
+                    },
+                    "default": "yes"
+                },
+                {
+                    "name": "footerShowPhone",
+                    "label": "Show phone number",
+                    "type": "radio",
+                    "options": {
+                        "yes": "Yes",
+                        "no": "No"
+                    },
+                    "default": "yes"
+                },
+                {
+                    "name": "footerShowEmail",
+                    "label": "Show email",
+                    "type": "radio",
+                    "options": {
+                        "yes": "Yes",
+                        "no": "No"
+                    },
+                    "default": "yes"
+                },
+                {
+                    "name": "footerShowAddress",
+                    "label": "Show address",
+                    "type": "radio",
+                    "options": {
+                        "yes": "Yes",
+                        "no": "No"
+                    },
+                    "default": "yes"
+                },
+                {
+                    "name": "footerShowSocial",
+                    "label": "Show social",
+                    "type": "radio",
+                    "options": {
+                        "yes": "Yes",
+                        "no": "No"
+                    },
+                    "default": "yes"
+                },
+                {
+                    "name": "footerShowLogo",
+                    "label": "Show logo",
+                    "type": "radio",
+                    "options": {
+                        "yes": "Yes",
+                        "no": "No"
+                    },
+                    "default": "yes"
+                },
+                {
+                    "name": "footerLogo",
+                    "label": "Logo",
+                    "type": "image",
+                    "path": "images",
+                    "default": "/theme/custom/images/logo.svg"
+                },
+                {
+                    "name": "footerLogoSize",
+                    "label": "Footer logo size",
+                    "type": "radio",
+                    "options": {
+                        "auto": "Auto",
+                        "full": "Full Width",
+                        "1of3": "1/3 Width",
+                        "1of2": "1/2 Width",
+                        "2of3": "2/3 Width",
+                        "3of4": "3/4 Width"
+                    },
+                    "default": "auto",
+                    "description": "How much of the width of the footer that the logo fills"
+                }
+            ]
+        }
+    ]
+}
