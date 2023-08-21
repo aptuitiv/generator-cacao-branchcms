@@ -1,32 +1,30 @@
-/* ==========================================================================
-   Dropdown
-   ========================================================================== */
-
-/** @define Dropdown */
-
-/**
- * Drop-down navigation menu.
- */
+/* =========================================================================== *\
+    Dropdown
+\* =========================================================================== */
 
 :root {
-    --Dropdown-background: #a0a0a0;
-    --Dropdown-fontSize: inherit;
-    --Dropdown-lineHeight: inherit;
-    --Dropdown-item-padding: .5em 1em;
-    --Dropdown-item-padding-small-screen: .8em 30px .8em 1em;
+    --Dropdown-fontWeight: 400;
+    --Dropdown-fontSize: 1.5rem;
+    --Dropdown-lineHeight: 1.5;
+    --Dropdown-textTransform: uppercase;
+    
+    /* Link */
+    --Dropdown-link-paddingVertical: 11px;
+    --Dropdown-link-paddingHorizontal: 22px;
+    --Dropdown-link-background: #9f9f9f;
     --Dropdown-link-color: #333;
+    
+    /* Link (hover) */
+    --Dropdown-link-backgroundHover: #9f9f9f;
     --Dropdown-link-colorHover: #000;
 }
 
+/* @define Dropdown */
 .Dropdown {
     position: relative;
 }
 
-/* Base menu
-   ========================================================================== */
-
 .Dropdown-menu {
-    background: var(--Dropdown-background);
     box-shadow: 0 22px 35px 0 rgba(0, 0, 0, .1);
     box-sizing: border-box;
     display: none;
@@ -50,16 +48,17 @@
     clear: both;
 }
 
-/* Menu items
-   ========================================================================== */
+/* ------------------------------------ *\
+    Items
+\* ------------------------------------ */
 
 .Dropdown-item {
     box-sizing: border-box;
     position: relative;
+    text-transform: var(--Dropdown-textTransform);
 }
 
 /** Item that should only be shown in the small screen navigation **/
-
 .Dropdown-item--smallScreen {
     display: none;
 }
@@ -70,17 +69,19 @@
     }
 }
 
-/* Menu links
-   ========================================================================== */
+/* ------------------------------------ *\
+    Links
+\* ------------------------------------ */
 
 .Dropdown-link {
+    background-color: var(--Dropdown-link-background);
     box-sizing: border-box;
     color: var(--Dropdown-link-color);
     display: block;
     font-size: var(--Dropdown-fontSize);
-    font-weight: 400;
+    font-weight: var(--Dropdown-fontWeight);
     line-height: var(--Dropdown-lineHeight);
-    padding: var(--Dropdown-item-padding);
+    padding: var(--Dropdown-link-paddingVertical) var(--Dropdown-link-paddingHorizontal);
     text-decoration: none;
     white-space: nowrap;
 }
@@ -89,42 +90,31 @@
     .Dropdown-link:hover,
     .Dropdown-link.is-current,
     .Dropdown-link.is-currentParent {
+        background-color: var(--Dropdown-link-backgroundHover);
         color: var(--Dropdown-link-colorHover);
     }
-
+    
     .Dropdown-link:hover {
         text-decoration: none;
     }
 }
 
-.Dropdown-link.is-current,
-.Dropdown-link.is-currentParent {
-    font-weight: 700;
-}
-
-/* State
-   ========================================================================== */
-
+/* ------------------------------------ *\
+    State
+\* ------------------------------------ */
 
 @media (--c-bp-largeScreenNav) {
-
-    /* show sub-menus under hovered items */
-
     .Dropdown:hover > .Dropdown-menu,
     .Dropdown.is-active > .Dropdown-menu,
     .Dropdown-item:hover > .Dropdown-menu {
         display: block;
     }
-
-    /* display sub-menus under the last item to the right */
-
+    
     .Dropdown.is-last:hover > .Dropdown-menu {
         left: auto;
         right: 0;
     }
-
-    /* fly-out to the right */
-
+    
     .Dropdown-item:hover > .Dropdown-menu,
     .Dropdown-item.is-active > .Dropdown-menu {
         display: block;
@@ -132,9 +122,7 @@
         top: 0;
         transform: none;
     }
-
-    /* fly-out to the left if root parent is last item */
-
+    
     .Dropdown.is-last .Dropdown-item:hover > .Dropdown-menu
     .Dropdown.is-last .Dropdown-item.is-active > .Dropdown-menu {
         left: auto;
@@ -143,7 +131,7 @@
 }
 
 /* ------------------------------------ *\
-    #PARENT ITEMS
+    Parent Items
 \* ------------------------------------ */
 
 .Dropdown-link--parent {

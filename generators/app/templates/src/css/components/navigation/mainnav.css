@@ -33,7 +33,6 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    text-transform: var(--MainNav-textTransform);
 }
 
 @media(--c-bp-largeScreenNav) {
@@ -61,6 +60,7 @@
     box-sizing: border-box;
     display: inline-block;
     margin-left: var(--MainNav-item-gap);
+    text-transform: var(--MainNav-textTransform);
 }
 
 .MainNav-item:first-child {
