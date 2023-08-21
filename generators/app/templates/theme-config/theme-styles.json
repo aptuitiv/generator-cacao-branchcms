@@ -1,5 +1,30 @@
 {
     "groups": [
-        
+        {
+            "name": "Navigation - Small Screen Button",
+            "description": "Styles for the hamburger menu button seen on small screens.",
+            "fields": [
+                {
+                    "name": "smScBtnBackground",
+                    "label": "Background color",
+                    "type": "color",
+                    "default": "#0000001a",
+                    "preview": {
+                        "type": "css-head",
+                        "cssVariable": "--SmScBtn-background"
+                    }
+                },
+                {
+                    "name": "smScBtnColor",
+                    "label": "Hamburger color",
+                    "type": "color",
+                    "default": "#fff",
+                    "preview": {
+                        "type": "css-head",
+                        "cssVariable": "--SmScBtn-color"
+                    }
+                }
+            ]
+        }
     ]
 }

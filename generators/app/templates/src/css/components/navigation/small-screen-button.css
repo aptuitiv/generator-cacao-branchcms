@@ -1,18 +1,21 @@
 /* =========================================================================== *\
-    SMALL SCREEN NAVIGATION BUTTON
+    Small Screen Menu Button
 \* =========================================================================== */
 
+:root {
+    --SmScBtn-background: #0000001a;
+    --SmScBtn-color: #fff;
+}
 
-/** @define SmScBtn **/
-
+/* @define SmScBtn */
 .SmScBtn {
-    background: rgba(0, 0, 0, .1);
+    background: var(--SmScBtn-background);
     border: none;
-    color: #fff;
+    color: var(--SmScBtn-color);
     display: none;
     font-size: 16px;
     line-height: 45px;
-    padding: 0 10px 0 18px;
+    padding: 3px 5px 0 18px;
     text-align: center;
     text-decoration: none;
 }
@@ -33,7 +36,7 @@
 .SmScBtn:active,
 .SmScBtn:focus,
 .SmScBtn:hover {
-    color: #fff;
+    color: var(--SmScBtn-color);
     text-decoration: none;
 }
 
@@ -47,13 +50,13 @@
 .SmScBtn-icon,
 .SmScBtn-icon::before,
 .SmScBtn-icon::after {
-    background-color: #fff;
-    border-radius: 4px;
-    height: 2px;
+    background-color: var(--SmScBtn-color);
+    border-radius: 2px;
+    height: 4px;
     transition-duration: .1s;
     transition-property: all;
     transition-timing-function: cubic-bezier(.55, .055, .675, .19);
-    width: 12px;
+    width: 30px;
 }
 
 .SmScBtn-icon::before,
@@ -64,12 +67,12 @@
 }
 
 .SmScBtn-icon::before {
-    top: -4px;
+    top: -8px;
     transform: none;
 }
 
 .SmScBtn-icon::after {
-    bottom: -4px;
+    bottom: -8px;
     transform: none;
 }
 
