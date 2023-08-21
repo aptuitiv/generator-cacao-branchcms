@@ -1,0 +1,4 @@
+FTP_ENVIRONMENT = live
+FTP_SERVER = ftp1.branchcms.com
+FTP_USERNAME = <%= username %>
+FTP_PASSWORD = <%= password %>

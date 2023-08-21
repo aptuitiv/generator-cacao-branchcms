@@ -25,6 +25,8 @@ export default class MG extends Generator {
         this.isThemeWebsite = false;
         this.appBlog = false;
         this.appStore = false;
+        this.ftpUsername = null;
+        this.ftpPassword = null;
 
         // Check for newer versions of this generator and notify
         UpdateNotifier({pkg}).notify();
@@ -103,6 +105,18 @@ export default class MG extends Generator {
             ],
         });
 
+        // Ask for FTP credentials
+        prompts.push({
+            type: 'input',
+            name: 'username',
+            message: 'What is the username of the FTP server?',
+        });
+        prompts.push({
+            type: 'password',
+            name: 'password',
+            message: 'What is the password of the FTP server?',
+        });
+
         return this.prompt(prompts).then(answers => {
             // Set the app name if it was asked
             if (typeof answers.name !== 'undefined') {
@@ -119,6 +133,14 @@ export default class MG extends Generator {
 
             this.appBlog = hasAnswer(answers.apps, 'blog');
             this.appStore = hasAnswer(answers.apps, 'store');
+
+            // Set up FTP credentials
+            if (typeof answers.username !== 'undefined') {
+                this.ftpUsername = answers.username;
+                if (typeof answers.username !== 'undefined') {
+                    this.ftpPassword = answers.password;
+                }
+            }
         });
     }
 
@@ -231,6 +253,18 @@ export default class MG extends Generator {
                 isThemeWebsite: this.isThemeWebsite,
             },
         );
+
+        // .env
+        if (this.ftpUsername && this.ftpPassword) {
+            this.fs.copyTpl(
+                this.templatePath('_env'),
+                this.destinationPath('.env'),
+                {
+                    username: this.ftpUsername,
+                    password: this.ftpPassword
+                },
+            );
+        }
     }
 
     /**
