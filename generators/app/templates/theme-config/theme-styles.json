@@ -578,6 +578,357 @@
                     }
                 }
             ]
+        },
+        {
+            "name": "Typography",
+            "description": "Styles for text throughout the site.",
+            "sections": [
+                {
+                    "name": "Body",
+                    "fields": [
+                        {
+                            "name": "baseTypographyFontFamily",
+                            "label": "Font family",
+                            "type": "fontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-fontFamily"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyFontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "18",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyFontWeight",
+                            "label": "Font weight",
+                            "type": "fontWeight",
+                            "default": "400",
+                            "fontFamilyField": "insert_font_family_here",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-fontWeight"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyLetterSpacing",
+                            "label": "Letter spacing",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "0",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-letterSpacing",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyLineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.58",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-lineHeight"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyColor",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#333",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-color"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Links",
+                    "fields": [
+                        {
+                            "name": "baseTypographyLinkColor",
+                            "label": "Link color",
+                            "type": "color",
+                            "default": "#000",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-link-color"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyLinkDecoration",
+                            "label": "Link decoration",
+                            "type": "select",
+                            "default": "underline",
+                            "options": {
+                                "none": "None",
+                                "underline": "Underline"
+                            },
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-link-decoration"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyLinkColorHover",
+                            "label": "Link color (hover)",
+                            "type": "color",
+                            "default": "#000",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-link-colorHover"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyLinkDecorationHover",
+                            "label": "Link decoration (hover)",
+                            "type": "select",
+                            "default": "underline",
+                            "options": {
+                                "none": "None",
+                                "underline": "Underline"
+                            },
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-link-decorationHover"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Headings",
+                    "fields": [
+                        {
+                            "name": "baseTypographyHeadingFontFamily",
+                            "label": "Font family",
+                            "type": "fontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-heading-fontFamily"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyHeadingFontWeight",
+                            "label": "Font weight",
+                            "type": "fontWeight",
+                            "default": "700",
+                            "fontFamilyField": "baseTypographyHeadingFontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-heading-fontWeight"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyHeadingLetterSpacing",
+                            "label": "Letter spacing",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "0",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-heading-letterSpacing",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyHeadingColor",
+                            "label": "Heading color",
+                            "type": "color",
+                            "default": "#333",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-heading-color"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Heading 1",
+                    "fields": [
+                        {
+                            "name": "baseTypographyH1FontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "35",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h1-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH1LineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.2",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h1-lineHeight"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Heading 2",
+                    "fields": [
+                        {
+                            "name": "baseTypographyH2FontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "30",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h2-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH2LineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.2",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h2-lineHeight"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Heading 3",
+                    "fields": [
+                        {
+                            "name": "baseTypographyH3FontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "25",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h3-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH3LineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.2",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h3-lineHeight"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Heading 4",
+                    "fields": [
+                        {
+                            "name": "baseTypographyH4FontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "22",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h4-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH4LineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.2",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h4-lineHeight"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Heading 5",
+                    "fields": [
+                        {
+                            "name": "baseTypographyH5FontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h5-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH5LineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.2",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h5-lineHeight"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Heading 6",
+                    "fields": [
+                        {
+                            "name": "baseTypographyH6FontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "18",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h6-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH6LineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.2",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h6-lineHeight"
+                            }
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
