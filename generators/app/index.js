@@ -22,6 +22,7 @@ export default class MG extends Generator {
         super(args, opts);
 
         this.appName = 'Website';
+        this.name = null;
         this.isThemeWebsite = false;
         this.appBlog = false;
         this.appStore = false;
@@ -121,6 +122,7 @@ export default class MG extends Generator {
             // Set the app name if it was asked
             if (typeof answers.name !== 'undefined') {
                 this._setAppName(answers.name);
+                this.name = answers.name;
             }
 
             // Tests to see if a value was selected in an answer
@@ -245,12 +247,21 @@ export default class MG extends Generator {
             this.fs.delete(this.destinationPath(0 + '/gulp/export-theme.js'));
         }
 
-        // Gulpfile.js
+        // gulpfile.js
         this.fs.copyTpl(
             this.templatePath('gulpfile.ejs'),
             this.destinationPath('gulpfile.js'),
             {
                 isThemeWebsite: this.isThemeWebsite,
+            },
+        );
+
+        // README.md
+        this.fs.copyTpl(
+            this.templatePath('_readme.md'),
+            this.destinationPath('README.md'),
+            {
+                name: this.name,
             },
         );
 
