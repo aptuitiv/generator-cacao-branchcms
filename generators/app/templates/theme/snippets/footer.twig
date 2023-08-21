@@ -1,80 +1,68 @@
-<footer class="Footer">
-    <div class="Container">
-        <a href="#top" class="BackTop js-btop" tabindex="-1" aria-label="Go back to top of page" title="Go back to top of page"></a>
-        {% if _core.theme.settings.footerShowNavigation == 'yes' %}
-            {{ _api.navigation.get.key('main').showSubNav('no').template('footer') }}
-        {% endif %}
-        {% if _core.theme.settings.footerShowLogo == 'yes' and _core.theme.settings.footerLogo %}
-            {% set _core.theme.settings.footerLogo.class = 'Footer-logo' %}
-            {% if _core.theme.settings.footerLogoSize != 'auto' %}
-                {% set _core.theme.settings.footerLogo.class = _core.theme.settings.footerLogo.class ~ ' u-size' ~ _core.theme.settings.footerLogoSize|capitalize %}
-            {% endif %}
-            {% if _core.theme.settings.footerLogo.alt|length == 0 %}
-                {% set _core.theme.settings.footerLogo.alt = _core.settings.companyName %}
-            {% endif %}
-            <a href="/" title="Back to home page">{{ _core.theme.settings.footerLogo.tag }}</a>
-        {% endif %}
-        {% if _core.theme.settings.footerShowAddress == 'yes' or _core.theme.settings.footerShowPhone == 'yes' or _core.theme.settings.footerShowEmail == 'yes' %}
-            {% apply spaceless %}
-                <div class="Footer-contact" itemscope itemtype="http://schema.org/Organization">
-                    {% if _core.theme.settings.footerShowAddress == 'yes' %}
-                        <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-                            {% if _core.settings.companyAddressStreet %}
-                                <span itemprop="streetAddress">{{ _core.settings.companyAddressStreet }}</span>,
-                            {% endif %}
-                            {% if _core.settings.companyMailingAddressCity %}
-                                <span itemprop="addressLocality">{{ _core.settings.companyMailingAddressCity }}</span>,
-                            {% endif %}
-                            {% if _core.settings.companyMailingAddressState %}
-                                <span itemprop="addressRegion">{{ _core.settings.companyMailingAddressState }}</span>
-                            {% endif %}
-                            {% if _core.theme.settings.zip %}
-                                <span itemprop="postalCode">, {{ _core.theme.settings.zip }}</span>
-                            {% endif %}
-                        </span>
+        <footer class="Footer">
+            <div class="Container">
+                <a href="#top" class="BackTop js-btop" tabindex="-1" aria-label="Go back to top of page" title="Go back to top of page"></a>
+                {% if _core.theme.settings.footerShowNavigation == 'yes' %}
+                    {{ _api.navigation.get.key('main').showSubNav('no').template('footer') }}
+                {% endif %}
+                {% if _core.theme.settings.footerShowLogo == 'yes' and _core.theme.settings.footerLogo %}
+                    {% set _core.theme.settings.footerLogo.class = 'Footer-logo' %}
+                    {% if _core.theme.settings.footerLogoSize != 'auto' %}
+                        {% set _core.theme.settings.footerLogo.class = _core.theme.settings.footerLogo.class ~ ' u-size' ~ _core.theme.settings.footerLogoSize|capitalize %}
                     {% endif %}
-                    {% if _core.theme.settings.footerShowPhone == 'yes' %}
-                    {% if _core.theme.settings.footerShowAddress == 'yes' %} | {% endif %}<a href="tel:{{ _core.settings.companyPhone|replace({'(': '', '}': '', '-': '', ' ': ''}) }}" itemprop="telephone">{{ _core.settings.companyPhone }}</a>
+                    {% if _core.theme.settings.footerLogo.alt|length == 0 %}
+                        {% set _core.theme.settings.footerLogo.alt = _core.settings.companyName %}
                     {% endif %}
-                    {% if _core.theme.settings.footerShowEmail == 'yes' %}
-                        {% if _core.theme.settings.footerShowAddress == 'yes' or _core.theme.settings.footerShowPhone == 'yes' %} | {% endif %}<a href="mailto:{{ _core.settings.companyEmail }}" itemprop="email" class="Footer-link">{{ _core.settings.companyEmail }}</a>
-                    {% endif %}
+                    <a href="/" title="Back to home page">{{ _core.theme.settings.footerLogo.tag }}</a>
+                {% endif %}
+                {% if _core.theme.settings.footerShowAddress == 'yes' or _core.theme.settings.footerShowPhone == 'yes' or _core.theme.settings.footerShowEmail == 'yes' %}
+                    {% apply spaceless %}
+                        <div class="Footer-contact" itemscope itemtype="http://schema.org/Organization">
+                            {% if _core.theme.settings.footerShowAddress == 'yes' %}
+                                <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                                    {% if _core.settings.companyAddressStreet %}
+                                        <span itemprop="streetAddress">{{ _core.settings.companyAddressStreet }}</span>,
+                                    {% endif %}
+                                    {% if _core.settings.companyMailingAddressCity %}
+                                        <span itemprop="addressLocality">{{ _core.settings.companyMailingAddressCity }}</span>,
+                                    {% endif %}
+                                    {% if _core.settings.companyMailingAddressState %}
+                                        <span itemprop="addressRegion">{{ _core.settings.companyMailingAddressState }}</span>
+                                    {% endif %}
+                                    {% if _core.theme.settings.zip %}
+                                        <span itemprop="postalCode">, {{ _core.theme.settings.zip }}</span>
+                                    {% endif %}
+                                </span>
+                            {% endif %}
+                            {% if _core.theme.settings.footerShowPhone == 'yes' %}
+                            {% if _core.theme.settings.footerShowAddress == 'yes' %} | {% endif %}<a href="tel:{{ _core.settings.companyPhone|replace({'(': '', '}': '', '-': '', ' ': ''}) }}" itemprop="telephone">{{ _core.settings.companyPhone }}</a>
+                            {% endif %}
+                            {% if _core.theme.settings.footerShowEmail == 'yes' %}
+                                {% if _core.theme.settings.footerShowAddress == 'yes' or _core.theme.settings.footerShowPhone == 'yes' %} | {% endif %}<a href="mailto:{{ _core.settings.companyEmail }}" itemprop="email" class="Footer-link">{{ _core.settings.companyEmail }}</a>
+                            {% endif %}
+                        </div>
+                    {% endapply %}
+                {% endif %}
+                <div>&copy; {{ _core.date.year }} {{ _core.settings.companyName }}</div>
+                <div class="Footer-credit">
+                    <a href="https://www.aptuitiv.com" target="_blank" class="Footer-link Footer-creditLink">Website by Aptuitiv</a><a href="https://www.branchcms.com" target="_blank" class="Footer-link Footer-creditLink">Powered by BranchCMS</a>
                 </div>
-            {% endapply %}
+            </div>
+        </footer>
+        
+        {# Do this before you output any inline Javascript in the footer #}
+        {% if _core.service.recaptchaV3.isUsable %}
+            {% if _page.hasJs('recaptchaV3') == false %}
+                {% do _page.registerJs('recaptchaV3') %}
+                {{ _core.service.recaptchaV3.js.tag }}
+                {{ _core.service.recaptchaV3.script.tag }}
+            {% endif %}
+            {% inlinecss %}
+                .grecaptcha-badge { visibility: hidden; }
+            {% endinlinecss %}
         {% endif %}
-        <div>&copy; {{ _core.date.year }} {{ _core.settings.companyName }}</div>
-        <div class="Footer-credit">
-            <a href="https://www.aptuitiv.com" target="_blank" class="Footer-link Footer-creditLink">Website by Aptuitiv</a><a href="https://www.branchcms.com" target="_blank" class="Footer-link Footer-creditLink">Powered by BranchCMS</a>
-        </div>
-    </div>
-</footer>
-
-{# Do this before you output any inline Javascript in the footer #}
-{% if _core.service.recaptchaV3.isUsable %}
-    {% if _page.hasJs('recaptchaV3') == false %}
-        {% do _page.registerJs('recaptchaV3') %}
-        {{ _core.service.recaptchaV3.js.tag }}
-        {{ _core.service.recaptchaV3.script.tag }}
-    {% endif %}
-    {% inlinecss %}
-        .grecaptcha-badge { visibility: hidden; }
-    {% endinlinecss %}
-{% endif %}
-
-{# Output any inline Javascript or script tags added to the page #}
-{{ _page.js() }}
-    {#
-    UNCOMMENT IF USING GOOGLE FONTS
-    CHANGE THE FONTS BELOW TO THE ONES NEEDED FOR THIS WEBSITE
-    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
-    <script>
-        WebFont.load({
-            google: {
-                families: ['Vollkorn:400,400i,700,700i','Montserrat:300,700']
-            }
-        });
-    </script>
-    #}
-    {{ _page.bodyEndCode() }}
-</body>
+        
+        {# Output any inline Javascript or script tags added to the page #}
+        {{ _page.js() }}
+        {{ _page.bodyEndCode() }}
+    </body>
 </html>
