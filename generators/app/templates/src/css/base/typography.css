@@ -50,6 +50,7 @@
     --base-typography-heading-fontFamily: sans-serif;
     --base-typography-heading-fontWeight: 700;
     --base-typography-heading-letterSpacing: 0;
+    --base-typography-heading-textTransform: none;
     --base-typography-heading-color: inherit;
     
     --base-typography-h1-fontSize: 3.5rem;
@@ -229,6 +230,7 @@ h6 {
     font-weight: var(--base-typography-heading-fontWeight);
     letter-spacing: var(--base-typography-heading-letterSpacing);
     margin: calc(var(--base-typography-spacing) * 1.2) 0 calc(var(--base-typography-spacing) / 3);
+    text-transform: var(--base-typography-heading-textTransform);
 }
 
 h2:first-child,

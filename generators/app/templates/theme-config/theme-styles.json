@@ -743,6 +743,22 @@
                             }
                         },
                         {
+                            "name": "baseTypographyHeadingTextTransform",
+                            "label": "Text case",
+                            "type": "select",
+                            "default": "none",
+                            "options": {
+                                "none": "Default",
+                                "capitalize": "Capitalize",
+                                "uppercase": "UPPERCASE",
+                                "lowercase": "lowercase"
+                            },
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-heading-textTransform"
+                            }
+                        },
+                        {
                             "name": "baseTypographyHeadingColor",
                             "label": "Heading color",
                             "type": "color",
