@@ -52,10 +52,14 @@
                     {% endif %}
                 </div>
                 <div class="Grid-cell u-size1of2 u-md-sizeFull u-textRight u-md-textCenter">
-                    {% if _core.theme.settings.headerShowSocial == 'yes' %}
+                    {% if _core.theme.settings.headerShowSocial == 'yes' and _core.theme.settings.social|first.url %}
                         <div class="Header-line">
+                            {% import 'macros/macros' as macros %}
+                            {% set socialNames = {facebook: 'Facebook', instagram: 'Instagram', linkedin: 'LinkedIn', pinterest: 'Pinterest', twitter: 'Twitter', youtube: 'YouTube'} %}
                             {% for social in _core.theme.settings.social %}
-                                <a href="{{ social.url }}" title="Follow us on {{ social.name }}" class="Header-iconLink"><svg class="Icon Header-icon"><use xlink:href="#icon-{{ social.icon }}" /></svg></a>
+                                <a href="{{ social.url }}" title="Follow us on {{ attribute(socialNames, social.icon)|default(social.icon) }}" class="Header-iconLink" target="_blank" rel="noopenner noreferrer">
+                                    {{ macros.iconImg(social.icon, social.name, "Header-icon") }}
+                                </a>
                             {% endfor %}
                         </div>
                     {% endif %}
