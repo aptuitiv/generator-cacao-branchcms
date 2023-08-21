@@ -1,23 +1,29 @@
-/* ==========================================================================
-   Main Navigation
-   ========================================================================== */
-
-/** @define MainNav */
+/* =========================================================================== *\
+    Main Navigation
+\* =========================================================================== */
 
 :root {
     --MainNav-fontFamily: inherit;
-    --MainNav-fontSize: 15px;
+    --MainNav-fontWeight: 400;
+    --MainNav-fontSize: 1.5rem;
     --MainNav-lineHeight: 1.5;
+    --MainNav-textTransform: uppercase;
+    
+    /* Item */
+    --MainNav-item-gap: 15px;
+    
+    /* Link */
+    --MainNav-link-paddingVertical: 8px;
+    --MainNav-link-paddingHorizontal: 15px;
     --MainNav-link-background: transparent;
-    --MainNav-link-backgroundHover: transparent;
     --MainNav-link-color: #333;
+    
+    /* Link (hover) */
+    --MainNav-link-backgroundHover: transparent;
     --MainNav-link-colorHover: #000;
 }
 
-/**
- * Base menu
- */
-
+/* @define MainNav */
 .MainNav {
     box-sizing: border-box;
     display: inline-block;
@@ -25,26 +31,22 @@
     font-size: var(--MainNav-fontSize);
     line-height: var(--MainNav-lineHeight);
     list-style: none;
-    margin: 0 0 0 -1em;
+    margin: 0;
     padding: 0;
-    text-transform: uppercase;
+    text-transform: var(--MainNav-textTransform);
 }
 
 @media(--c-bp-largeScreenNav) {
-    .MainNav {
-
-    }
-
     .MainNav--right {
         display: flex;
         justify-content: flex-end;
     }
-
+    
     .MainNav--centered {
         display: flex;
         justify-content: center;
     }
-
+    
     .MainNav--spaced {
         display: flex;
         justify-content: space-evenly;
@@ -58,11 +60,14 @@
 .MainNav-item {
     box-sizing: border-box;
     display: inline-block;
-    margin-left: 1em;
+    margin-left: var(--MainNav-item-gap);
+}
+
+.MainNav-item:first-child {
+    margin-left: 0;
 }
 
 /** Item that should only be shown in the small screen navigation **/
-
 .MainNav-item--smallScreen {
     display: none;
 }
@@ -83,7 +88,8 @@
     color: var(--MainNav-link-color);
     cursor: pointer;
     display: block;
-    padding: .5em 1.5rem;
+    font-weight: var(--MainNav-fontWeight);
+    padding: var(--MainNav-link-paddingVertical) var(--MainNav-link-paddingHorizontal);
     position: relative;
     text-decoration: none;
 }

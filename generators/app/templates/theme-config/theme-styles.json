@@ -1,6 +1,163 @@
 {
     "groups": [
         {
+            "name": "Navigation - Main Menu",
+            "description": "Styles for the main navigation menu.",
+            "sections": [
+                {
+                    "name": "General",
+                    "fields": [
+                        {
+                            "name": "mainNavFontFamily",
+                            "label": "Font family",
+                            "type": "fontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-fontFamily"
+                            }
+                        },
+                        {
+                            "name": "mainNavFontWeight",
+                            "label": "Font weight",
+                            "type": "fontWeight",
+                            "default": "400",
+                            "fontFamilyField": "mainNavFontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-fontWeight"
+                            }
+                        },
+                        {
+                            "name": "mainNavFontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "15",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "mainNavLineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.5",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-lineHeight"
+                            }
+                        },
+                        {
+                            "name": "mainNavTextTransform",
+                            "label": "Text case",
+                            "type": "select",
+                            "default": "uppercase",
+                            "options": {
+                                "none": "Default",
+                                "capitalize": "Capitalize",
+                                "uppercase": "UPPERCASE",
+                                "lowercase": "lowercase"
+                            },
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-textTransform"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Links",
+                    "fields": [
+                        {
+                            "name": "mainNavItemGap",
+                            "label": "Gap between links",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "15",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-item-gap",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "mainNavLinkPaddingVertical",
+                            "label": "Vertical padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "8",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-link-paddingVertical",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "mainNavLinkPaddingHorizontal",
+                            "label": "Horizontal padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "15",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-link-paddingHorizontal",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "mainNavLinkBackground",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#00000000",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-link-background"
+                            }
+                        },
+                        {
+                            "name": "mainNavLinkColor",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#333",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-link-color"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Links (Hover)",
+                    "fields": [
+                        {
+                            "name": "mainNavLinkBackgroundHover",
+                            "label": "Background color (hover)",
+                            "type": "color",
+                            "default": "#00000000",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-link-backgroundHover"
+                            }
+                        },
+                        {
+                            "name": "mainNavLinkColorHover",
+                            "label": "Text color (hover)",
+                            "type": "color",
+                            "default": "#000",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-link-colorHover"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "name": "Navigation - Small Screen Button",
             "description": "Styles for the hamburger menu button seen on small screens.",
             "fields": [
