@@ -612,7 +612,7 @@
                             "label": "Font weight",
                             "type": "fontWeight",
                             "default": "400",
-                            "fontFamilyField": "insert_font_family_here",
+                            "fontFamilyField": "baseTypographyFontFamily",
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--base-typography-fontWeight"
