@@ -1,6 +1,330 @@
 {
     "groups": [
         {
+            "name": "Buttons",
+            "description": "Styles for buttons throughout the website.",
+            "sections": [
+                {
+                    "name": "General",
+                    "fields": [
+                        {
+                            "name": "buttonFontFamily",
+                            "label": "Font family",
+                            "type": "fontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-fontFamily"
+                            }
+                        },
+                        {
+                            "name": "buttonFontWeight",
+                            "label": "Font weight",
+                            "type": "fontWeight",
+                            "default": "400",
+                            "fontFamilyField": "buttonFontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-fontWeight"
+                            }
+                        },
+                        {
+                            "name": "buttonFontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "18",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "buttonLetterSpacing",
+                            "label": "Letter spacing",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "0",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-letterSpacing",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "buttonLineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.4",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-lineHeight"
+                            }
+                        },
+                        {
+                            "name": "buttonTextTransform",
+                            "label": "Text case",
+                            "type": "select",
+                            "default": "none",
+                            "options": {
+                                "none": "Default",
+                                "capitalize": "Capitalize",
+                                "uppercase": "UPPERCASE",
+                                "lowercase": "lowercase"
+                            },
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-textTransform"
+                            }
+                        },
+                        {
+                            "name": "buttonBorderRadius",
+                            "label": "Border radius",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "4",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-border-radius",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "buttonBorderWidth",
+                            "label": "Border width",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "0",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-borderWidth",
+                                "template": "{{ value }}px"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Padding",
+                    "fields": [
+                        {
+                            "name": "buttonPaddingVertical",
+                            "label": "Vertical padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "6",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-paddingVertical",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "buttonPaddingHorizontal",
+                            "label": "Horizontal padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "27",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-paddingHorizontal",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "buttonPaddingVerticalLg",
+                            "label": "Large style vertical padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "15",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-paddingVertical--lg",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "buttonPaddingHorizontalLg",
+                            "label": "Large styles horizontal padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "42",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-paddingHorizontal--lg",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "buttonPaddingVerticalSm",
+                            "label": "Small style vertical padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "4",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-paddingVertical--sm",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "buttonPaddingHorizontalSm",
+                            "label": "Small style horizontal padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "14",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-paddingHorizontal--sm",
+                                "template": "{{ value }}px"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Primary",
+                    "fields": [
+                        {
+                            "name": "themeButtonBackground",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#a21514",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-background"
+                            }
+                        },
+                        {
+                            "name": "buttonBorderColor",
+                            "label": "Border color",
+                            "type": "color",
+                            "default": "#920504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-borderColor"
+                            }
+                        },
+                        {
+                            "name": "themeButtonColor",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-color"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Primary (hover)",
+                    "fields": [
+                        {
+                            "name": "themeButtonBackgroundHover",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#7a0504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-backgroundHover"
+                            }
+                        },
+                        {
+                            "name": "buttonBorderColorHover",
+                            "label": "Border color",
+                            "type": "color",
+                            "default": "#920504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-borderColorHover"
+                            }
+                        },
+                        {
+                            "name": "themeButtonColorHover",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-colorHover"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Alternative Style",
+                    "fields": [
+                        {
+                            "name": "themeButtonBackgroundAlt",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#bb6519",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-background--secondary"
+                            }
+                        },
+                        {
+                            "name": "buttonBorderColorSecondary",
+                            "label": "Border color",
+                            "type": "color",
+                            "default": "#bb6519",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-borderColor--secondary"
+                            }
+                        },
+                        {
+                            "name": "themeButtonColorAlt",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-color--secondary"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Alternative Style (hover)",
+                    "fields": [
+                        {
+                            "name": "themeButtonBackgroundHoverAlt",
+                            "label": "Background color (hover)",
+                            "type": "color",
+                            "default": "#e27e25",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-background--secondaryHover"
+                            }
+                        },
+                        {
+                            "name": "buttonBorderColorSecondaryHover",
+                            "label": "Border color",
+                            "type": "color",
+                            "default": "#bb6519",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-borderColor--secondaryHover"
+                            }
+                        },
+                        {
+                            "name": "themeButtonColorHoverAlt",
+                            "label": "Text color (hover)",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-color--secondaryHover"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "name": "Forms",
             "description": "Styles for forms throughout the site.",
             "sections": [
