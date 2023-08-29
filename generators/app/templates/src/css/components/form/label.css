@@ -4,10 +4,12 @@
 
 :root {
     --FormLabel-fontWeight: 700;
+    --FormLabel-textTransform: none;
 }
 
 .FormLabel {
     font-weight: var(--FormLabel-fontWeight);
+    text-transform: var(--FormLabel-textTransform);
 }
 
 .FormLabel--block {

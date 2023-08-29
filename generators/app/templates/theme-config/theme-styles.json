@@ -2,6 +2,7 @@
     "groups": [
         {
             "name": "Forms",
+            "description": "Styles for forms throughout the site.",
             "sections": [
                 {
                     "name": "General",
@@ -15,6 +16,22 @@
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--FormLabel-fontWeight"
+                            }
+                        },
+                        {
+                            "name": "formLabelTextTransform",
+                            "label": "Form label text case",
+                            "type": "select",
+                            "default": "none",
+                            "options": {
+                                "none": "Default",
+                                "capitalize": "Capitalize",
+                                "uppercase": "UPPERCASE",
+                                "lowercase": "lowercase"
+                            },
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--FormLabel-textTransform"
                             }
                         },
                         {
