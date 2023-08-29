@@ -1,4 +1,3 @@
-
 {% include 'snippets/header' %}
 
 {% block banner %}
@@ -12,7 +11,9 @@
     <div class="Content u-cf">
         <div class="Grid Grid--withGutterXlg">
             <div class="Grid-cell u-size3of4 u-md-sizeFull u-push1of4 u-md-pushNone">
-                <main>{% block main %}{{ _page.content() }}{% endblock %}</main>
+                <main>
+                    {% block main _page.content() %}
+                </main>
             </div>
             <div class="Grid-cell u-size1of4 u-md-sizeFull u-pull3of4 u-md-pullNone">
                 {{ _api.navigation.getSubNavigationByUrl.key('main').getParentItem('yes').showSubNav('yes').template('sidebar') }}
