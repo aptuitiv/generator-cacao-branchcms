@@ -796,6 +796,30 @@
                                 "type": "css-head",
                                 "cssVariable": "--base-typography-h1-lineHeight"
                             }
+                        },
+                        {
+                            "name": "baseTypographyH1MarginTop",
+                            "label": "Top margin",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h1-marginTop",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH1MarginBottom",
+                            "label": "Bottom margin",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h1-marginBottom",
+                                "template": "{{ value }}px"
+                            }
                         }
                     ]
                 },
@@ -824,6 +848,30 @@
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--base-typography-h2-lineHeight"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH2MarginTop",
+                            "label": "Top margin",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h2-marginTop",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH2MarginBottom",
+                            "label": "Bottom margin",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h2-marginBottom",
+                                "template": "{{ value }}px"
                             }
                         }
                     ]
@@ -854,6 +902,30 @@
                                 "type": "css-head",
                                 "cssVariable": "--base-typography-h3-lineHeight"
                             }
+                        },
+                        {
+                            "name": "baseTypographyH3MarginTop",
+                            "label": "Top margin",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h3-marginTop",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH3MarginBottom",
+                            "label": "Bottom margin",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h3-marginBottom",
+                                "template": "{{ value }}px"
+                            }
                         }
                     ]
                 },
@@ -882,6 +954,30 @@
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--base-typography-h4-lineHeight"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH4MarginTop",
+                            "label": "Top margin",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h4-marginTop",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH4MarginBottom",
+                            "label": "Bottom margin",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h4-marginBottom",
+                                "template": "{{ value }}px"
                             }
                         }
                     ]
@@ -912,6 +1008,30 @@
                                 "type": "css-head",
                                 "cssVariable": "--base-typography-h5-lineHeight"
                             }
+                        },
+                        {
+                            "name": "baseTypographyH5MarginTop",
+                            "label": "Top margin",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h5-marginTop",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH5MarginBottom",
+                            "label": "Bottom margin",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h5-marginBottom",
+                                "template": "{{ value }}px"
+                            }
                         }
                     ]
                 },
@@ -940,6 +1060,30 @@
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--base-typography-h6-lineHeight"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH6MarginTop",
+                            "label": "Top margin",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h6-marginTop",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH6MarginBottom",
+                            "label": "Bottom margin",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h6-marginBottom",
+                                "template": "{{ value }}px"
                             }
                         }
                     ]
