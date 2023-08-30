@@ -1,0 +1,1650 @@
+{
+    "groups": [
+        {
+            "name": "Buttons",
+            "description": "Styles for buttons throughout the website.",
+            "sections": [
+                {
+                    "name": "General",
+                    "fields": [
+                        {
+                            "name": "buttonFontFamily",
+                            "label": "Font family",
+                            "type": "fontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-fontFamily"
+                            }
+                        },
+                        {
+                            "name": "buttonFontWeight",
+                            "label": "Font weight",
+                            "type": "fontWeight",
+                            "default": "400",
+                            "fontFamilyField": "buttonFontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-fontWeight"
+                            }
+                        },
+                        {
+                            "name": "buttonFontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "18",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "buttonLetterSpacing",
+                            "label": "Letter spacing",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "0",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-letterSpacing",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "buttonLineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.4",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-lineHeight"
+                            }
+                        },
+                        {
+                            "name": "buttonTextTransform",
+                            "label": "Text case",
+                            "type": "select",
+                            "default": "none",
+                            "options": {
+                                "none": "Default",
+                                "capitalize": "Capitalize",
+                                "uppercase": "UPPERCASE",
+                                "lowercase": "lowercase"
+                            },
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-textTransform"
+                            }
+                        },
+                        {
+                            "name": "buttonBorderRadius",
+                            "label": "Border radius",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "4",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-border-radius",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "buttonBorderWidth",
+                            "label": "Border width",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "0",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-borderWidth",
+                                "template": "{{ value }}px"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Padding",
+                    "fields": [
+                        {
+                            "name": "buttonPaddingVertical",
+                            "label": "Vertical padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "6",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-paddingVertical",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "buttonPaddingHorizontal",
+                            "label": "Horizontal padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "27",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-paddingHorizontal",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "buttonPaddingVerticalLg",
+                            "label": "Large style vertical padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "15",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-paddingVertical--lg",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "buttonPaddingHorizontalLg",
+                            "label": "Large styles horizontal padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "42",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-paddingHorizontal--lg",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "buttonPaddingVerticalSm",
+                            "label": "Small style vertical padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "4",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-paddingVertical--sm",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "buttonPaddingHorizontalSm",
+                            "label": "Small style horizontal padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "14",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-paddingHorizontal--sm",
+                                "template": "{{ value }}px"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Primary",
+                    "fields": [
+                        {
+                            "name": "themeButtonBackground",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#a21514",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-background"
+                            }
+                        },
+                        {
+                            "name": "buttonBorderColor",
+                            "label": "Border color",
+                            "type": "color",
+                            "default": "#920504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-borderColor"
+                            }
+                        },
+                        {
+                            "name": "themeButtonColor",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-color"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Primary (hover)",
+                    "fields": [
+                        {
+                            "name": "themeButtonBackgroundHover",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#7a0504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-backgroundHover"
+                            }
+                        },
+                        {
+                            "name": "buttonBorderColorHover",
+                            "label": "Border color",
+                            "type": "color",
+                            "default": "#920504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-borderColorHover"
+                            }
+                        },
+                        {
+                            "name": "themeButtonColorHover",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-colorHover"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Alternative Style",
+                    "fields": [
+                        {
+                            "name": "themeButtonBackgroundAlt",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#bb6519",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-background--secondary"
+                            }
+                        },
+                        {
+                            "name": "buttonBorderColorSecondary",
+                            "label": "Border color",
+                            "type": "color",
+                            "default": "#bb6519",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-borderColor--secondary"
+                            }
+                        },
+                        {
+                            "name": "themeButtonColorAlt",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-color--secondary"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Alternative Style (hover)",
+                    "fields": [
+                        {
+                            "name": "themeButtonBackgroundHoverAlt",
+                            "label": "Background color (hover)",
+                            "type": "color",
+                            "default": "#e27e25",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-background--secondaryHover"
+                            }
+                        },
+                        {
+                            "name": "buttonBorderColorSecondaryHover",
+                            "label": "Border color",
+                            "type": "color",
+                            "default": "#bb6519",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-borderColor--secondaryHover"
+                            }
+                        },
+                        {
+                            "name": "themeButtonColorHoverAlt",
+                            "label": "Text color (hover)",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Button-color--secondaryHover"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Forms",
+            "description": "Styles for forms throughout the site.",
+            "sections": [
+                {
+                    "name": "General",
+                    "fields": [
+                        {
+                            "name": "formLabelFontWeight",
+                            "label": "Form label font weight",
+                            "type": "fontWeight",
+                            "fontPickerField": "bodyFontFamily",
+                            "default": "700",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--FormLabel-fontWeight"
+                            }
+                        },
+                        {
+                            "name": "formLabelTextTransform",
+                            "label": "Form label text case",
+                            "type": "select",
+                            "default": "none",
+                            "options": {
+                                "none": "Default",
+                                "capitalize": "Capitalize",
+                                "uppercase": "UPPERCASE",
+                                "lowercase": "lowercase"
+                            },
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--FormLabel-textTransform"
+                            }
+                        },
+                        {
+                            "name": "formRequiredColor",
+                            "label": "Required asterisk color",
+                            "type": "color",
+                            "default": "#d83c35",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--FormRequired-color"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Text Input",
+                    "fields": [
+                        {
+                            "name": "textInputBorderRadius",
+                            "label": "Border radius",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "4",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--TextInput-borderRadius",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "textInputBorderWidth",
+                            "label": "Border width",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "1",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--TextInput-borderWidth",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "textInputBorderColor",
+                            "label": "Border color",
+                            "type": "color",
+                            "default": "#777",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--TextInput-borderColor"
+                            }
+                        },
+                        {
+                            "name": "textInputTextColor",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#4d4d4d",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--TextInput-color"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Select Input",
+                    "fields": [
+                        {
+                            "name": "selectInputBorderRadius",
+                            "label": "Border radius",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "4",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--SelectInput-borderRadius",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "selectInputBorderWidth",
+                            "label": "Border width",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "1",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--SelectInput-borderWidth",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "selectInputBorderColor",
+                            "label": "Border color",
+                            "type": "color",
+                            "default": "#777",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--SelectInput-borderColor"
+                            }
+                        },
+                        {
+                            "name": "selectInputTextColor",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#4d4d4d",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--SelectInput-color"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Navigation - Dropdowns",
+            "description": "Styles for dropdowns in the main navigation.",
+            "sections": [
+                {
+                    "name": "General",
+                    "fields": [
+                        {
+                            "name": "dropdownFontWeight",
+                            "label": "Font weight",
+                            "type": "fontWeight",
+                            "default": "400",
+                            "fontFamilyField": "mainNavFontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Dropdown-fontWeight"
+                            }
+                        },
+                        {
+                            "name": "dropdownFontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "15",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Dropdown-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "dropdownLineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.5",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Dropdown-lineHeight"
+                            }
+                        },
+                        {
+                            "name": "dropdownTextTransform",
+                            "label": "Text case",
+                            "type": "select",
+                            "default": "uppercase",
+                            "options": {
+                                "none": "Default",
+                                "capitalize": "Capitalize",
+                                "uppercase": "UPPERCASE",
+                                "lowercase": "lowercase"
+                            },
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Dropdown-textTransform"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Links",
+                    "fields": [
+                        {
+                            "name": "dropdownLinkPaddingVertical",
+                            "label": "Vertical padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "11",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Dropdown-link-paddingVertical",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "dropdownLinkPaddingHorizontal",
+                            "label": "Horizontal padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "22",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Dropdown-link-paddingHorizontal",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "dropdownLinkBackground",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#9f9f9f",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Dropdown-link-background"
+                            }
+                        },
+                        {
+                            "name": "dropdownLinkColor",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#333",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Dropdown-link-color"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Links (Hover)",
+                    "fields": [
+                        {
+                            "name": "dropdownLinkBackgroundHover",
+                            "label": "Background color (hover)",
+                            "type": "color",
+                            "default": "#9f9f9f",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Dropdown-link-backgroundHover"
+                            }
+                        },
+                        {
+                            "name": "dropdownLinkColorHover",
+                            "label": "Text color (hover)",
+                            "type": "color",
+                            "default": "#000",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Dropdown-link-colorHover"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "General (Small Screens)",
+                    "fields": [
+                        {
+                            "name": "dropdownFontWeightSm",
+                            "label": "Font weight",
+                            "type": "fontWeight",
+                            "default": "400",
+                            "fontFamilyField": "mainNavFontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Dropdown-fontWeight--sm"
+                            }
+                        },
+                        {
+                            "name": "dropdownFontSizeSm",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "15",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Dropdown-fontSize--sm",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "dropdownLineHeightSm",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.5",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Dropdown-lineHeight--sm"
+                            }
+                        },
+                        {
+                            "name": "dropdownTextTransformSm",
+                            "label": "Text case",
+                            "type": "select",
+                            "default": "uppercase",
+                            "options": {
+                                "none": "Default",
+                                "capitalize": "Capitalize",
+                                "uppercase": "UPPERCASE",
+                                "lowercase": "lowercase"
+                            },
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Dropdown-textTransform--sm"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Links (Small Screens)",
+                    "fields": [
+                        {
+                            "name": "dropdownLinkPaddingVerticalSm",
+                            "label": "Vertical padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "11",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Dropdown-link-paddingVertical--sm",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "dropdownLinkPaddingHorizontalSm",
+                            "label": "Horizontal padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "22",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Dropdown-link-paddingHorizontal--sm",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "dropdownLinkBackgroundSm",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#9f9f9f",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Dropdown-link-background--sm"
+                            }
+                        },
+                        {
+                            "name": "dropdownLinkColorSm",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#333",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Dropdown-link-color--sm"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Links (Small Screens, Hover)",
+                    "fields": [
+                        {
+                            "name": "dropdownLinkBackgroundHoverSm",
+                            "label": "Background color (hover)",
+                            "type": "color",
+                            "default": "#9f9f9f",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Dropdown-link-backgroundHover--sm"
+                            }
+                        },
+                        {
+                            "name": "dropdownLinkColorHoverSm",
+                            "label": "Text color (hover)",
+                            "type": "color",
+                            "default": "#000",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Dropdown-link-colorHover--sm"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Navigation - Main Menu",
+            "description": "Styles for the main navigation menu.",
+            "sections": [
+                {
+                    "name": "General",
+                    "fields": [
+                        {
+                            "name": "mainNavFontFamily",
+                            "label": "Font family",
+                            "type": "fontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-fontFamily"
+                            }
+                        },
+                        {
+                            "name": "mainNavFontWeight",
+                            "label": "Font weight",
+                            "type": "fontWeight",
+                            "default": "400",
+                            "fontFamilyField": "mainNavFontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-fontWeight"
+                            }
+                        },
+                        {
+                            "name": "mainNavFontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "15",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "mainNavLineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.5",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-lineHeight"
+                            }
+                        },
+                        {
+                            "name": "mainNavTextTransform",
+                            "label": "Text case",
+                            "type": "select",
+                            "default": "uppercase",
+                            "options": {
+                                "none": "Default",
+                                "capitalize": "Capitalize",
+                                "uppercase": "UPPERCASE",
+                                "lowercase": "lowercase"
+                            },
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-textTransform"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Links",
+                    "fields": [
+                        {
+                            "name": "mainNavItemGap",
+                            "label": "Gap between links",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "15",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-item-gap",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "mainNavLinkPaddingVertical",
+                            "label": "Vertical padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "8",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-link-paddingVertical",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "mainNavLinkPaddingHorizontal",
+                            "label": "Horizontal padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "15",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-link-paddingHorizontal",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "mainNavLinkBackground",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#00000000",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-link-background"
+                            }
+                        },
+                        {
+                            "name": "mainNavLinkColor",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#333",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-link-color"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Links (Hover)",
+                    "fields": [
+                        {
+                            "name": "mainNavLinkBackgroundHover",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#00000000",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-link-backgroundHover"
+                            }
+                        },
+                        {
+                            "name": "mainNavLinkColorHover",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#000",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-link-colorHover"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "General (Small Screens)",
+                    "fields": [
+                        {
+                            "name": "mainNavFontWeightSm",
+                            "label": "Font weight",
+                            "type": "fontWeight",
+                            "default": "400",
+                            "fontFamilyField": "mainNavFontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-fontWeight--sm"
+                            }
+                        },
+                        {
+                            "name": "mainNavFontSizeSm",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "15",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-fontSize--sm",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "mainNavLineHeightSm",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.5",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-lineHeight--sm"
+                            }
+                        },
+                        {
+                            "name": "mainNavTextTransformSm",
+                            "label": "Text case",
+                            "type": "select",
+                            "default": "uppercase",
+                            "options": {
+                                "none": "Default",
+                                "capitalize": "Capitalize",
+                                "uppercase": "UPPERCASE",
+                                "lowercase": "lowercase"
+                            },
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-textTransform--sm"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Links (Small Screens)",
+                    "fields": [
+                        {
+                            "name": "mainNavLinkPaddingVerticalSm",
+                            "label": "Vertical padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "8",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-link-paddingVertical--sm",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "mainNavLinkPaddingHorizontalSm",
+                            "label": "Horizontal padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "15",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-link-paddingHorizontal--sm",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "mainNavLinkBackgroundSm",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#00000000",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-link-background--sm"
+                            }
+                        },
+                        {
+                            "name": "mainNavLinkColorSm",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#333",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-link-color--sm"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Links (Small Screens, Hover)",
+                    "fields": [
+                        {
+                            "name": "mainNavLinkBackgroundHoverSm",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#00000000",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-link-backgroundHover--sm"
+                            }
+                        },
+                        {
+                            "name": "mainNavLinkColorHoverSm",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#000",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-link-colorHover--sm"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Navigation - Small Screen Button",
+            "description": "Styles for the hamburger menu button seen on small screens.",
+            "fields": [
+                {
+                    "name": "smScBtnBackground",
+                    "label": "Background color",
+                    "type": "color",
+                    "default": "#0000001a",
+                    "preview": {
+                        "type": "css-head",
+                        "cssVariable": "--SmScBtn-background"
+                    }
+                },
+                {
+                    "name": "smScBtnColor",
+                    "label": "Hamburger color",
+                    "type": "color",
+                    "default": "#fff",
+                    "preview": {
+                        "type": "css-head",
+                        "cssVariable": "--SmScBtn-color"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Pagination",
+            "description": "Styles for the pagination at the bottom of app pages.",
+            "sections": [
+                {
+                    "name": "General",
+                    "fields": [
+                        {
+                            "name": "paginationColor",
+                            "label": "Separator color",
+                            "type": "color",
+                            "default": "#333333",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Pagination-color"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Page Numbers",
+                    "fields": [
+                        {
+                            "name": "paginationItemColor",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#920504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Pagination-item-color"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Page Numbers (hover)",
+                    "fields": [
+                        {
+                            "name": "paginationItemBackgroundHover",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#666",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Pagination-item-background--hover"
+                            }
+                        },
+                        {
+                            "name": "paginationItemColorHover",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Pagination-item-color--hover"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Page Numbers (active)",
+                    "fields": [
+                        {
+                            "name": "paginationItemBackgroundActive",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#333",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Pagination-item-background--active"
+                            }
+                        },
+                        {
+                            "name": "paginationItemColorActive",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Pagination-item-color--active"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Typography",
+            "description": "Styles for text throughout the site.",
+            "sections": [
+                {
+                    "name": "Body",
+                    "fields": [
+                        {
+                            "name": "baseTypographyFontFamily",
+                            "label": "Font family",
+                            "type": "fontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-fontFamily"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyFontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "18",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyFontWeight",
+                            "label": "Font weight",
+                            "type": "fontWeight",
+                            "default": "400",
+                            "fontFamilyField": "baseTypographyFontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-fontWeight"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyLetterSpacing",
+                            "label": "Letter spacing",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "0",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-letterSpacing",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyLineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.58",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-lineHeight"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyColor",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#333",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-color"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Links",
+                    "fields": [
+                        {
+                            "name": "baseTypographyLinkColor",
+                            "label": "Link color",
+                            "type": "color",
+                            "default": "#000",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-link-color"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyLinkDecoration",
+                            "label": "Link decoration",
+                            "type": "select",
+                            "default": "underline",
+                            "options": {
+                                "none": "None",
+                                "underline": "Underline"
+                            },
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-link-decoration"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyLinkColorHover",
+                            "label": "Link color (hover)",
+                            "type": "color",
+                            "default": "#000",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-link-colorHover"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyLinkDecorationHover",
+                            "label": "Link decoration (hover)",
+                            "type": "select",
+                            "default": "underline",
+                            "options": {
+                                "none": "None",
+                                "underline": "Underline"
+                            },
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-link-decorationHover"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Headings",
+                    "fields": [
+                        {
+                            "name": "baseTypographyHeadingFontFamily",
+                            "label": "Font family",
+                            "type": "fontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-heading-fontFamily"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyHeadingFontWeight",
+                            "label": "Font weight",
+                            "type": "fontWeight",
+                            "default": "700",
+                            "fontFamilyField": "baseTypographyHeadingFontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-heading-fontWeight"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyHeadingLetterSpacing",
+                            "label": "Letter spacing",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "0",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-heading-letterSpacing",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyHeadingTextTransform",
+                            "label": "Text case",
+                            "type": "select",
+                            "default": "none",
+                            "options": {
+                                "none": "Default",
+                                "capitalize": "Capitalize",
+                                "uppercase": "UPPERCASE",
+                                "lowercase": "lowercase"
+                            },
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-heading-textTransform"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyHeadingColor",
+                            "label": "Heading color",
+                            "type": "color",
+                            "default": "#333",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-heading-color"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Heading 1",
+                    "fields": [
+                        {
+                            "name": "baseTypographyH1FontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "35",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h1-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH1LineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.2",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h1-lineHeight"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH1MarginTop",
+                            "label": "Top margin",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h1-marginTop",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH1MarginBottom",
+                            "label": "Bottom margin",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h1-marginBottom",
+                                "template": "{{ value }}px"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Heading 2",
+                    "fields": [
+                        {
+                            "name": "baseTypographyH2FontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "30",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h2-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH2LineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.2",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h2-lineHeight"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH2MarginTop",
+                            "label": "Top margin",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h2-marginTop",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH2MarginBottom",
+                            "label": "Bottom margin",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h2-marginBottom",
+                                "template": "{{ value }}px"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Heading 3",
+                    "fields": [
+                        {
+                            "name": "baseTypographyH3FontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "25",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h3-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH3LineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.2",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h3-lineHeight"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH3MarginTop",
+                            "label": "Top margin",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h3-marginTop",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH3MarginBottom",
+                            "label": "Bottom margin",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h3-marginBottom",
+                                "template": "{{ value }}px"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Heading 4",
+                    "fields": [
+                        {
+                            "name": "baseTypographyH4FontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "22",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h4-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH4LineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.2",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h4-lineHeight"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH4MarginTop",
+                            "label": "Top margin",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h4-marginTop",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH4MarginBottom",
+                            "label": "Bottom margin",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h4-marginBottom",
+                                "template": "{{ value }}px"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Heading 5",
+                    "fields": [
+                        {
+                            "name": "baseTypographyH5FontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h5-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH5LineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.2",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h5-lineHeight"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH5MarginTop",
+                            "label": "Top margin",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h5-marginTop",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH5MarginBottom",
+                            "label": "Bottom margin",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h5-marginBottom",
+                                "template": "{{ value }}px"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Heading 6",
+                    "fields": [
+                        {
+                            "name": "baseTypographyH6FontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "18",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h6-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH6LineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.2",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h6-lineHeight"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH6MarginTop",
+                            "label": "Top margin",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h6-marginTop",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH6MarginBottom",
+                            "label": "Bottom margin",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h6-marginBottom",
+                                "template": "{{ value }}px"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

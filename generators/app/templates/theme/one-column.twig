@@ -1,4 +1,3 @@
-
 {% include 'snippets/header' %}
 
 {% block banner %}
@@ -10,7 +9,9 @@
         {{ _page.breadcrumb }}
     {% endif %}
     <div class="Content u-cf">
-        <main>{% block main %}{{ _page.content() }}{% endblock %}</main>
+        <main>
+            {% block main _page.content() %}
+        </main>
     </div>
 </div>
 

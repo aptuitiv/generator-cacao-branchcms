@@ -6,20 +6,10 @@
             "fields": [
                 {
                     "name": "social",
-                    "label": "Social networks",
-                    "type": "repeating",
+                    "label": "Social Networks",
+                    "type": "repeatingGrid",
                     "itemName": "Social Network",
                     "children": [
-                        {
-                            "name": "name",
-                            "label": "Social network name",
-                            "type": "text"
-                        },
-                        {
-                            "name": "url",
-                            "label": "URL to your page on this social network",
-                            "type": "text"
-                        },
                         {
                             "name": "icon",
                             "label": "Icon",
@@ -31,33 +21,14 @@
                                 "pinterest": "Pinterest",
                                 "twitter": "Twitter",
                                 "youtube": "YouTube"
-                            }
-                        }
-                    ],
-                    "default": [
-                        {
-                            "name": "Facebook",
-                            "icon": "facebook"
+                            },
+                            "columnWidth": "1fr"
                         },
                         {
-                            "name": "Instagram",
-                            "icon": "instagram"
-                        },
-                        {
-                            "name": "LinkedIn",
-                            "icon": "linkedin"
-                        },
-                        {
-                            "name": "Pinterest",
-                            "icon": "pinterest"
-                        },
-                        {
-                            "name": "Twitter",
-                            "icon": "twitter"
-                        },
-                        {
-                            "name": "YouTube",
-                            "icon": "youtube"
+                            "name": "url",
+                            "label": "URL to your page on this social network",
+                            "type": "text",
+                            "columnWidth": "2fr"
                         }
                     ]
                 }

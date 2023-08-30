@@ -23,43 +23,65 @@
  * http://clagnut.com/blog/2384/
  */
 
+/* Body */
 :root {
-    --base-typography-color: #333;
     --base-typography-fontFamily: sans-serif;
     --base-typography-fontSize: 1.8rem;
     --base-typography-fontWeight: 400;
-    --base-typography-hrule-width: 1px;
     --base-typography-letterSpacing: 0;
     --base-typography-lineHeight: 1.58;
+    --base-typography-color: #333;
+    
+    /* Extra */
+    --base-typography-hrule-width: 1px;
     --base-typography-spacing: 1.58em;
 }
 
+/* Links */
 :root {
     --base-typography-link-color: #000;
-    --base-typography-link-colorHover: var(--base-typography-link-color);
     --base-typography-link-decoration: underline;
+    --base-typography-link-colorHover: #000;
     --base-typography-link-decorationHover: underline;
 }
 
-/* headings */
-
+/* Headings */
 :root {
-    --base-typography-h1-fontSize: 3.5rem;
-    --base-typography-h2-fontSize: 3rem;
-    --base-typography-h3-fontSize: 2.5rem;
-    --base-typography-h4-fontSize: 2.2rem;
-    --base-typography-h5-fontSize: 2rem;
-    --base-typography-h6-fontSize: 1.8rem;
-    --base-typography-h1-lineHeight: 1.2;
-    --base-typography-h2-lineHeight: 1.2;
-    --base-typography-h3-lineHeight: 1.2;
-    --base-typography-h4-lineHeight: 1.2;
-    --base-typography-h5-lineHeight: 1.2;
-    --base-typography-h6-lineHeight: 1.2;
-    --base-typography-heading-color: inherit;
     --base-typography-heading-fontFamily: sans-serif;
     --base-typography-heading-fontWeight: 700;
     --base-typography-heading-letterSpacing: 0;
+    --base-typography-heading-textTransform: none;
+    --base-typography-heading-color: inherit;
+    
+    --base-typography-h1-fontSize: 3.5rem;
+    --base-typography-h1-lineHeight: 1.2;
+    --base-typography-h1-marginTop: 20px;
+    --base-typography-h1-marginBottom: 20px;
+    
+    --base-typography-h2-fontSize: 3rem;
+    --base-typography-h2-lineHeight: 1.2;
+    --base-typography-h2-marginTop: 20px;
+    --base-typography-h2-marginBottom: 20px;
+    
+    --base-typography-h3-fontSize: 2.5rem;
+    --base-typography-h3-lineHeight: 1.2;
+    --base-typography-h3-marginTop: 20px;
+    --base-typography-h3-marginBottom: 20px;
+    
+    --base-typography-h4-fontSize: 2.2rem;
+    --base-typography-h4-lineHeight: 1.2;
+    --base-typography-h4-marginTop: 20px;
+    --base-typography-h4-marginBottom: 20px;
+    
+    --base-typography-h5-fontSize: 2rem;
+    --base-typography-h5-lineHeight: 1.2;
+    --base-typography-h5-marginTop: 20px;
+    --base-typography-h5-marginBottom: 20px;
+    
+    --base-typography-h6-fontSize: 1.8rem;
+    --base-typography-h6-lineHeight: 1.2;
+    --base-typography-h6-marginTop: 20px;
+    --base-typography-h6-marginBottom: 20px;
 }
 
 /* General
@@ -72,6 +94,16 @@
 
 html {
     font-size: 62.5%;
+}
+
+/**
+ * Scale down text on small screens
+ */
+
+@media (--c-bp-sm) {
+    html {
+        font-size: 56.25%;
+    }
 }
 
 /**
@@ -209,7 +241,7 @@ h6 {
     font-family: var(--base-typography-heading-fontFamily);
     font-weight: var(--base-typography-heading-fontWeight);
     letter-spacing: var(--base-typography-heading-letterSpacing);
-    margin: calc(var(--base-typography-spacing) * 1.2) 0 calc(var(--base-typography-spacing) / 3);
+    text-transform: var(--base-typography-heading-textTransform);
 }
 
 h2:first-child,
@@ -223,30 +255,41 @@ h6:first-child {
 h1 {
     font-size: var(--base-typography-h1-fontSize);
     line-height: var(--base-typography-h1-lineHeight);
-    margin-top: 0;
+    margin-bottom: var(--base-typography-h1-marginBottom);
+    margin-top: var(--base-typography-h1-marginTop);
 }
 
 h2 {
     font-size: var(--base-typography-h2-fontSize);
     line-height: var(--base-typography-h2-lineHeight);
+    margin-bottom: var(--base-typography-h2-marginBottom);
+    margin-top: var(--base-typography-h2-marginTop);
 }
 
 h3 {
     font-size: var(--base-typography-h3-fontSize);
     line-height: var(--base-typography-h3-lineHeight);
+    margin-bottom: var(--base-typography-h3-marginBottom);
+    margin-top: var(--base-typography-h3-marginTop);
 }
 
 h4 {
     font-size: var(--base-typography-h4-fontSize);
     line-height: var(--base-typography-h4-lineHeight);
+    margin-bottom: var(--base-typography-h4-marginBottom);
+    margin-top: var(--base-typography-h4-marginTop);
 }
 
 h5 {
     font-size: var(--base-typography-h5-fontSize);
     line-height: var(--base-typography-h5-lineHeight);
+    margin-bottom: var(--base-typography-h5-marginBottom);
+    margin-top: var(--base-typography-h5-marginTop);
 }
 
 h6 {
     font-size: var(--base-typography-h6-fontSize);
     line-height: var(--base-typography-h6-lineHeight);
+    margin-bottom: var(--base-typography-h6-marginBottom);
+    margin-top: var(--base-typography-h6-marginTop);
 }
